@@ -18,7 +18,7 @@ alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decor
 alias scrum='gitlog && grep "TODO:" *.py'
 
 
-# autocompletion, prompt
+# detect OS to have platform-specific settings
 unamestr=`uname`
 platform='unknown'
 if [[ "$unamestr" == "Linux" ]]; then
@@ -27,6 +27,7 @@ elif [[ "$unamestr" == "Darwin" ]]; then
     platform='osx'
 fi
 
+# autocompletion
 if [[ $platform == 'linux' ]]; then
     if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
         . /etc/bash_completion
@@ -38,5 +39,3 @@ elif [[ $platform == 'osx' ]]; then
 fi
 
 . ~/dotfiles/.bash_prompt
-
-

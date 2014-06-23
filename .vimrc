@@ -1,4 +1,4 @@
-set runtimepath=~/dotfiles/.vim,$VIMRUNTIME
+set runtimepath=~/dotfiles/vim,$VIMRUNTIME
 
 " Pathogen
 execute pathogen#infect()
@@ -28,5 +28,5 @@ set ts=4
 set et
 
 " template files
-au BufNewFile *.py 0r ~/.vim/template/template.py
-au BufNewFile *.html 0r ~/.vim/template/template.html
+au BufNewFile *.py 0r ~/dotfiles/vim/template/template.py
+au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html

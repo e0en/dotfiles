@@ -1,4 +1,5 @@
-# library settings
+# basic path settings
+export PATH=/usr/local/bin:$PATH # Add RVM to PATH for scripting
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/OpenBLAS/lib
 
 
@@ -10,7 +11,8 @@ workon frograms
 
 # ruby settings
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 
 # aliases

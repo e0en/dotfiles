@@ -1,4 +1,4 @@
-set runtimepath=~/dotfiles/vim,$VIMRUNTIME
+set runtimepath+=~/dotfiles/vim
 
 " Pathogen
 execute pathogen#infect()

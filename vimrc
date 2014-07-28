@@ -1,4 +1,5 @@
 set runtimepath+=~/dotfiles/vim
+set backupdir=~/dotfiles/vim/backups
 
 set nocompatible
 filetype off

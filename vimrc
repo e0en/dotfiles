@@ -5,8 +5,26 @@ set nocompatible
 filetype off
 filetype plugin indent on
 
+" remove current directory from PYTHONPATH (to avoid name conflictions)
+python << EOF
+import os
+import sys
+
+cwd = os.getcwd()
+if cwd in sys.path:
+    sys.path.remove(cwd)
+EOF
+
 " Pathogen
 call pathogen#infect('~/dotfiles/vim/bundle/{}')
+
+" re-add current directory from PYTHONPATH
+python << EOF
+import os
+import sys
+
+sys.path.append(os.getcwd())
+EOF
 
 " python-mode                                                                   
 " this line should make vim to use current virtualenv

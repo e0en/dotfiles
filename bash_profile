@@ -45,5 +45,6 @@ fi
 # colors and prompt
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+alias grep='grep --color=auto'
 
 . ~/dotfiles/bash_prompt

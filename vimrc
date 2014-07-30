@@ -5,6 +5,9 @@ set nocompatible
 filetype off
 filetype plugin indent on
 
+" no more .netrwhist files
+let g:netrw_dirhistmax = 0
+
 " remove current directory from PYTHONPATH (to avoid name conflictions)
 python << EOF
 import os

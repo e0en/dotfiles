@@ -57,6 +57,8 @@ let g:pymode_rope = 0
 let g:pymode_run_key = "<leader>run"  " default key conflicts with jedi-vim
 let g:pymode_doc_key = "<leader>k"  " used jedi-vim for help
 
+" let us add some colors
+syntax on
 set background=dark
 colorscheme solarized
 if has('gui_running')

@@ -44,7 +44,10 @@ fi
 
 # colors and prompt
 export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
+# export LSCOLORS=ExFxBxDxCxegedabagacad
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+dircolors $HOME/dotfiles/dircolors/dircolors.256dark.txt
 alias grep='grep --color=auto'
+alias ls='ls -FGal'
 
 . $HOME/dotfiles/bash_prompt

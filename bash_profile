@@ -44,9 +44,15 @@ fi
 
 # colors and prompt
 export CLICOLOR=1
+
 # export LSCOLORS=ExFxBxDxCxegedabagacad
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 alias grep='grep --color=auto'
-alias ls='ls -FGal'
+
+if [[ $platform == 'linux' ]]; then
+    alias ls='ls -FGal --color'
+elif [[ $platform == 'osx' ]]; then
+    alias ls='ls -FGal'
+fi
 
 . $HOME/dotfiles/bash_prompt

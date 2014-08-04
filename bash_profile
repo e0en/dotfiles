@@ -1,6 +1,21 @@
+# detect OS to have platform-specific settings
+unamestr=`uname`
+platform='unknown'
+if [[ "$unamestr" == "Linux" ]]; then
+    platform='linux'
+elif [[ "$unamestr" == "Darwin" ]]; then
+    platform='osx'
+fi
+
+
 # basic path settings
 export PATH=/usr/local/bin:$PATH # Add RVM to PATH for scripting
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/OpenBLAS/lib
+
+if [[ $platform == 'osx' ]]; then
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+    export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+fi
 
 
 # python settings
@@ -22,15 +37,6 @@ alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decor
 alias scrum='gitlog && grep "TODO:" *.py'
 
 
-# detect OS to have platform-specific settings
-unamestr=`uname`
-platform='unknown'
-if [[ "$unamestr" == "Linux" ]]; then
-    platform='linux'
-elif [[ "$unamestr" == "Darwin" ]]; then
-    platform='osx'
-fi
-
 # autocompletion
 if [[ $platform == 'linux' ]]; then
     if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
@@ -44,10 +50,10 @@ fi
 
 # colors and prompt
 export CLICOLOR=1
-# export LSCOLORS=ExFxBxDxCxegedabagacad
-export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-dircolors $HOME/dotfiles/dircolors/dircolors.256dark.txt
-alias grep='grep --color=auto'
-alias ls='ls -FGal'
+eval `dircolors -b $HOME/dotfiles/dircolors.256dark`
+export LSCOLORS=$LS_COLORS
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
+alias ls='ls -FGal --color=always'
 
 . $HOME/dotfiles/bash_prompt

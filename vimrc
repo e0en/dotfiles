@@ -2,7 +2,20 @@ set runtimepath+=~/dotfiles/vim
 set backupdir=~/dotfiles/vim/backups
 
 set nocompatible
+
+
+" Vundle!!!
 filetype off
+set rtp+=~/dotfiles/vim/bundle/vundle/
+call vundle#rc('~/dotfiles/vim/bundle')
+
+Plugin 'gmarik/vundle'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'klen/python-mode'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'ervandew/supertab'
+Plugin 'derekwyatt/vim-scala'
+
 filetype plugin indent on
 
 " no more .netrwhist files
@@ -17,9 +30,6 @@ cwd = os.getcwd()
 if cwd in sys.path:
     sys.path.remove(cwd)
 EOF
-
-" Pathogen
-call pathogen#infect('~/dotfiles/vim/bundle/{}')
 
 " re-add current directory from PYTHONPATH
 python << EOF
@@ -63,10 +73,10 @@ set background=dark
 colorscheme solarized
 if has('gui_running')
     set guifont=NanumGothicCoding\ 13
+    set lines=80 
 endif
 
 " line size
-set lines=80 
 set textwidth=79
 set colorcolumn=80
 

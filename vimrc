@@ -71,6 +71,7 @@ let g:pymode_doc_key = "<leader>k"  " used jedi-vim for help
 syntax on
 set background=dark
 colorscheme solarized
+
 if has('gui_running')
     set guifont=NanumGothicCoding\ 13
     set lines=80 
@@ -91,3 +92,9 @@ set nu
 " template files
 au BufNewFile *.py 0r ~/dotfiles/vim/template/template.py
 au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
+
+" gui-specific settings
+if has('gui_running')
+    set guifont=NanumGothicCoding\ 13
+    set lines=80 
+endif

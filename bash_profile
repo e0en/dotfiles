@@ -1,10 +1,17 @@
 # detect OS to have platform-specific settings
 unamestr=`uname`
 platform='unknown'
+
 if [[ "$unamestr" == "Linux" ]]; then
     platform='linux'
 elif [[ "$unamestr" == "Darwin" ]]; then
     platform='osx'
+fi
+
+is_ec2=false
+LOCAL_HOSTNAME=$(hostname -d)
+if [[ ${LOCAL_HOSTNAME} =~ .*\.compute\.internal ]]; then
+    is_ec2=true
 fi
 
 
@@ -21,9 +28,7 @@ fi
 # python settings
 export PYTHONPATH=$PYTHONPATH:$HOME/lib/py
 
-LOCAL_HOSTNAME=$(hostname -d)
-if [[ ${LOCAL_HOSTNAME} =~ .*\.compute\.internal ]]
-then
+if [[ $is_ec2 ]]; then
     source /usr/bin/virtualenvwrapper.sh
 else
     source /usr/local/bin/virtualenvwrapper.sh

@@ -20,7 +20,14 @@ fi
 
 # python settings
 export PYTHONPATH=$PYTHONPATH:$HOME/lib/py
-source /usr/local/bin/virtualenvwrapper.sh
+
+LOCAL_HOSTNAME=$(hostname -d)
+if [[ ${LOCAL_HOSTNAME} =~ .*\.compute\.internal ]]
+then
+    source /usr/bin/virtualenvwrapper.sh
+else
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 workon frograms
 
 

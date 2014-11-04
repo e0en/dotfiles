@@ -9,7 +9,7 @@ elif [[ "$unamestr" == "Darwin" ]]; then
 fi
 
 is_ec2=false
-LOCAL_HOSTNAME=$(hostname -d)
+LOCAL_HOSTNAME=$(hostname -f)
 if [[ ${LOCAL_HOSTNAME} =~ .*\.compute\.internal ]]; then
     is_ec2=true
 fi

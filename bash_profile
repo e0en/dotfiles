@@ -28,7 +28,7 @@ fi
 # python settings
 export PYTHONPATH=$PYTHONPATH:$HOME/lib/py
 
-if [[ $is_ec2 ]]; then
+if [[ $is_ec2 == true ]]; then
     source /usr/bin/virtualenvwrapper.sh
 else
     source /usr/local/bin/virtualenvwrapper.sh

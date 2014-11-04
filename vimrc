@@ -90,6 +90,7 @@ set expandtab
 set nu
 
 " template files
+au BufNewFile __init__.py 0r ~/dotfiles/vim/template/__init__.py
 au BufNewFile *.py 0r ~/dotfiles/vim/template/template.py
 au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
 

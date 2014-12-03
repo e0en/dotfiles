@@ -66,6 +66,6 @@ eval `dircolors -b $HOME/dotfiles/dircolors.256dark`
 export LSCOLORS=$LS_COLORS
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
-alias ls='ls -FGal --color=always'
+alias ls='ls -FGl --color=always'
 
 . $HOME/dotfiles/bash_prompt

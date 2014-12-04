@@ -67,5 +67,6 @@ export LSCOLORS=$LS_COLORS
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias ls='ls -FGl --color=always'
+alias python='ipython'
 
 . $HOME/dotfiles/bash_prompt

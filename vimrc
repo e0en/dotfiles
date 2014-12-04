@@ -99,3 +99,13 @@ if has('gui_running')
     set guifont=NanumGothicCoding\ 13
     set lines=80 
 endif
+
+
+" crontab!
+if $VIM_CRONTAB == "true"
+    set nobackup
+    set nowritebackup
+endif
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+set backupskip=/tmp/*,/private/tmp/*
+

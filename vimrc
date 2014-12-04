@@ -17,6 +17,8 @@ Plugin 'ervandew/supertab'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
 
 filetype plugin indent on
 
@@ -110,4 +112,9 @@ if $VIM_CRONTAB == "true"
 endif
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 set backupskip=/tmp/*,/private/tmp/*
+
+
+" nerdtree!
+map <C-n> :NERDTreeToggle<CR>
+
 

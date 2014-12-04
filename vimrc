@@ -15,6 +15,8 @@ Plugin 'klen/python-mode'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
@@ -70,7 +72,7 @@ let g:pymode_doc_key = "<leader>k"  " used jedi-vim for help
 " let us add some colors
 syntax on
 set background=dark
-colorscheme solarized
+colorscheme seoul256
 
 if has('gui_running')
     set guifont=NanumGothicCoding\ 13

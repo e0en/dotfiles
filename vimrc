@@ -43,7 +43,7 @@ import sys
 sys.path.append(os.getcwd())
 EOF
 
-" python-mode                                                                   
+" python-mode
 " this line should make vim to use current virtualenv
 let g:pymode_virtualenv = 1
 
@@ -78,7 +78,7 @@ colorscheme seoul256
 
 if has('gui_running')
     set guifont=NanumGothicCoding\ 13
-    set lines=80 
+    set lines=80
 endif
 
 " line size
@@ -101,7 +101,7 @@ au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
 " gui-specific settings
 if has('gui_running')
     set guifont=NanumGothicCoding\ 13
-    set lines=80 
+    set lines=80
 endif
 
 
@@ -116,5 +116,3 @@ set backupskip=/tmp/*,/private/tmp/*
 
 " nerdtree!
 map <C-n> :NERDTreeToggle<CR>
-
-

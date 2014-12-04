@@ -69,4 +69,4 @@ alias egrep='egrep --color=always'
 alias ls='ls -FGl --color=always'
 alias python='ipython'
 
-. $HOME/dotfiles/bash_prompt
+. $HOME/dotfiles/.bash_prompt

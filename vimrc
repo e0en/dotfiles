@@ -17,6 +17,8 @@ Plugin 'ervandew/supertab'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
 
 filetype plugin indent on
 
@@ -41,7 +43,7 @@ import sys
 sys.path.append(os.getcwd())
 EOF
 
-" python-mode                                                                   
+" python-mode
 " this line should make vim to use current virtualenv
 let g:pymode_virtualenv = 1
 
@@ -76,7 +78,7 @@ colorscheme seoul256
 
 if has('gui_running')
     set guifont=NanumGothicCoding\ 13
-    set lines=80 
+    set lines=80
 endif
 
 " line size
@@ -99,8 +101,20 @@ au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
 " gui-specific settings
 if has('gui_running')
     set guifont=NanumGothicCoding\ 13
-    set lines=80 
+    set lines=80
 endif
 
 " tmux
 set t_ut=
+
+" crontab!
+if $VIM_CRONTAB == "true"
+    set nobackup
+    set nowritebackup
+endif
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+set backupskip=/tmp/*,/private/tmp/*
+
+
+" nerdtree!
+map <C-n> :NERDTreeToggle<CR>

@@ -101,3 +101,6 @@ if has('gui_running')
     set guifont=NanumGothicCoding\ 13
     set lines=80 
 endif
+
+" tmux
+set t_ut=

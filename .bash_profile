@@ -33,15 +33,12 @@ if [[ $is_ec2 == true ]]; then
 else
     source /usr/local/bin/virtualenvwrapper.sh
 fi
-workon frograms
 
 
 # ruby settings
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm use 2.1.2
-rvm gemset use frograms
 
 
 # aliases
@@ -73,4 +70,3 @@ alias python='ipython'
 alias crontab="env EDITOR=/usr/bin/vim crontab"
 
 . $HOME/dotfiles/.bash_prompt
-

@@ -25,6 +25,8 @@ filetype plugin indent on
 " no more .netrwhist files
 let g:netrw_dirhistmax = 0
 
+if has("python")
+
 " remove current directory from PYTHONPATH (to avoid name conflictions)
 python << EOF
 import os
@@ -42,6 +44,8 @@ import sys
 
 sys.path.append(os.getcwd())
 EOF
+
+endif
 
 " python-mode
 " this line should make vim to use current virtualenv

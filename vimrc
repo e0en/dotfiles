@@ -19,6 +19,7 @@ Plugin 'junegunn/seoul256.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
+Plugin 'solarnz/thrift.vim'
 
 filetype plugin indent on
 

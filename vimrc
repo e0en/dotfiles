@@ -20,8 +20,31 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'solarnz/thrift.vim'
+" Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'airblade/vim-gitgutter'
 
 filetype plugin indent on
+
+let g:indent_guides_enable_on_vim_startup = 0
+
+" syntastic recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
+
+" ignore .gitignore files in ctrlp plugin
+" taken from:
+" https://github.com/kien/ctrlp.vim/issues/174#issuecomment-49747252
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 
 " no more .netrwhist files
 let g:netrw_dirhistmax = 0
@@ -79,6 +102,7 @@ let g:pymode_doc_key = "<leader>k"  " used jedi-vim for help
 " let us add some colors
 syntax on
 set background=dark
+set hlsearch
 colorscheme seoul256
 
 if has('gui_running')

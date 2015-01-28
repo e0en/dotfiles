@@ -54,3 +54,4 @@ alias crontab="env EDITOR=/usr/bin/vim crontab"
 
 ZSH_THEME="avit"
 plugins=(git pep8 pip pylint python virtualenvwrapper scala)
+DISABLE_UPDATE_PROMPT=true

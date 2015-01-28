@@ -53,3 +53,4 @@ alias ls='ls -FGl --color=always --hide="*.pyc"'
 alias crontab="env EDITOR=/usr/bin/vim crontab"
 
 ZSH_THEME="avit"
+plugins=(git pep8 pip pylint python virtualenvwrapper scala)

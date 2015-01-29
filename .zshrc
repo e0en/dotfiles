@@ -52,5 +52,8 @@ alias ls='ls -FGl --color=always --hide="*.pyc"'
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/vim crontab"
 
+eval "$(hub alias -s)"
+
+# ZSH-specific settings
 ZSH_THEME="avit"
-plugins=(git pep8 pip pylint python virtualenvwrapper scala)
+plugins=(pep8 pip pylint python virtualenvwrapper scala tmux git)

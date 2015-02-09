@@ -11,7 +11,7 @@ call vundle#rc('~/dotfiles/vim/bundle')
 
 Plugin 'gmarik/vundle'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
 Plugin 'derekwyatt/vim-scala'
@@ -27,7 +27,7 @@ Plugin 'airblade/vim-gitgutter'
 
 filetype plugin indent on
 
-let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_enable_on_vim_startup = 1
 
 " syntastic recommended settings
 set statusline+=%#warningmsg#
@@ -39,6 +39,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs = 1
+
+
+" some settings for scala development
+let g:syntastic_scala_checkers=['scalastyle']
+let g:syntastic_scala_scalastyle_jar="~/dotfiles/scalastyle_2.10-0.6.0-batch.jar"
+let g:syntastic_scala_scalastyle_config_file="~/dotfiles/scalastyle_config.xml"
 
 " ignore .gitignore files in ctrlp plugin
 " taken from:
@@ -78,18 +84,9 @@ let g:pymode_virtualenv = 1
 " syntax highlighting
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " no folding
 let g:pymode_folding = 0
-
-" code check
-let g:pymode_lint_minheight = 5   " Minimal height of pylint error window
-let g:pymode_lint_maxheight = 15  " Maximal height of pylint error window
-let g:pymode_lint_mccabe_complexity = 10
-let g:pymode_lint_checker="pyflakes,pep8,pep257,mccabe"
-let g:pymode_lint_write = 1
 
 " pep8-compatible indentation
 let g:pymode_indent = 1

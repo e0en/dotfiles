@@ -39,6 +39,7 @@ export PYTHONPATH=$PYTHONPATH:$HOME/lib/py
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH=$HOME/.rvm/gems/ruby-2.1.2/bin:$PATH
 
 
 # aliases
@@ -56,5 +57,5 @@ eval "$(hub alias -s)"
 
 # ZSH-specific settings
 ZSH_THEME="avit"
-plugins=(git pep8 pip pylint python virtualenvwrapper scala tmux)
+plugins=(git pep8 pip pylint python virtualenvwrapper scala tmux rvm)
 DISABLE_UPDATE_PROMPT=true

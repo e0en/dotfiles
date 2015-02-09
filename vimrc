@@ -103,8 +103,9 @@ set hlsearch
 colorscheme seoul256
 
 if has('gui_running')
-    set guifont=NanumGothicCoding\ 13
+    set guifont=NanumGothicCoding\ 11
     set lines=80
+    set lsp=2
 endif
 
 " line size

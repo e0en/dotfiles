@@ -49,6 +49,7 @@ alias scrum='gitlog && grep "TODO:" *.py'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias ls='ls -FGl --color=always --hide="*.pyc"'
+alias is='ssh bbsutf8@isb.or.kr'
 
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/vim crontab"

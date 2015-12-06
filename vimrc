@@ -11,16 +11,14 @@ call vundle#rc('~/dotfiles/vim/bundle')
 
 Plugin 'gmarik/vundle'
 Plugin 'davidhalter/jedi-vim'
-"Plugin 'klen/python-mode'
+Plugin 'klen/python-mode'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'solarnz/thrift.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'airblade/vim-gitgutter'
@@ -29,72 +27,35 @@ filetype plugin indent on
 
 let g:indent_guides_enable_on_vim_startup = 1
 
-" syntastic recommended settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
-
-
-" some settings for scala development
-let g:syntastic_scala_checkers=['scalastyle']
-let g:syntastic_scala_scalastyle_jar="~/dotfiles/scalastyle_2.10-0.6.0-batch.jar"
-let g:syntastic_scala_scalastyle_config_file="~/dotfiles/scalastyle_config.xml"
-
 " ignore .gitignore files in ctrlp plugin
 " taken from:
 " https://github.com/kien/ctrlp.vim/issues/174#issuecomment-49747252
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-
 " no more .netrwhist files
 let g:netrw_dirhistmax = 0
 
 if has("python")
+    " python-mode
+    " this line should make vim to use current virtualenv
+    let g:pymode_virtualenv = 1
 
-" remove current directory from PYTHONPATH (to avoid name conflictions)
-python << EOF
-import os
-import sys
+    " syntax highlighting
+    let g:pymode_syntax = 1
+    let g:pymode_syntax_all = 1
 
-cwd = os.getcwd()
-if cwd in sys.path:
-    sys.path.remove(cwd)
-EOF
+    " no folding
+    let g:pymode_folding = 0
 
-" re-add current directory from PYTHONPATH
-python << EOF
-import os
-import sys
+    " pep8-compatible indentation
+    let g:pymode_indent = 1
 
-sys.path.append(os.getcwd())
-EOF
+    " resolve conflicts with jedi-vim
+    let g:pymode_rope = 0
+    let g:pymode_run_key = "<leader>run"  " default key conflicts with jedi-vim
+    let g:pymode_doc_key = "<leader>k"  " used jedi-vim for help
 
 endif
-
-" python-mode
-" this line should make vim to use current virtualenv
-let g:pymode_virtualenv = 1
-
-" syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-
-" no folding
-let g:pymode_folding = 0
-
-" pep8-compatible indentation
-let g:pymode_indent = 1
-
-" resolve conflicts with jedi-vim
-let g:pymode_rope = 0
-let g:pymode_run_key = "<leader>run"  " default key conflicts with jedi-vim
-let g:pymode_doc_key = "<leader>k"  " used jedi-vim for help
 
 " let us add some colors
 syntax on

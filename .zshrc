@@ -14,7 +14,6 @@ if [[ ${LOCAL_HOSTNAME} =~ .*\.compute\.internal ]]; then
     is_ec2=true
 fi
 
-
 # basic path settings
 export PATH=/usr/local/bin:$PATH # Add RVM to PATH for scripting
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/OpenBLAS/lib
@@ -24,16 +23,8 @@ if [[ $platform == 'osx' ]]; then
     export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
-
 # python settings
 export PYTHONPATH=$PYTHONPATH:$HOME/lib/py
-
-#if [[ $is_ec2 == true ]]; then
-#    source /usr/bin/virtualenvwrapper.sh
-#else
-#    source /usr/local/bin/virtualenvwrapper.sh
-#fi
-
 
 # ruby settings
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -49,7 +40,7 @@ alias scrum='gitlog && grep "TODO:" *.py'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias ls='ls -FGl --color=always --hide="*.pyc"'
-alias is='ssh bbsutf8@isb.or.kr'
+# alias is='ssh bbsutf8@isb.or.kr'
 
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/vim crontab"
@@ -57,6 +48,6 @@ alias crontab="env EDITOR=/usr/bin/vim crontab"
 eval "$(hub alias -s)"
 
 # ZSH-specific settings
-ZSH_THEME="avit"
-plugins=(git pep8 pip pylint python virtualenvwrapper scala tmux rvm)
+ZSH_THEME="ys"
+plugins=(git pep8 pip pylint python scala tmux rvm)
 DISABLE_UPDATE_PROMPT=true

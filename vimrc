@@ -1,31 +1,24 @@
 set runtimepath+=~/dotfiles/vim
 set backupdir=~/dotfiles/vim/backups
 
-set nocompatible
-
-
 " Vundle!!!
 filetype off
 set rtp+=~/dotfiles/vim/bundle/vundle/
 call vundle#rc('~/dotfiles/vim/bundle')
 
 Plugin 'gmarik/vundle'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'klen/python-mode'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'ervandew/supertab'
-Plugin 'junegunn/seoul256.vim'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'solarnz/thrift.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'airblade/vim-gitgutter'
+
+Plugin 'solarnz/thrift.vim'
+Plugin 'derekwyatt/vim-scala'
+
+Plugin 'Yggdroot/indentLine'
+Plugin 'flazz/vim-colorschemes'
 
 filetype plugin indent on
-
-let g:indent_guides_enable_on_vim_startup = 1
 
 " ignore .gitignore files in ctrlp plugin
 " taken from:
@@ -35,33 +28,13 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " no more .netrwhist files
 let g:netrw_dirhistmax = 0
 
-if has("python")
-    " python-mode
-    " this line should make vim to use current virtualenv
-    let g:pymode_virtualenv = 1
-
-    " syntax highlighting
-    let g:pymode_syntax = 1
-    let g:pymode_syntax_all = 1
-
-    " no folding
-    let g:pymode_folding = 0
-
-    " pep8-compatible indentation
-    let g:pymode_indent = 1
-
-    " resolve conflicts with jedi-vim
-    let g:pymode_rope = 0
-    let g:pymode_run_key = "<leader>run"  " default key conflicts with jedi-vim
-    let g:pymode_doc_key = "<leader>k"  " used jedi-vim for help
-
-endif
-
-" let us add some colors
+" aesthetics
+set t_Co=256
 syntax on
-set background=dark
 set hlsearch
-colorscheme seoul256
+colorscheme emacs
+
+let g:indentLine_char = '|'
 
 if has('gui_running')
     set guifont=NanumGothicCoding\ 11
@@ -85,12 +58,6 @@ set nu
 au BufNewFile __init__.py 0r ~/dotfiles/vim/template/__init__.py
 au BufNewFile *.py 0r ~/dotfiles/vim/template/template.py
 au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
-
-" gui-specific settings
-if has('gui_running')
-    set guifont=NanumGothicCoding\ 13
-    set lines=80
-endif
 
 " tmux
 set t_ut=

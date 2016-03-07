@@ -48,6 +48,6 @@ alias crontab="env EDITOR=/usr/bin/vim crontab"
 eval "$(hub alias -s)"
 
 # ZSH-specific settings
-ZSH_THEME="ys"
+ZSH_THEME="risto"
 plugins=(git pep8 pip pylint python scala tmux rvm)
 DISABLE_UPDATE_PROMPT=true

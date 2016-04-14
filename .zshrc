@@ -23,8 +23,10 @@ if [[ $platform == 'osx' ]]; then
     export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
-# python settings
-export PYTHONPATH=$PYTHONPATH:$HOME/lib/py
+# pyenv
+export PATH="/home/e0en/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # ruby settings
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -51,3 +53,4 @@ eval "$(hub alias -s)"
 ZSH_THEME="risto"
 plugins=(git pep8 pip pylint python scala tmux rvm)
 DISABLE_UPDATE_PROMPT=true
+

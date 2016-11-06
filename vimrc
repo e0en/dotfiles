@@ -32,15 +32,12 @@ let g:netrw_dirhistmax = 0
 set t_Co=256
 syntax on
 set hlsearch
-colorscheme emacs
+colorscheme base16-ateliercave
 
 let g:indentLine_char = '|'
 
-if has('gui_running')
-    set guifont=NanumGothicCoding\ 11
-    set lines=80
-    set lsp=2
-endif
+set macligatures
+set guifont=Fira\ Code:h12
 
 " line size
 set textwidth=79

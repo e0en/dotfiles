@@ -15,13 +15,11 @@ if [[ ${LOCAL_HOSTNAME} =~ .*\.compute\.internal ]]; then
 fi
 
 # basic path settings
-export PATH=/usr/local/bin:$PATH # Add RVM to PATH for scripting
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/OpenBLAS/lib
-
 if [[ $platform == 'osx' ]]; then
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-    export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+    source $HOME/dotfiles/osx-env.sh
 fi
+
+export PATH=/usr/local/bin:$PATH # Add RVM to PATH for scripting
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -35,6 +33,9 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH=$HOME/.rvm/gems/ruby-2.1.2/bin:$PATH
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
@@ -42,8 +43,8 @@ alias scrum='gitlog && grep "TODO:" *.py'
 
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
-alias ls='ls -FGl --color=always --hide="*.pyc"'
-# alias is='ssh bbsutf8@isb.or.kr'
+alias ls='ls -FGl'
+alias is='ssh bbsutf8@isb.or.kr'
 
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/vim crontab"

@@ -19,7 +19,7 @@ if [[ $platform == 'osx' ]]; then
     source $HOME/dotfiles/osx-env.sh
 fi
 
-export PATH=/usr/local/bin:$PATH # Add RVM to PATH for scripting
+export PATH=/usr/local/bin:$PATH
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -27,7 +27,11 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-# ruby settings
+# haskell
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# ruby
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -55,4 +59,3 @@ eval "$(hub alias -s)"
 ZSH_THEME="risto"
 plugins=(git pep8 pip pylint python scala tmux rvm)
 DISABLE_UPDATE_PROMPT=true
-

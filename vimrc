@@ -90,7 +90,8 @@ set t_Co=256
 set t_ut=
 set hlsearch
 
-colorscheme base16-ateliercave
+
+colorscheme monokai
 
 if has('gui_running')
     set macligatures
@@ -100,7 +101,7 @@ endif
 " airline!
 set laststatus=2
 set ttimeoutlen=50
-let g:airline_theme='tomorrow'
+let g:airline_theme='molokai'
 let g:airline_inactive_collapse=1
 let g:airline_powerline_fonts=1
 

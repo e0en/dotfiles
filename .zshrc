@@ -39,7 +39,7 @@ export PATH=$HOME/.rvm/gems/ruby-2.1.2/bin:$PATH
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
@@ -59,3 +59,8 @@ eval "$(hub alias -s)"
 ZSH_THEME="pure"
 plugins=(git pep8 pip pylint python scala tmux rvm)
 DISABLE_UPDATE_PROMPT=true
+
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

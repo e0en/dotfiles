@@ -48,7 +48,6 @@ if dein#load_state('/Users/e0en/.vim/bundle')
   call dein#add('lukerandall/haskellmode-vim')
   call dein#add('neovimhaskell/haskell-vim')
 
-  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
   call dein#add('skywind3000/asyncrun.vim')
 
   " Required:

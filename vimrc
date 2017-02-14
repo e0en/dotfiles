@@ -20,10 +20,12 @@ if dein#load_state('/Users/e0en/.vim/bundle')
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 
   " lint, autocomplete
   call dein#add('w0rp/ale')
-  call dein#add('Valloric/YouCompleteMe')
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('davidhalter/jedi-vim')
 
   " UI
   call dein#add('vim-airline/vim-airline')
@@ -45,10 +47,8 @@ if dein#load_state('/Users/e0en/.vim/bundle')
   call dein#add('pangloss/vim-javascript')
 
   " haskell
-  call dein#add('lukerandall/haskellmode-vim')
-  call dein#add('neovimhaskell/haskell-vim')
-
   call dein#add('skywind3000/asyncrun.vim')
+  call dein#add('eagletmt/neco-ghc')
 
   " Required:
   call dein#end()
@@ -122,7 +122,62 @@ let g:ale_sign_warning = '--'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 " for autocomplete
-let g:ycm_python_binary_path = 'python3'
+let g:jedi#force_py_version = 3
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#auto_completion_start_length = 1
+let g:neocomplete#sources#buffer#cache_limit_size = 50000
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : '' ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+" Enable omni completion.
+augroup omnigrp
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=jedi#completions
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
+let g:neocomplete#force_omni_input_patterns.python =
+\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+let g:necoghc_enable_detailed_browse = 1
 
 
 " ----------------------------------
@@ -135,11 +190,6 @@ augroup newfilegroup
     au BufNewFile *.py 0r ~/dotfiles/vim/template/template.py
     au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
 augroup END
-
-
-" for haskellmode-vim
-let g:haddock_browser = 'open'
-let g:haddock_browser_callformat = '%s %s'
 
 
 " ----------------------------------

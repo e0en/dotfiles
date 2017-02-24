@@ -52,6 +52,9 @@ export NVM_DIR="$HOME/.nvm"
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 
+# go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 # editor
 export EDITOR=vim
 
@@ -65,6 +68,7 @@ alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias ls='ls -FGl'
 
+alias vim='DISPLAY="" vim'
 
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/vim crontab"

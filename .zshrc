@@ -56,29 +56,12 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # editor
 export EDITOR=vim
-
-# nullify DISPLAY to disable xquartz
-export DISPLAY=''
+export DISPLAY='' # nullify DISPLAY to disable xquartz
 
 # sort unique lines by occurences
 sortuniq () {
     sort $1 | uniq -c | sort -bgr
 }
-
-# aliases
-alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
-alias rebase='git fetch origin master && git rebase -i --autosquash origin/master'
-alias scrum='gitlog && grep "TODO:" *.py'
-
-
-alias grep='grep --color=always'
-alias egrep='egrep --color=always'
-alias ls='ls -FGl'
-
-# crontab for OSX
-alias crontab="env EDITOR=/usr/bin/vim crontab"
-
-eval "$(hub alias -s)"
 
 
 # ZSH-specific settings
@@ -86,11 +69,27 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/h
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# prezto!
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# oh-my-zsh
+export ZSH=/Users/e0en/.oh-my-zsh
+ZSH_THEME="robbyrussell"
 
+export UPDATE_ZSH_DAYS=13
+export DISABLE_UPDATE_PROMPT=true
+plugins=(git osx github python scala sbt)
+source $ZSH/oh-my-zsh.sh
+
+# aliases
+alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
+alias rebase='git fetch origin master && git rebase -i --autosquash origin/master'
+alias scrum='gitlog && grep "TODO:" *.py'
+
+# crontab for OSX
+alias crontab="env EDITOR=/usr/bin/vim crontab"
+eval "$(hub alias -s)"
+
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
+alias ls='ls -FGl --color=always'
 
 # dafuq?
 eval $(thefuck --alias)

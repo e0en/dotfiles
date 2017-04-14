@@ -57,17 +57,23 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # editor
 export EDITOR=vim
 
+# nullify DISPLAY to disable xquartz
+export DISPLAY=''
+
+# sort unique lines by occurences
+sortuniq () {
+    sort $1 | uniq -c | sort -bgr
+}
 
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
 alias rebase='git fetch origin master && git rebase -i --autosquash origin/master'
 alias scrum='gitlog && grep "TODO:" *.py'
 
+
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias ls='ls -FGl'
-
-alias vim='DISPLAY="" vim'
 
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/vim crontab"

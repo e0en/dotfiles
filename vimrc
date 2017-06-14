@@ -1,68 +1,90 @@
 scriptencoding utf-8
 
+
 " ----------------------------------
-"  Dein scripts
+" Vundle Scripts 
 " ----------------------------------
 if &compatible
     set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=/Users/e0en/.vim/bundle/repos/github.com/Shougo/dein.vim
+filetype off                  " required
 
-" Required:
-if dein#load_state('/Users/e0en/.vim/bundle')
-  call dein#begin('/Users/e0en/.vim/bundle')
+" set the runtime path to include Vundle and initialize
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/e0en/.vim/bundle/repos/github.com/Shougo/dein.vim')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
 
-  " lint, autocomplete
-  call dein#add('w0rp/ale')
-  call dein#add('Shougo/neocomplete.vim')
-  call dein#add('davidhalter/jedi-vim')
+" lint, autocomplete
+Plugin 'w0rp/ale'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'davidhalter/jedi-vim'
 
-  " UI
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('kien/ctrlp.vim')
-  call dein#add('flazz/vim-colorschemes')
+" UI
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'flazz/vim-colorschemes'
 
-  " text editing assistants
-  call dein#add('tpope/vim-surround')
-  call dein#add('jiangmiao/auto-pairs')
+" text editing assistants
+Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
 
-  " thrift
-  call dein#add('solarnz/thrift.vim')
+" thrift
+Plugin 'solarnz/thrift.vim'
 
-  " js
-  call dein#add('ternjs/tern_for_vim')
-  call dein#add('pangloss/vim-javascript')
+" js
+Plugin 'ternjs/tern_for_vim'
+Plugin 'pangloss/vim-javascript'
 
-  " haskell
-  call dein#add('skywind3000/asyncrun.vim')
-  call dein#add('eagletmt/neco-ghc')
+" haskell
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'eagletmt/neco-ghc'
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+" wakatime!
+Plugin 'wakatime/vim-wakatime'
 
-" Required:
-filetype plugin indent on
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
 
 
 " ----------------------------------

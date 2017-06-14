@@ -71,11 +71,11 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # oh-my-zsh
 export ZSH=/Users/e0en/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+ZSH_THEME="risto"
 
 export UPDATE_ZSH_DAYS=13
 export DISABLE_UPDATE_PROMPT=true
-plugins=(git osx github python scala sbt)
+plugins=(git osx github python scala sbt wakatime)
 source $ZSH/oh-my-zsh.sh
 
 # aliases

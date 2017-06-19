@@ -85,7 +85,6 @@ alias scrum='gitlog && grep "TODO:" *.py'
 
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/vim crontab"
-eval "$(hub alias -s)"
 
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'

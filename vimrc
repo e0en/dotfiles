@@ -1,47 +1,14 @@
 scriptencoding utf-8
 
-
-" ----------------------------------
-" Vundle Scripts 
-" ----------------------------------
-if &compatible
-    set nocompatible               " Be iMproved
-endif
-
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Keep Plugin commands between vundle#begin/end.
-
-" UI
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-Plugin 'flazz/vim-colorschemes'
-
-" thrift
-Plugin 'solarnz/thrift.vim'
-
-" wakatime!
-Plugin 'wakatime/vim-wakatime'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-"filetype plugin on          " use to ignore plugin indent changes
-syntax enable
-
+set runtimepath+=$HOME/dotfiles/vim/
 
 " ----------------------------------
 "  General settings
 " ----------------------------------
+
+set nocompatible               " Be iMproved
+filetype plugin indent on    " required
+syntax enable
 
 " temporary file settings
 let g:netrw_dirhistmax = 0
@@ -63,7 +30,6 @@ set t_Co=256
 set t_ut=
 set hlsearch
 set cursorline
-colorscheme CandyPaper
 
 " utilities
 set wildmenu

@@ -18,7 +18,6 @@ set backupskip=/tmp/*,/private/tmp/*
 set textwidth=79
 set colorcolumn=80
 set number
-set relativenumber
 
 " indentation
 set shiftwidth=4

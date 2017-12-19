@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
 set runtimepath+=$HOME/dotfiles/vim/
+set runtimepath+=/usr/local/opt/fzf
 
 " ----------------------------------
 "  General settings

@@ -1,15 +1,25 @@
-scriptencoding utf-8
+call plug#begin('~/.vim/plugged')
 
-set runtimepath+=$HOME/dotfiles/vim/
-set runtimepath+=/usr/local/opt/fzf
+Plug 'vim-scripts/indentpython.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'kien/ctrlp.vim'
+
+call plug#end()
+
+scriptencoding utf-8
 
 " ----------------------------------
 "  General settings
 " ----------------------------------
 
 set nocompatible               " Be iMproved
-filetype plugin indent on    " required
+
+set encoding=utf-8
+set fileformat=unix
+
 syntax enable
+filetype plugin indent on    " required
 
 " temporary file settings
 let g:netrw_dirhistmax = 0
@@ -23,13 +33,18 @@ set number
 " indentation
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 set expandtab
+set smarttab
+set autoindent
 
 " aesthetics
 set t_Co=256
 set t_ut=
 set hlsearch
 set cursorline
+hi CursorLine term=bold cterm=bold
+highlight BadWhitespace ctermbg=red guibg=red
 
 " utilities
 set wildmenu
@@ -52,6 +67,16 @@ augroup newfilegroup
     au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
 augroup END
 
+" Python!
+au BufRead,BufNewFile *.py,*.pyw set textwidth=79
+au BufRead,BufNewFile *.py,*.pyw set colorcolumn=80
+au BufRead,BufNewFile *.py,*,pyw match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+let python_highlight_all=1
+
+" C++
+au BufRead,BufNewFile *.cpp,*.c,*.h,*.hpp set textwidth=120
+au BufRead,BufNewFile *.cpp,*.c,*.h,*.hpp set colorcolumn=121
 
 " ----------------------------------
 "  Other settings

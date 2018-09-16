@@ -1,9 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'flazz/vim-colorschemes'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -53,7 +55,10 @@ set showmatch
 
 if has('gui_running')
     set macligatures
-    set guifont=Fira\ Code:h12
+    set guifont=Hack:h10
+    set lines=40
+    set columns=120
+    colorscheme molokai
 endif
 
 " ----------------------------------

@@ -22,37 +22,39 @@ fi
 
 export PATH=/usr/local/bin:$PATH
 
-
 # python
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-
-# haskell
-export PATH="$HOME/Library/Haskell/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
+if [[ -a "$HOME/.pyenv" ]]; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+fi
 
 # ruby
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH=$HOME/.rvm/gems/ruby-2.1.2/bin:$PATH
-
+if [[ -a "$HOME/.rvm" ]]; then
+    export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+    # Load RVM into a shell session *as a function*
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+    export PATH=$HOME/.rvm/gems/ruby-2.1.2/bin:$PATH
+fi
 
 # js
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+if [[ -a "$HOME/.nvm" ]]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
 
 
 # jvm
-export JAVA_HOME=$(/usr/libexec/java_home)
-
+if [[ -a "/usr/libexec/java_home" ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 
 # go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+if [[ -a "/usr/local/opt/go" ]]; then
+    export PATH=$PATH:/usr/local/opt/go/libexec/bin
+fi
 
 # editor
 export EDITOR=vim
@@ -65,30 +67,34 @@ sortuniq () {
 
 
 # ZSH-specific settings
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -a "/usr/local/share/zsh-syntax-highlighting/" ]]; then
+    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [[ -a "/usr/local/share/zsh-autosuggestions/" ]]; then
+    source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # oh-my-zsh
-export ZSH=/Users/e0en/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="risto"
 
 export UPDATE_ZSH_DAYS=13
 export DISABLE_UPDATE_PROMPT=true
-plugins=(git osx github python scala sbt wakatime)
+plugins=(git osx github python)
 source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
 alias rebase='git fetch origin master && git rebase -i --autosquash origin/master'
 alias scrum='gitlog && grep "TODO:" *.py'
-
-# crontab for OSX
-alias crontab="env EDITOR=/usr/bin/vim crontab"
+alias is="ssh bbsutf8@isb.or.kr"
 
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
-alias ls='ls -FGl --color=always'
+alias ls='ls -Fgl --color=always'
 
-# dafuq?
-eval $(thefuck --alias)
+if whence -cp thefuck 2> /dev/null; then
+    eval $(thefuck --alias)
+fi

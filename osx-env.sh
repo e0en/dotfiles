@@ -3,4 +3,7 @@ export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
+# crontab for OSX
+alias crontab="env EDITOR=/usr/bin/mvim -f crontab"
+
 test -e "$HOME/.iterm2_shell_integration.zsh" && . "$HOME/.iterm2_shell_integration.zsh"

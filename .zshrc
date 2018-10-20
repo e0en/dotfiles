@@ -20,7 +20,17 @@ if [[ $platform == 'osx' ]]; then
     source $HOME/dotfiles/osx-env.sh
 fi
 
-export PATH=/usr/local/bin:$PATH
+if [[ $platform == 'linux' ]]; then
+    export PATH=/usr/local/bin:$PATH
+
+    function update_all () {
+        pyenv update
+        upgrade_oh_my_zsh
+        sudo apt -yy update
+        sudo apt -yy upgrade
+        sudo apt -yy autoremove
+    }
+fi
 
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
@@ -34,23 +44,32 @@ fi
 # ruby
 if [[ -a "$HOME/.rbenv" ]]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
 fi
 
 # js
 if [[ -a "$HOME/.nvm" ]]; then
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-fi
+	nvm() {
+		unset -f nvm
+		export NVM_DIR=~/.nvm
+		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+		nvm "$@"
+	}
 
+	node() {
+		unset -f node
+		export NVM_DIR=~/.nvm
+		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+		node "$@"
+	}
 
-# jvm
-if [[ -a "/usr/libexec/java_home" ]]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
-fi
-
-# go
-if [[ -a "/usr/local/opt/go" ]]; then
-    export PATH=$PATH:/usr/local/opt/go/libexec/bin
+	npm() {
+		unset -f npm
+		export NVM_DIR=~/.nvm
+		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+		npm "$@"
+	}
 fi
 
 # editor
@@ -62,16 +81,12 @@ sortuniq () {
     sort $1 | uniq -c | sort -bgr
 }
 
-
-# ZSH-specific settings
-if [[ -a "/usr/local/share/zsh-syntax-highlighting/" ]]; then
-    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# thefuck
+if whence -cp thefuck &> /dev/null; then
+    eval $(thefuck --alias)
 fi
 
-if [[ -a "/usr/local/share/zsh-autosuggestions/" ]]; then
-    source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+alias mux="tmuxinator"
 
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
@@ -92,6 +107,5 @@ alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias ls='ls -Fgl --color=always'
 
-if whence -cp thefuck 2> /dev/null; then
-    eval $(thefuck --alias)
-fi
+# cosmetics
+export LS_COLORS='ow=01;36;40'

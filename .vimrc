@@ -1,11 +1,19 @@
-call plug#begin('~/.vim/plugged')
+if has('win32')
+    let $MYPLUGDIRECTORY = "~/vimfiles/plugged"
+else
+    let $MYPLUGDIRECTORY = "~/.vim/plugged"
+endif
+
+call plug#begin($MYPLUGDIRECTORY)
 
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
-Plug 'Valloric/YouCompleteMe'
+if !has('win32')
+    Plug 'Valloric/YouCompleteMe'
+endif
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
@@ -56,8 +64,12 @@ set lazyredraw
 set showmatch
 
 if has('gui_running')
-    set macligatures
-    set guifont=Hack:h10
+    if has('macunix')
+        set macligatures
+        set guifont=Hack:h10
+    elseif has('win32')
+        set guifont=D2Coding_Ligature:h10
+    endif
     set lines=40
     set columns=120
     colorscheme molokai

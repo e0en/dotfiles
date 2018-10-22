@@ -108,4 +108,4 @@ alias egrep='egrep --color=always'
 alias ls='ls -Fgl --color=always'
 
 # cosmetics
-export LS_COLORS='ow=01;36;40'
+export LS_COLORS="$LS_COLORS:ow=01;36;40"

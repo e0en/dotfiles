@@ -6,4 +6,11 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/mvim -f crontab"
 
-test -e "$HOME/.iterm2_shell_integration.zsh" && . "$HOME/.iterm2_shell_integration.zsh"
+function update_all () {
+    pyenv update
+    upgrade_oh_my_zsh
+    brew update
+    brew upgrade
+    brew cleanup -s
+    brew cask cleanup
+}

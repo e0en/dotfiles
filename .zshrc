@@ -81,6 +81,11 @@ sortuniq () {
     sort $1 | uniq -c | sort -bgr
 }
 
+# calc base64-encoded sha384 hash of a file
+base64sha384 () {
+    openssl dgst -sha384 -binary < $1 | openssl enc -base64
+}
+
 # thefuck
 if whence -cp thefuck &> /dev/null; then
     eval $(thefuck --alias)

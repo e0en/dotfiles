@@ -23,14 +23,24 @@ fi
 if [[ $platform == 'linux' ]]; then
     export PATH=/usr/local/bin:$PATH
 
-    function update_all () {
-        pyenv update
-        upgrade_oh_my_zsh
+    function update_pkg () {
         sudo apt -yy update
         sudo apt -yy upgrade
         sudo apt -yy autoremove
     }
 fi
+
+function update_all () {
+    pushd $HOME/dotfiles
+    git stash
+    git pull --rebase
+    git stash pop
+    popd
+
+    pyenv update
+    upgrade_oh_my_zsh
+    update_pkg
+}
 
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"

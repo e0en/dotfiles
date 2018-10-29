@@ -6,11 +6,8 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 # crontab for OSX
 alias crontab="env EDITOR=/usr/bin/mvim -f crontab"
 
-function update_all () {
-    pyenv update
-    upgrade_oh_my_zsh
+function update_pkg () {
     brew update
     brew upgrade
     brew cleanup -s
-    brew cask cleanup
 }

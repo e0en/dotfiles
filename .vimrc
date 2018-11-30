@@ -16,6 +16,7 @@ if !has('win32')
 endif
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'jelera/vim-javascript-syntax'
 
 call plug#end()
 
@@ -98,13 +99,13 @@ au BufRead,BufNewFile *.cpp,*.c,*.h,*.hpp set textwidth=120
 au BufRead,BufNewFile *.cpp,*.c,*.h,*.hpp set colorcolumn=121
 
 " javascript
-au BufRead,BufNewFile *.js set textwidth=120
-au BufRead,BufNewFile *.js set colorcolumn=121
-au BufRead,BufNewFile *.js set shiftwidth=2
-au BufRead,BufNewFile *.js set tabstop=2
-au BufRead,BufNewFile *.js set softtabstop=2
-au BufRead,BufNewFile *.js match BadWhitespace /\s\+$/
-au BufRead,BufNewFile *.js match BadWhitespace /^\t\+/
+au BufRead,BufNewFile *.js,*.mjs set textwidth=120
+au BufRead,BufNewFile *.js,*.mjs set colorcolumn=121
+au BufRead,BufNewFile *.js,*.mjs set shiftwidth=2
+au BufRead,BufNewFile *.js,*.mjs set tabstop=2
+au BufRead,BufNewFile *.js,*.mjs set softtabstop=2
+au BufRead,BufNewFile *.js,*.mjs match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.js,*.mjs match BadWhitespace /^\t\+/
 
 
 

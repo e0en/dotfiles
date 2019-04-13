@@ -41,6 +41,7 @@ set backupskip=/tmp/*,/private/tmp/*
 " line size
 set textwidth=79
 set colorcolumn=80
+highlight ColorColumn ctermbg=9
 set number
 
 " indentation

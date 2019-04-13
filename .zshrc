@@ -51,12 +51,6 @@ if [[ -a "$HOME/.pyenv" ]]; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
-# ruby
-if [[ -a "$HOME/.rbenv" ]]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
-
 # js
 if [[ -a "$HOME/.nvm" ]]; then
     export NVM_DIR="$HOME/.nvm"

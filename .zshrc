@@ -30,6 +30,14 @@ if [[ $platform == 'linux' ]]; then
     }
 fi
 
+
+function upgrade_pyenv () {
+    pyenv activate $1
+    pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+    pyenv deactivate
+}
+
+
 function update_all () {
     pushd $HOME/dotfiles
     git stash
@@ -41,6 +49,7 @@ function update_all () {
     upgrade_oh_my_zsh
     update_pkg
 }
+
 
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"

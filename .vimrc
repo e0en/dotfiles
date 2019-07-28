@@ -17,6 +17,7 @@ endif
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -59,6 +60,7 @@ set hlsearch
 set cursorline
 hi CursorLine term=bold cterm=bold
 highlight BadWhitespace ctermbg=red guibg=red
+colorscheme onedark
 
 " utilities
 set wildmenu

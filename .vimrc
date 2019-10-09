@@ -18,6 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'joshdick/onedark.vim'
+Plug 'leafOfTree/vim-vue-plugin'
 
 call plug#end()
 

@@ -68,6 +68,8 @@ set wildmenu
 set lazyredraw
 set showmatch
 
+colorscheme onedark
+
 if has('gui_running')
     if has('macunix')
         set macligatures
@@ -77,7 +79,7 @@ if has('gui_running')
     endif
     set lines=40
     set columns=120
-    colorscheme molokai
+    colorscheme onedark
 endif
 
 " ----------------------------------

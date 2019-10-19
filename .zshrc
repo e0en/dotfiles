@@ -38,6 +38,17 @@ function upgrade_pyenv () {
 }
 
 
+function migrate_pyenv () {
+    pyenv activate $1
+    pip freeze | grep -v '^\-e' | cut -d = -f 1 > /tmp/$1.req.txt
+    pyenv deactivate
+    pyenv -y uninstall $1
+    pyenv virtualenv $2 $1
+    pyenv activate $1
+    pip install -r /tmp/$1.req.txt
+}
+
+
 function update_all () {
     pushd $HOME/dotfiles
     git stash

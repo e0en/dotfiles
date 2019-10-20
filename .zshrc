@@ -38,6 +38,17 @@ function upgrade_pyenv () {
     pyenv deactivate
 }
 
+function migrate_pyenv () {
+    pyenv activate $1
+    pip freeze > $1.req.txt
+    pyenv deactivate
+    pyenv uninstall $1
+    pyenv virtualenv $2 $1
+    pyenv activate $1
+    pip install -r $1.req.txt
+    pyenv deactivate
+}
+
 
 function migrate_pyenv () {
     pyenv activate $1

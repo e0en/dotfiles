@@ -84,31 +84,6 @@ if [[ -a "$HOME/.pyenv" ]]; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
-# js
-if [[ -a "$HOME/.nvm" ]]; then
-    export NVM_DIR="$HOME/.nvm"
-	nvm() {
-		unset -f nvm
-		export NVM_DIR=~/.nvm
-		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-		nvm "$@"
-	}
-
-	node() {
-		unset -f node
-		export NVM_DIR=~/.nvm
-		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-		node "$@"
-	}
-
-	npm() {
-		unset -f npm
-		export NVM_DIR=~/.nvm
-		[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-		npm "$@"
-	}
-fi
-
 # editor
 export EDITOR=vim
 export DISPLAY='' # nullify DISPLAY to disable xquartz
@@ -136,7 +111,8 @@ ZSH_THEME="spaceship"
 
 export UPDATE_ZSH_DAYS=13
 export DISABLE_UPDATE_PROMPT=true
-plugins=(git osx github python)
+export NVM_LAZY_LOAD=true
+plugins=(git osx github python zsh-nvm)
 source $ZSH/oh-my-zsh.sh
 
 # aliases

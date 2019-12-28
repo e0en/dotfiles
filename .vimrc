@@ -14,16 +14,16 @@ call plug#begin($MYPLUGDIRECTORY)
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-syntastic/syntastic'
-Plug 'nvie/vim-flake8'
 Plug 'kien/ctrlp.vim'
 if !has('win32')
-    Plug 'Valloric/YouCompleteMe'
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'mattn/vim-lsp-settings'
+    Plug 'junegunn/fzf'
 endif
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'joshdick/onedark.vim'
-Plug 'posva/vim-vue'
 Plug 'edmorrish/vim-svelte'
 
 call plug#end()
@@ -91,6 +91,19 @@ endif
 " ----------------------------------
 "  Programming language-specifics
 " ----------------------------------
+
+
+" Language client settings
+autocmd BufRead *.js setlocal filetype=javascript
+autocmd BufRead *.py setlocal filetype=python
+
+filetype plugin on
+let g:lsp_settings = {
+\  'pyls': {'cmd': ['pyls']}
+\}
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '‼'}
+let g:lsp_signs_hint = {'text': '~~'}
 
 " template files
 augroup newfilegroup

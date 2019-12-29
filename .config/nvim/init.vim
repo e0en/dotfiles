@@ -1,26 +1,10 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-if has('win32')
-    let $MYPLUGDIRECTORY = "~/vimfiles/plugged"
-else
-    let $MYPLUGDIRECTORY = "~/.vim/plugged"
-endif
-
-call plug#begin($MYPLUGDIRECTORY)
+call plug#begin()
 
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'vim-syntastic/syntastic'
 Plug 'kien/ctrlp.vim'
 if !has('win32')
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'junegunn/fzf'
 endif
 Plug 'joshdick/onedark.vim'
@@ -94,16 +78,43 @@ endif
 
 
 " Language client settings
+
+" taken from https://github.com/neoclide/coc.nvim
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 autocmd BufRead *.js setlocal filetype=javascript
 autocmd BufRead *.py setlocal filetype=python
 
 filetype plugin on
-let g:lsp_settings = {
-\  'pyls': {'cmd': ['pyls']}
-\}
-let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': '‼'}
-let g:lsp_signs_hint = {'text': '~~'}
 
 " template files
 augroup newfilegroup
@@ -132,6 +143,14 @@ au BufRead,BufNewFile *.js,*.mjs set softtabstop=2
 au BufRead,BufNewFile *.js,*.mjs match BadWhitespace /\s\+$/
 au BufRead,BufNewFile *.js,*.mjs match BadWhitespace /^\t\+/
 
+" svelte
+au BufRead,BufNewFile *.svelte set textwidth=120
+au BufRead,BufNewFile *.svelte set colorcolumn=121
+au BufRead,BufNewFile *.svelte set shiftwidth=2
+au BufRead,BufNewFile *.svelte set tabstop=2
+au BufRead,BufNewFile *.svelte set softtabstop=2
+au BufRead,BufNewFile *.svelte match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.svelte match BadWhitespace /^\t\+/
 
 
 " ----------------------------------

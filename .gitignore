@@ -1,5 +1,5 @@
-vim/.netrwhist
-vim/bundle/*
-!vim/bundle/vundle
 *.swp
 .DS_Store
+
+/.config/nvim/plugged/*
+/.config/coc/

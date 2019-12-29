@@ -141,6 +141,7 @@ alias update_pip="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d 
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias ls='ls -Fgl --color=always'
+alias vim='nvim'
 
 # cosmetics
 export LS_COLORS="$LS_COLORS:ow=01;36;40"

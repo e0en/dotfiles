@@ -18,13 +18,12 @@ scriptencoding utf-8
 "  General settings
 " ----------------------------------
 
-set nocompatible               " Be iMproved
-
 set encoding=utf-8
 set fileformat=unix
 
 syntax enable
-filetype plugin indent on    " required
+set autoindent
+filetype plugin indent on
 
 " temporary file settings
 let g:netrw_dirhistmax = 0
@@ -38,7 +37,6 @@ set number
 
 " indentation
 set shiftwidth=4
-set tabstop=4
 set softtabstop=4
 set expandtab
 set smarttab
@@ -78,8 +76,8 @@ endif
 
 
 " Language client settings
-
 " taken from https://github.com/neoclide/coc.nvim
+"
 set hidden
 set nobackup
 set nowritebackup
@@ -114,43 +112,34 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 autocmd BufRead *.js setlocal filetype=javascript
 autocmd BufRead *.py setlocal filetype=python
 
-filetype plugin on
-
 " template files
 augroup newfilegroup
-    au BufNewFile __init__.py 0r ~/dotfiles/vim/template/__init__.py
-    au BufNewFile *.py 0r ~/dotfiles/vim/template/template.py
-    au BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
+    autocmd BufNewFile __init__.py 0r ~/dotfiles/vim/template/__init__.py
+    autocmd BufNewFile *.py 0r ~/dotfiles/vim/template/template.py
+    autocmd BufNewFile *.html 0r ~/dotfiles/vim/template/template.html
 augroup END
 
 " Python!
-au BufRead,BufNewFile *.py,*.pyw set textwidth=79
-au BufRead,BufNewFile *.py,*.pyw set colorcolumn=80
-au BufRead,BufNewFile *.py,*,pyw match BadWhitespace /\s\+$/
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-let python_highlight_all=1
+autocmd FileType python
+    \ setlocal textwidth=79 colorcolumn=80
+autocmd BufRead,BufNewFile *.py,*,pyw match BadWhitespace /\s\+$/
+autocmd BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 
 " C++
-au BufRead,BufNewFile *.cpp,*.c,*.h,*.hpp set textwidth=120
-au BufRead,BufNewFile *.cpp,*.c,*.h,*.hpp set colorcolumn=121
+autocmd FileType cpp
+    \ setlocal textwidth=120 colorcolumn=121
 
 " javascript
-au BufRead,BufNewFile *.js,*.mjs set textwidth=120
-au BufRead,BufNewFile *.js,*.mjs set colorcolumn=121
-au BufRead,BufNewFile *.js,*.mjs set shiftwidth=2
-au BufRead,BufNewFile *.js,*.mjs set tabstop=2
-au BufRead,BufNewFile *.js,*.mjs set softtabstop=2
-au BufRead,BufNewFile *.js,*.mjs match BadWhitespace /\s\+$/
-au BufRead,BufNewFile *.js,*.mjs match BadWhitespace /^\t\+/
+autocmd FileType javascript,html,css
+    \ setlocal textwidth=120 colorcolumn=121 shiftwidth=2 softtabstop=2
+autocmd FileType javascript,html,css match BadWhitespace /\s\+$/
+autocmd FileType javascript,html,css match BadWhitespace /^\t\+/
 
 " svelte
-au BufRead,BufNewFile *.svelte set textwidth=120
-au BufRead,BufNewFile *.svelte set colorcolumn=121
-au BufRead,BufNewFile *.svelte set shiftwidth=2
-au BufRead,BufNewFile *.svelte set tabstop=2
-au BufRead,BufNewFile *.svelte set softtabstop=2
-au BufRead,BufNewFile *.svelte match BadWhitespace /\s\+$/
-au BufRead,BufNewFile *.svelte match BadWhitespace /^\t\+/
+autocmd BufRead,BufNewFile *.svelte
+    \ setlocal textwidth=120 colorcolumn=121 shiftwidth=2 softtabstop=2
+autocmd BufRead,BufNewFile *.svelte match BadWhitespace /\s\+$/
+autocmd BufRead,BufNewFile *.svelte match BadWhitespace /^\t\+/
 
 
 " ----------------------------------
@@ -164,7 +153,7 @@ if $VIM_CRONTAB ==? 'true'
 endif
 
 augroup crontabgroup
-    au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+    autocmd BufEnter /private/tmp/crontab.* setl backupcopy=yes
 augroup end
 
 " ignore .gitignore files in ctrlplugin

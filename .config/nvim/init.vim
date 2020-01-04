@@ -5,6 +5,7 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'kien/ctrlp.vim'
 if !has('win32')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'tjdevries/coc-zsh'
     Plug 'junegunn/fzf'
 endif
 Plug 'joshdick/onedark.vim'

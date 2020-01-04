@@ -136,7 +136,6 @@ alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decor
 alias rebase='git fetch origin master && git rebase -i --autosquash origin/master'
 alias scrum='gitlog && grep "TODO:" *.py'
 alias is="ssh bbsutf8@isb.or.kr"
-alias update_pip="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'

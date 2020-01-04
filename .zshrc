@@ -85,7 +85,7 @@ if [[ -a "$HOME/.pyenv" ]]; then
 fi
 
 # editor
-export EDITOR=vim
+export EDITOR=nvim
 export DISPLAY='' # nullify DISPLAY to disable xquartz
 
 # sort unique lines by occurences

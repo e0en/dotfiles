@@ -34,21 +34,15 @@ fi
 function upgrade_pyenv () {
     pyenv activate $1
     pip install -U pip
-    pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+    pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  > /tmp/upgrade_pyenv.txt
+
+    if [[ $platform == 'osx' ]]; then
+        CFLAGS=-I$(brew --prefix openssl)/include LDFLAGS=-L$(brew --prefix openssl)/lib pip install -U -r /tmp/upgrade_pyenv.txt
+    else
+        pip install -U -r /tmp/upgrade_pyenv.txt
+    fi
     pyenv deactivate
 }
-
-function migrate_pyenv () {
-    pyenv activate $1
-    pip freeze > $1.req.txt
-    pyenv deactivate
-    pyenv uninstall $1
-    pyenv virtualenv $2 $1
-    pyenv activate $1
-    pip install -r $1.req.txt
-    pyenv deactivate
-}
-
 
 function migrate_pyenv () {
     pyenv activate $1
@@ -57,8 +51,13 @@ function migrate_pyenv () {
     pyenv uninstall $1
     pyenv virtualenv $2 $1
     pyenv activate $1
+    if [[ $platform == 'osx' ]]; then
+        CFLAGS=-I$(brew --prefix openssl)/include LDFLAGS=-L$(brew --prefix openssl)/lib pip install -U -r /tmp/$1.req.txt
+    else
+        pip install -U -r /tmp/$1.req.txt
+    fi
     pip install -U pip
-    pip install -r /tmp/$1.req.txt
+    pyenv deactivate
 }
 
 

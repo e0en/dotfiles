@@ -8,3 +8,4 @@
 /.config/direnv/allow/*
 /.config/coc/
 /.config/configstore/*
+/.config/tmuxinator/*

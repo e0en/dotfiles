@@ -43,6 +43,9 @@ set expandtab
 set smarttab
 set autoindent
 
+" remove trailing whitespaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 " aesthetics
 set t_Co=256
 set t_ut=

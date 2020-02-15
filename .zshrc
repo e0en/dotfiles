@@ -73,7 +73,6 @@ function update_all () {
     update_pkg
 }
 
-
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 if [[ -a "$HOME/.pyenv" ]]; then
@@ -81,6 +80,11 @@ if [[ -a "$HOME/.pyenv" ]]; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+fi
+
+# rust
+if [[ -a "$HOME/.cargo" ]]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 # editor

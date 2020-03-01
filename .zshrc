@@ -71,6 +71,7 @@ function update_all () {
     pyenv update
     upgrade_oh_my_zsh
     update_pkg
+    nvim -c ':PlugUpgrade | :PlugUpdate | qa!'
 }
 
 # python

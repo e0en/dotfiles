@@ -23,7 +23,6 @@ set encoding=utf-8
 set fileformat=unix
 
 syntax enable
-set autoindent
 filetype plugin indent on
 
 " temporary file settings
@@ -60,8 +59,6 @@ set wildmenu
 set lazyredraw
 set showmatch
 
-colorscheme onedark
-
 if has('gui_running')
     if has('macunix')
         set macligatures
@@ -71,7 +68,6 @@ if has('gui_running')
     endif
     set lines=40
     set columns=120
-    colorscheme onedark
 endif
 
 " ----------------------------------

@@ -48,11 +48,14 @@ autocmd BufWritePre * :%s/\s\+$//e
 " aesthetics
 set t_Co=256
 set t_ut=
+if (has("termguicolors"))
+  set termguicolors
+endif
 set hlsearch
 set cursorline
 hi CursorLine term=bold cterm=bold
 highlight BadWhitespace ctermbg=red guibg=red
-colorscheme onedark
+colorscheme molokai
 
 " utilities
 set wildmenu

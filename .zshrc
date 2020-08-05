@@ -69,7 +69,7 @@ function update_all () {
     popd
 
     pyenv update
-    upgrade_oh_my_zsh
+    omz update
     update_pkg
     nvim -c ':PlugUpgrade | :PlugUpdate | qa!'
 }

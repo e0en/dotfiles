@@ -1,4 +1,7 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "rust-client.updateOnStartup": true,
+  "languageserver": {
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
@@ -72,4 +75,5 @@
         }
       }
     }
+  }
 }

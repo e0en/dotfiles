@@ -112,6 +112,8 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+call coc#config('python', {'pythonPath': $PYENV_VIRTUAL_ENV})
+
 autocmd BufRead *.js setlocal filetype=javascript
 autocmd BufRead *.py setlocal filetype=python
 

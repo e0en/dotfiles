@@ -31,7 +31,7 @@ if [[ $platform == 'linux' ]]; then
 fi
 
 
-function upgrade_pyenv () {
+function upgrade-pyenv () {
     pyenv activate $1
     pip install -U pip
     pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  > /tmp/upgrade_pyenv.txt
@@ -44,7 +44,7 @@ function upgrade_pyenv () {
     pyenv deactivate
 }
 
-function migrate_pyenv () {
+function migrate-pyenv () {
     pyenv activate $1
     pip freeze | grep -v '^\-e' | cut -d = -f 1 > /tmp/$1.req.txt
     pyenv deactivate
@@ -61,7 +61,7 @@ function migrate_pyenv () {
 }
 
 
-function update_all () {
+function update-all () {
     pushd $HOME/dotfiles
     git stash
     git pull --rebase

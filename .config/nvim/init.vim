@@ -1,6 +1,8 @@
 call plug#begin()
 
 Plug 'flazz/vim-colorschemes'
+Plug 'sheerun/vim-polyglot'
+Plug 'sainnhe/forest-night'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'kien/ctrlp.vim'
 if !has('win32')
@@ -8,7 +10,6 @@ if !has('win32')
     Plug 'tjdevries/coc-zsh'
     Plug 'junegunn/fzf'
 endif
-Plug 'joshdick/onedark.vim'
 Plug 'edmorrish/vim-svelte'
 
 call plug#end()
@@ -55,7 +56,7 @@ set hlsearch
 set cursorline
 hi CursorLine term=bold cterm=bold
 highlight BadWhitespace ctermbg=red guibg=red
-colorscheme molokai
+colorscheme forest-night
 
 " utilities
 set wildmenu

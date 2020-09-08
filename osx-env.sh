@@ -19,4 +19,5 @@ function update_pkg () {
     brew update
     brew upgrade
     brew cleanup -s
+    softwareupdate --all --install --force
 }

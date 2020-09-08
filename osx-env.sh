@@ -3,6 +3,8 @@ export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
+export CC=gcc
+export CXX=g++
 export CFLAGS="-I$(brew --prefix readline)/include $CFLAGS"
 export LDFLAGS="-L$(brew --prefix readline)/lib $LDFLAGS"
 export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"

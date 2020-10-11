@@ -51,6 +51,7 @@ function migrate-pyenv () {
     pyenv uninstall $1
     pyenv virtualenv $2 $1
     pyenv activate $1
+    pip install -U wheel pip setuptools
     if [[ $platform == 'osx' ]]; then
         CFLAGS=-I$(brew --prefix openssl)/include LDFLAGS=-L$(brew --prefix openssl)/lib pip install -U -r /tmp/$1.req.txt
     else

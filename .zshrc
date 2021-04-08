@@ -140,7 +140,6 @@ source $ZSH/oh-my-zsh.sh
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
 alias rebase='git fetch origin master && git rebase -i --autosquash origin/master'
 alias scrum='gitlog && grep "TODO:" *.py'
-alias is="ssh bbsutf8@isb.or.kr"
 
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'

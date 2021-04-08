@@ -93,6 +93,10 @@ fi
 export EDITOR=nvim
 export DISPLAY='' # nullify DISPLAY to disable xquartz
 
+# autocomplete
+autoload -U compinit
+compinit
+
 # sort unique lines by occurences
 sortuniq () {
     sort $1 | uniq -c | sort -bgr

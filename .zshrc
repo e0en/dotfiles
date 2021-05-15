@@ -61,6 +61,10 @@ function migrate-pyenv () {
     pyenv deactivate
 }
 
+function pip-install-basics () {
+    pip install -U wheel pip setuptools
+    pip install python-language-server flake8
+}
 
 function update-all () {
     pushd $HOME/dotfiles

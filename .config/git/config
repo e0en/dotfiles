@@ -1,0 +1,19 @@
+[user]
+	name = Yoonseop Kang
+	email = e0engoon@gmail.com
+[core]
+	editor = nvim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	quotepath = off
+[github]
+	user = e0en
+[pull]
+	rebase = true
+[branch]
+	autosetuprebase = always
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
+[color]
+	ui = auto

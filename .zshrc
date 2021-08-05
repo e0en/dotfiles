@@ -108,11 +108,6 @@ sortuniq () {
     sort $1 | uniq -c | sort -bgr
 }
 
-# calc base64-encoded sha384 hash of a file
-base64sha384 () {
-    openssl dgst -sha384 -binary < $1 | openssl enc -base64
-}
-
 # thefuck
 if whence -cp thefuck &> /dev/null; then
     eval $(thefuck --alias)
@@ -126,16 +121,7 @@ if [[ ! -a ~/.zsh-async ]]; then
 fi
 source ~/.zsh-async/async.zsh
 
-export NVM_DIR="$HOME/.nvm"
-function load_nvm() {
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-}
-
-# Initialize a new worker
-async_start_worker nvm_worker -n
-async_register_callback nvm_worker load_nvm
-async_job nvm_worker sleep 0.1
+eval "$(fnm env)"
 
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh

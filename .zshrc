@@ -35,12 +35,7 @@ function upgrade-pyenv () {
     pyenv activate $1
     pip install -U pip
     pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  > /tmp/upgrade_pyenv.txt
-
-    if [[ $platform == 'osx' ]]; then
-        CFLAGS=-I$(brew --prefix openssl)/include LDFLAGS=-L$(brew --prefix openssl)/lib pip install -U -r /tmp/upgrade_pyenv.txt
-    else
-        pip install -U -r /tmp/upgrade_pyenv.txt
-    fi
+    pip install -U -r /tmp/upgrade_pyenv.txt
     pyenv deactivate
 }
 
@@ -52,11 +47,7 @@ function migrate-pyenv () {
     pyenv virtualenv $2 $1
     pyenv activate $1
     pip install -U wheel pip setuptools
-    if [[ $platform == 'osx' ]]; then
-        CFLAGS=-I$(brew --prefix openssl)/include LDFLAGS=-L$(brew --prefix openssl)/lib pip install -U -r /tmp/$1.req.txt
-    else
-        pip install -U -r /tmp/$1.req.txt
-    fi
+    pip install -U -r /tmp/$1.req.txt
     pip install -U pip
     pyenv deactivate
 }
@@ -79,14 +70,28 @@ function update-all () {
     nvim -c ':PlugUpgrade | :PlugUpdate | qa!'
 }
 
+zmodload zsh/zprof
+
+# Skip the not really helping Ubuntu global compinit
+skip_global_compinit=1
+
+# Perform compinit only once a day.
+autoload -Uz compinit
+setopt extendedglob
+export ZSH_COMPDUMP=$HOME/.$HOME/.zcompdump
+if [[ -n "${ZSH_COMPDUMP}"(#qN.mh+24) ]]; then
+    compinit -i -d "${ZSH_COMPDUMP}"
+    compdump
+else
+    compinit -C
+fi
+
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 export PYENV_ROOT="$HOME/.pyenv"
 if [[ -a "$PYENV_ROOT" ]]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
@@ -98,10 +103,6 @@ fi
 # editor
 export EDITOR=nvim
 export DISPLAY='' # nullify DISPLAY to disable xquartz
-
-# autocomplete
-autoload -U compinit
-compinit
 
 # sort unique lines by occurences
 sortuniq () {
@@ -129,7 +130,7 @@ ZSH_THEME="dst"
 
 export UPDATE_ZSH_DAYS=13
 export DISABLE_UPDATE_PROMPT=true
-plugins=(git osx github python pyenv)
+plugins=(git osx python zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # aliases

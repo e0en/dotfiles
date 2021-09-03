@@ -32,24 +32,24 @@ fi
 
 
 function upgrade-pyenv () {
-    pyenv activate $1
+    pyenv shell $1
     pip install -U pip
     pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  > /tmp/upgrade_pyenv.txt
     pip install -U -r /tmp/upgrade_pyenv.txt
-    pyenv deactivate
+    pyenv shell --unset
 }
 
 function migrate-pyenv () {
-    pyenv activate $1
+    pyenv shell $1
     pip freeze | grep -v '^\-e' | cut -d = -f 1 > /tmp/$1.req.txt
-    pyenv deactivate
+    pyenv shell --unset
     pyenv uninstall $1
     pyenv virtualenv $2 $1
-    pyenv activate $1
+    pyenv shell $1
     pip install -U wheel pip setuptools
     pip install -U -r /tmp/$1.req.txt
     pip install -U pip
-    pyenv deactivate
+    pyenv shell --unset
 }
 
 function pip-install-basics () {

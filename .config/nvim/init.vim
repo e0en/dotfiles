@@ -60,18 +60,15 @@ highlight BadWhitespace ctermbg=red guibg=red
 let ayucolor='dark'
 colorscheme ayu
 
+
+
 " utilities
 set wildmenu
 set lazyredraw
 set showmatch
 
 if has('gui_running')
-    if has('macunix')
-        set macligatures
-        set guifont=Hack:h10
-    elseif has('win32')
-        set guifont=D2Coding_Ligature:h10
-    endif
+    set guifont=Input_Mono:h12
     set lines=40
     set columns=120
 endif

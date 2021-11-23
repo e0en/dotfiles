@@ -141,7 +141,12 @@ alias scrum='gitlog && grep "TODO:" *.py'
 
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
-alias ls='ls -Fgl --color=always'
+
+if [[ $platform == 'osx' ]]; then
+    alias ls='ls -FglG'
+else
+    alias ls='ls -Fgl --color=always'
+fi
 alias vim='nvim'
 
 # cosmetics

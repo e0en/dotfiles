@@ -21,6 +21,9 @@ scriptencoding utf-8
 "  General settings
 " ----------------------------------
 
+" fix clipboard encoding error
+lang en_US.UTF-8
+
 set encoding=utf-8
 set fileformat=unix
 

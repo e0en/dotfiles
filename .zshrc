@@ -143,7 +143,7 @@ alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 
 if [[ $platform == 'osx' ]]; then
-    alias ls='ls -FglG'
+    alias ls='exa -Fgl --color=always'
 else
     alias ls='ls -Fgl --color=always'
 fi

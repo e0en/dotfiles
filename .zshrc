@@ -131,7 +131,7 @@ ZSH_THEME="dst"
 
 export UPDATE_ZSH_DAYS=13
 export DISABLE_UPDATE_PROMPT=true
-plugins=(git macos python zsh-syntax-highlighting)
+plugins=(git macos python zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # aliases

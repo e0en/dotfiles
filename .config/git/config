@@ -17,3 +17,5 @@
 	colorMoved = zebra
 [color]
 	ui = auto
+[rebase]
+	autosquash = true

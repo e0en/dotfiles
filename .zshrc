@@ -21,7 +21,7 @@ if [[ $platform == 'osx' ]]; then
 fi
 
 if [[ $platform == 'linux' ]]; then
-    export PATH=/usr/local/bin:$PATH
+    export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
     function update_pkg () {
         sudo apt -yy update

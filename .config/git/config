@@ -19,3 +19,5 @@
 	ui = auto
 [rebase]
 	autosquash = true
+[submodule]
+	recurse = true

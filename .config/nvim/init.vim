@@ -1,7 +1,6 @@
 call plug#begin()
 
 Plug 'flazz/vim-colorschemes'
-Plug 'ayu-theme/ayu-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'sainnhe/forest-night'
 Plug 'vim-scripts/indentpython.vim'
@@ -60,9 +59,7 @@ set hlsearch
 set cursorline
 hi CursorLine term=bold cterm=bold
 highlight BadWhitespace ctermbg=red guibg=red
-let ayucolor='dark'
 colorscheme ayu
-
 
 
 " utilities

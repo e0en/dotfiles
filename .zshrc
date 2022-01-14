@@ -72,6 +72,11 @@ function update-all () {
 
 zmodload zsh/zprof
 
+# locale!
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+
 # Skip the not really helping Ubuntu global compinit
 skip_global_compinit=1
 

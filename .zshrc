@@ -106,6 +106,10 @@ if [[ -a "$HOME/.cargo" ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+
+# javascript
+export PATH="./node_modules/.bin:$PATH"
+
 # editor
 export EDITOR=nvim
 export DISPLAY='' # nullify DISPLAY to disable xquartz

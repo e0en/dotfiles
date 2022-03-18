@@ -70,6 +70,12 @@ function update-all () {
     nvim -c ':PlugUpgrade | :PlugUpdate | qa!'
 }
 
+function cleanup_git {
+    git remote prune origin
+    git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+    git branch -vv | grep -v "\]" | awk '{print $1}' | xargs git branch -D
+}
+
 zmodload zsh/zprof
 
 # locale!

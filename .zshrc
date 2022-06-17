@@ -112,6 +112,10 @@ if [[ -a "$PYENV_ROOT" ]]; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
+# poetry
+export PATH="/Users/e0en/Library/Python/3.9/bin:$PATH"
+
+
 # rust
 if [[ -a "$HOME/.cargo" ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
@@ -151,7 +155,7 @@ ZSH_THEME="dst"
 
 export UPDATE_ZSH_DAYS=13
 export DISABLE_UPDATE_PROMPT=true
-plugins=(git macos python zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git macos poetry python zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # aliases

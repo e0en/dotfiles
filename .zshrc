@@ -33,7 +33,8 @@ fi
 
 function upgrade-pyenv () {
     pyenv shell $1
-    pip install -U pip
+    pip install -U pip wheel
+    pip install poetry
     pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  > /tmp/upgrade_pyenv.txt
     pip install -U -r /tmp/upgrade_pyenv.txt
     pyenv shell --unset
@@ -111,10 +112,6 @@ if [[ -a "$PYENV_ROOT" ]]; then
     eval "$(pyenv init -)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
-
-# poetry
-export PATH="/Users/e0en/Library/Python/3.9/bin:$PATH"
-
 
 # rust
 if [[ -a "$HOME/.cargo" ]]; then

@@ -169,5 +169,3 @@ alias vim='nvim'
 
 # cosmetics
 export LS_COLORS="$LS_COLORS:ow=01;36;40"
-
-eval "$(starship init zsh)"

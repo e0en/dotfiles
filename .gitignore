@@ -6,8 +6,7 @@
 /.config/configstore/*
 /.config/nvim/plugged/*
 /.config/direnv/allow/*
-/.config/coc/extensions/node_modules/*
-/.config/coc/suggest.txt
+/.config/coc/*
 /.config/configstore/*
 /.config/tmuxinator/*
 /.config/evcxr/*

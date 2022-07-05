@@ -11,3 +11,4 @@
 /.config/tmuxinator/*
 /.config/evcxr/*
 /.config/karabiner/automatic_backups/
+/.config/htop

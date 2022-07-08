@@ -106,7 +106,7 @@ fi
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 export PYENV_ROOT="$HOME/.pyenv"
-if [[ -a "$PYENV_ROOT" ]]; then
+if [[ -a "$PYENV_ROOT/bin" ]]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"

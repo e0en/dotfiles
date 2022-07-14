@@ -70,7 +70,6 @@ function update-all () {
     popd
 
     pyenv update
-    omz update
     rustup update
     update_pkg
     nvim -c ':PlugUpgrade | :PlugUpdate | qa!'
@@ -89,32 +88,25 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 
-# Skip the not really helping Ubuntu global compinit
-skip_global_compinit=1
-
-# Perform compinit only once a day.
-autoload -Uz compinit
-setopt extendedglob
-export ZSH_COMPDUMP=$HOME/.$HOME/.zcompdump
-if [[ -n "${ZSH_COMPDUMP}"(#qN.mh+24) ]]; then
-    compinit -i -d "${ZSH_COMPDUMP}"
-    compdump
+if [ ! -d "$HOME/.zim" ]; then
+    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 else
-    compinit -C
+    source $HOME/dotfiles/.zim-zshrc
 fi
 
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 export PYENV_ROOT="$HOME/.pyenv"
-if [[ -a "$PYENV_ROOT/bin" ]]; then
+if [ -d "$PYENV_ROOT" ]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init - | sed s/precmd/precwd/g)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
 # rust
-if [[ -a "$HOME/.cargo" ]]; then
+if [ -d "$HOME/.cargo" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
@@ -139,21 +131,12 @@ fi
 alias mux="tmuxinator"
 
 # Install zsh-async if it’s not present
-if [[ ! -a ~/.zsh-async ]]; then
+if [ ! -d ~/.zsh-async ]; then
     git clone git@github.com:mafredri/zsh-async.git ~/.zsh-async
 fi
 source ~/.zsh-async/async.zsh
 
 eval "$(fnm env)"
-
-# oh-my-zsh
-export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="dst"
-
-export UPDATE_ZSH_DAYS=13
-export DISABLE_UPDATE_PROMPT=true
-plugins=(git macos poetry python zsh-syntax-highlighting zsh-autosuggestions)
-source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'

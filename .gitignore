@@ -17,3 +17,4 @@
 
 # homebrew
 Brewfile.lock.json
+homebrew-github-token.sh

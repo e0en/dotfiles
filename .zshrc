@@ -5,7 +5,7 @@ platform='unknown'
 if [[ "$unamestr" == "Linux" ]]; then
     platform='linux'
 elif [[ "$unamestr" == "Darwin" ]]; then
-    platform='osx'
+    platform='macos'
 fi
 
 is_ec2=false
@@ -16,10 +16,6 @@ fi
 
 
 # basic path settings
-if [[ $platform == 'osx' ]]; then
-    source $HOME/dotfiles/osx-env.sh
-fi
-
 if [[ $platform == 'linux' ]]; then
     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -27,6 +23,13 @@ if [[ $platform == 'linux' ]]; then
         sudo apt -yy update
         sudo apt -yy upgrade
         sudo apt -yy autoremove
+    }
+elif [[ $platform == "macos" ]]; then
+    function update_pkg () {
+        brew update
+        brew upgrade
+        brew cleanup -s
+        softwareupdate --all --install --force
     }
 fi
 
@@ -145,7 +148,7 @@ alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decor
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 
-if [[ $platform == 'osx' ]]; then
+if [[ $platform == 'macos' ]]; then
     alias ls='exa -Fgl --color=always'
 else
     alias ls='ls -Fgl --color=always'

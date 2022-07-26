@@ -86,8 +86,8 @@ function cleanup_git {
 zmodload zsh/zprof
 
 if [[ $platform == "macos" ]]; then
-    if [ -d "/opt/homebrew" ]; then
-        curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+    if [ ! -d "/opt/homebrew" ]; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi

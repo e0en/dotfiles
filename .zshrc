@@ -122,11 +122,6 @@ eval "$(fnm env)"
 export EDITOR="nvim"
 export DISPLAY='' # nullify DISPLAY to disable xquartz
 
-# sort unique lines by occurences
-sortuniq () {
-    sort $1 | uniq -c | sort -bgr
-}
-
 # thefuck
 if whence -cp thefuck &> /dev/null; then
     eval $(thefuck --alias)

@@ -6,6 +6,9 @@ if [[ "$unamestr" == "Linux" ]]; then
     platform='linux'
 elif [[ "$unamestr" == "Darwin" ]]; then
     platform='macos'
+else
+    >&2 echo "$unamestr is not supported."
+    exit 1
 fi
 
 is_ec2=false

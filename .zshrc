@@ -117,9 +117,9 @@ fi
 
 # javascript
 export PATH="./node_modules/.bin:$PATH"
+eval "$(fnm env)"
 
-# editor
-export EDITOR=nvim
+export EDITOR="nvim"
 export DISPLAY='' # nullify DISPLAY to disable xquartz
 
 # sort unique lines by occurences
@@ -140,16 +140,12 @@ if [ ! -d ~/.zsh-async ]; then
 fi
 source ~/.zsh-async/async.zsh
 
-eval "$(fnm env)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
-
-if [[ $platform == 'macos' ]]; then
-    alias ls='exa -Fgl --color=always'
-else
-    alias ls='ls -Fgl --color=always'
-fi
+alias ls='exa -Fgl --color=always'
 alias vim='nvim'

@@ -151,6 +151,3 @@ else
     alias ls='ls -Fgl --color=always'
 fi
 alias vim='nvim'
-
-# cosmetics
-export LS_COLORS="$LS_COLORS:ow=01;36;40"

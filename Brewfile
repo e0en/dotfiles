@@ -7,7 +7,6 @@ tap "homebrew/services"
 brew "git"
 brew "cmake"
 brew "pkg-config"
-brew "fnm"
 brew "pyenv"
 brew "pyenv-virtualenv"
 
@@ -24,7 +23,6 @@ brew "watch"
 brew "neovim"
 brew "thefuck"
 brew "tmux"
-brew "zsh-async"
 
 # GUI apps
 cask "1password"

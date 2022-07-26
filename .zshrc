@@ -23,6 +23,7 @@ if [[ $platform == 'linux' ]]; then
     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
     function update_pkg () {
+        pyenv update
         sudo apt -yy update
         sudo apt -yy upgrade
         sudo apt -yy autoremove
@@ -66,14 +67,13 @@ function pip-install-basics () {
 
 function update-all () {
     pushd $HOME/dotfiles
-    git stash
+    git reset --hard
     git pull --rebase
-    git stash pop
     popd
 
-    pyenv update
     rustup update
     update_pkg
+    cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
     nvim -c ':PlugUpgrade | :PlugUpdate | qa!'
 }
 

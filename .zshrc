@@ -61,10 +61,6 @@ function pip-install-basics () {
     pip install python-language-server flake8
 }
 
-function install-basics () {
-    cargo install difftastic
-}
-
 function update-all () {
     pushd $HOME/dotfiles
     git stash

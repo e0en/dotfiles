@@ -23,7 +23,7 @@ if [[ $platform == 'macos' ]]; then
     fi
 
     if [ ! -d "/opt/homebrew" ]; then
-        curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 

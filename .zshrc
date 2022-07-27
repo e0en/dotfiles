@@ -148,7 +148,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
-alias grep='grep --color=always'
-alias egrep='egrep --color=always'
 alias ls='exa -Fgl --color=always'
 alias vim='nvim'

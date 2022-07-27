@@ -33,4 +33,4 @@ cask "iterm2"
 cask "obsidian"
 cask "rectangle"
 cask "visual-studio-code"
-
+cask "karabiner-elements"

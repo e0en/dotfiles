@@ -9,9 +9,11 @@ my settings.
 run the following
 
 ```bash
-git clone --recursive git@github.com:e0en/dotfiles
-echo "source ~/dotfiles/.bash_profile" > ~/.bash_profile
-source ~/.bash_profile
-echo "source ~/dotfiles/vimrc" > ~/.vimrc
-vim +PluginUpdate +qall
+cd $HOME
+git clone git@github.com:e0en/dotfiles
+echo "source ~/dotfiles/.zshrc" > ~/.zshrc
+cd $HOME/dotfiles
+./install.sh
 ```
+
+Restart your terminal and you're done.

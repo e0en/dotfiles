@@ -31,6 +31,7 @@ vim.opt.termguicolors = true
 vim.opt.hlsearch = true
 vim.opt.cursorline = true
 vim.cmd('colorscheme ayu')
+require('gitsigns').setup()
 
 -- wrapped lines continue visually indented
 vim.opt.breakindent = true

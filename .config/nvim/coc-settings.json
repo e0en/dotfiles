@@ -1,7 +1,0 @@
-{
-  "coc.preferences.formatOnSaveFiletypes": ["rust", "python"],
-  "rust-client.updateOnStartup": true,
-  "python.pythonPath": "$HOME/.pyenv/shims/python",
-  "python.venvPath": "$HOME/.pyenv/versions",
-  "python.linting.flake8Enabled": true,
-}

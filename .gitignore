@@ -4,8 +4,6 @@
 **/__pycache__/
 
 /.config/configstore/*
-/.config/nvim/plugged/*
-/.config/nvim/autoload/plug.vim.old
 /.config/direnv/allow/*
 /.config/coc/*
 /.config/configstore/*

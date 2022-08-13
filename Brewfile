@@ -3,6 +3,11 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 
+# neovim
+brew "llvm"
+brew "lua-language-server"
+brew "rg"
+
 # build tools
 brew "git"
 brew "cmake"

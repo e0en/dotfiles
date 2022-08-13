@@ -52,9 +52,9 @@ if [ ! -d ~/.zsh-async ]; then
 fi
 
 # nvim
-if [ ! -f "$HOME/dotfiles/.config/nvim/autoload/plug.vim" ]; then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ ! -f $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+   $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
-nvim -c ':PlugUpgrade | :PlugUpdate | qa!'
+npm i -g vscode-langservers-extracted

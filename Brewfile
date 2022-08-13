@@ -12,6 +12,7 @@ brew "rg"
 brew "git"
 brew "cmake"
 brew "pkg-config"
+brew "poetry"
 
 # CLI utils
 brew "watch"

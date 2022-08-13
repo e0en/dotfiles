@@ -12,16 +12,6 @@ brew "rg"
 brew "git"
 brew "cmake"
 brew "pkg-config"
-brew "pyenv"
-brew "pyenv-virtualenv"
-
-# pyenv dependencies
-brew "openssl"
-brew "readline"
-brew "sqlite3"
-brew "xz"
-brew "zlib"
-brew "tcl-tk"
 
 # CLI utils
 brew "watch"

@@ -23,7 +23,6 @@ if [[ $platform == 'linux' ]]; then
     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
     function update_pkg () {
-        pyenv update
         sudo apt -yy update
         sudo apt -yy upgrade
         sudo apt -yy autoremove
@@ -37,28 +36,6 @@ elif [[ $platform == "macos" ]]; then
     }
 fi
 
-
-function upgrade-pyenv () {
-    pyenv shell $1
-    pip install -U pip wheel
-    pip install poetry
-    pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  > /tmp/upgrade_pyenv.txt
-    pip install -U -r /tmp/upgrade_pyenv.txt
-    pyenv shell --unset
-}
-
-function migrate-pyenv () {
-    pyenv shell $1
-    pip freeze | grep -v '^\-e' | cut -d = -f 1 > /tmp/$1.req.txt
-    pyenv shell --unset
-    pyenv uninstall $1
-    pyenv virtualenv $2 $1
-    pyenv shell $1
-    pip install -U wheel pip setuptools
-    pip install -U -r /tmp/$1.req.txt
-    pip install -U pip
-    pyenv shell --unset
-}
 
 function pip-install-basics () {
     pip install -U wheel pip setuptools
@@ -106,14 +83,6 @@ fi
 
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d "$PYENV_ROOT" ]; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init - | sed s/precmd/precwd/g)"
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-fi
 
 # rust
 if [ -d "$HOME/.cargo" ]; then
@@ -121,7 +90,6 @@ if [ -d "$HOME/.cargo" ]; then
 else
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
-
 
 # javascript
 export PATH="./node_modules/.bin:$PATH"

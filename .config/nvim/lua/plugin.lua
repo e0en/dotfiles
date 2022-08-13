@@ -13,4 +13,5 @@ require('packer').startup(function()
   use 'folke/lsp-colors.nvim' -- Better highlighting for LSP
   use 'flazz/vim-colorschemes' -- All colorschemes at once
   use 'lewis6991/gitsigns.nvim' -- Hightlight git diffs by line
+  use 'glepnir/lspsaga.nvim' -- pretty LSP UIs
 end)

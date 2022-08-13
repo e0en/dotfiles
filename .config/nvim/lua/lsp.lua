@@ -73,3 +73,7 @@ null_ls.setup({
     end
   end,
 })
+
+-- pretty UI using lspsaga
+local saga = require('lspsaga')
+saga.init_lsp_saga()

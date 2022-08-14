@@ -2,6 +2,7 @@ require('plugin')
 require('lsp')
 require('keymap')
 require('filetype')
+require('statusline')
 
 -- encoding
 vim.opt.encoding = 'utf-8'

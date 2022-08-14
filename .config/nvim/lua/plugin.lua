@@ -6,6 +6,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp' -- Autocomplete with Nvim LSP
   use 'hrsh7th/cmp-nvim-lua' -- Autocomplete for Nvim lua
   use 'jose-elias-alvarez/null-ls.nvim' -- More language tools
+  use 'ray-x/lsp_signature.nvim' -- for better python autocmplete
   use { -- Find everything
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { { 'nvim-lua/plenary.nvim' } },
@@ -14,4 +15,7 @@ require('packer').startup(function()
   use 'flazz/vim-colorschemes' -- All colorschemes at once
   use 'lewis6991/gitsigns.nvim' -- Hightlight git diffs by line
   use 'glepnir/lspsaga.nvim' -- pretty LSP UIs
+  use 'L3MON4D3/LuaSnip' -- auto expand using snippets
+  use 'saadparwaiz1/cmp_luasnip' -- use luaSnip in cmp
+  use 'rafamadriz/friendly-snippets' -- a lot of snippets
 end)

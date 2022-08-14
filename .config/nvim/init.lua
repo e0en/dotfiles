@@ -1,6 +1,4 @@
 require('plugin')
-require('lsp')
-require('keymap')
 require('filetype')
 require('statusline')
 

@@ -51,7 +51,6 @@ function update-all () {
     rustup update
     update_pkg
     cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
-    nvim -c ':PlugUpgrade | :PlugUpdate | qa!'
 }
 
 function cleanup_git {

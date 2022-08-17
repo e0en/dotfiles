@@ -18,4 +18,5 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- auto expand using snippets
   use 'saadparwaiz1/cmp_luasnip' -- use luaSnip in cmp
   use 'rafamadriz/friendly-snippets' -- a lot of snippets
+  use 'filipdutescu/renamer.nvim' -- rename like VS Code
 end)

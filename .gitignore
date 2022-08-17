@@ -5,7 +5,7 @@
 
 /.config/configstore/*
 /.config/direnv/allow/*
-/.config/coc/*
+/.config/nvim/plugin/packer_compiled.lua
 /.config/configstore/*
 /.config/tmuxinator/*
 /.config/evcxr/*

@@ -6,6 +6,7 @@ tap "homebrew/services"
 # neovim
 brew "llvm"
 brew "lua-language-server"
+brew "rust-analyzer"
 brew "rg"
 
 # build tools

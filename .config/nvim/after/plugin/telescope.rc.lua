@@ -64,5 +64,3 @@ end)
 vim.keymap.set('n', 'gt', function()
   builtin.lsp_type_definitions()
 end)
-
-

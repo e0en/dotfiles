@@ -15,14 +15,10 @@ vim.keymap.set('n', '<C-b>', function()
 end, opt)
 
 -- preview things
-vim.keymap.set("n", "gd", "<cmd>Lspsaga lsp_finder<CR>", opt)
 vim.keymap.set('n', 'gp', '<cmd>Lspsaga preview_definition<CR>', opt)
 vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opt)
 
 -- code manipulation
 local codeaction = require('lspsaga.codeaction')
 vim.keymap.set('n', '<leader>ca', codeaction.code_action, opt)
-vim.keymap.set('v', '<leader>ca', function()
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-U>', true, false, true))
-    codeaction.range_code_action()
-end, { silent = true })
+vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })

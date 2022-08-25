@@ -19,4 +19,9 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip' -- use luaSnip in cmp
   use 'rafamadriz/friendly-snippets' -- a lot of snippets
   use 'filipdutescu/renamer.nvim' -- rename like VS Code
+  use {
+    'nvim-treesitter/nvim-treesitter', -- parsers for a lot of languages
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+  use 'nvim-treesitter/nvim-treesitter-textobjects' -- manipulate code as text objects
 end)

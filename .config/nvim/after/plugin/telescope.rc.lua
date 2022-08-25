@@ -52,6 +52,14 @@ vim.keymap.set('n', '<leader>fs', function()
   builtin.lsp_dynamic_workspace_symbols()
 end)
 
+vim.keymap.set('n', '<leader>fr', function()
+  builtin.lsp_references()
+end)
+
+vim.keymap.set('n', '<leader>fi', function()
+  builtin.lsp_implementations()
+end)
+
 -- go to things
 vim.keymap.set('n', 'gd', function()
   builtin.lsp_definitions()

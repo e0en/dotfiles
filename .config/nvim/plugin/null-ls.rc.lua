@@ -10,6 +10,11 @@ null_ls.setup({
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.shellharden,
     null_ls.builtins.formatting.shfmt,
+    null_ls.builtins.diagnostics.pylint.with({
+      diagnostics_postprocess = function(diagnostic)
+        diagnostic.code = diagnostic.message_id
+      end,
+    }),
   },
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then

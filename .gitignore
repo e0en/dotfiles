@@ -12,6 +12,7 @@
 /.config/karabiner/automatic_backups/
 /.config/htop
 /.config/gtk-2.0
+/.config/gh
 
 # homebrew
 Brewfile.lock.json

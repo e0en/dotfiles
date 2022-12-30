@@ -9,7 +9,7 @@
 /.config/configstore/*
 /.config/tmuxinator/*
 /.config/evcxr/*
-/.config/karabiner/automatic_backups/
+/.config/karabiner/*
 /.config/htop
 /.config/gtk-2.0
 /.config/gh

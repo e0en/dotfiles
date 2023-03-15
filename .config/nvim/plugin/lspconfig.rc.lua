@@ -2,19 +2,25 @@ local status, lspconfig = pcall(require, "lspconfig")
 if (not status) then return end
 
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   settings = {
     Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
       diagnostics = {
+        -- Get the language server to recognize the 'vim' global
         globals = { 'vim' }
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false
       },
+      telemetry = {
+        enable = false,
+      }
     }
   },
   capabilities = capabilities,

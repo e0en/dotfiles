@@ -1,6 +1,7 @@
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
+  use 'nvim-tree/nvim-web-devicons' -- a colored icon set
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
   use 'hrsh7th/nvim-cmp' -- Enhanced autocompletion
   use 'hrsh7th/cmp-nvim-lsp' -- Autocomplete with Nvim LSP

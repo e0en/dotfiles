@@ -13,6 +13,7 @@
 /.config/htop
 /.config/gtk-2.0
 /.config/gh
+/.config/nvim/lua/.luarc.json
 
 # homebrew
 Brewfile.lock.json

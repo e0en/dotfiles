@@ -25,6 +25,16 @@ lspconfig.lua_ls.setup {
   },
   capabilities = capabilities,
 }
+lspconfig.openscad_ls.setup {
+  capabilities = capabilities,
+}
+lspconfig.arduino_language_server.setup {
+  cmd = {
+    "arduino-language-server",
+    "-cli-config", "$HOME/Library/Arduino15/arduino-cli.yaml"
+  },
+  capabilities = capabilities,
+}
 lspconfig.pyright.setup {
   capabilities = capabilities,
 }

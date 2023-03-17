@@ -83,6 +83,9 @@ fi
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 
+# golang
+export PATH="$HOME/go/bin:$PATH"
+
 # rust
 if [ -d "$HOME/.cargo" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"

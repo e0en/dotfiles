@@ -3,31 +3,38 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 
-# neovim
+# Neovim
 brew "llvm"
 brew "lua-language-server"
+brew "neovim"
 brew "rust-analyzer"
 brew "rg"
+brew "tree-sitter"
 
-# build tools
-brew "git"
+# Build tools
 brew "cmake"
+brew "git"
 brew "pkg-config"
 brew "poetry"
 
+# Programming tools
+brew "arduino-cli"
+brew "go"
+cask "visual-studio-code"
+cask "arduino"
+
 # CLI utils
 brew "watch"
-brew "neovim"
 brew "thefuck"
 brew "tmux"
 
 # GUI apps
 cask "1password"
 cask "blender"
+cask "caffeine"
 cask "dropbox"
 cask "firefox"
 cask "iterm2"
 cask "obsidian"
 cask "rectangle"
-cask "visual-studio-code"
 cask "karabiner-elements"

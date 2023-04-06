@@ -18,6 +18,7 @@ null_ls.setup({
         diagnostic.code = diagnostic.message_id
       end,
     }),
+    null_ls.builtins.formatting.clang_format,
   },
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then

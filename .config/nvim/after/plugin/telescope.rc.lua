@@ -24,6 +24,11 @@ telescope.setup {
         ["<C-p>"] = require('telescope.actions').cycle_history_prev,
       },
     }
+  },
+  pickers = {
+    colorscheme = {
+      enable_preview = true
+    }
   }
 }
 

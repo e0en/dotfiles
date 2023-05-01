@@ -13,6 +13,13 @@ require('packer').startup(function()
     requires = { { 'nvim-lua/plenary.nvim' } },
   }
   use 'nvim-tree/nvim-tree.lua' -- file tree on sidebar
+  use { -- show buffer list on top
+    'romgrk/barbar.nvim',
+    requires = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons',
+    }
+  }
   use 'folke/lsp-colors.nvim' -- Better highlighting for LSP
   use 'flazz/vim-colorschemes' -- All colorschemes at once
   use 'lewis6991/gitsigns.nvim' -- Hightlight git diffs by line

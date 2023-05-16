@@ -4,7 +4,7 @@ if (not status) then return end
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- fix warning: multiple different client offset_encodings
-capabilities.offsetEncoding = { "utf-16" },
+capabilities.offsetEncoding = { "utf-16" }
 
 lspconfig.lua_ls.setup {
   settings = {
@@ -53,6 +53,9 @@ lspconfig.jsonls.setup {
   capabilities = capabilities,
 }
 lspconfig.tsserver.setup {
+  capabilities = capabilities,
+}
+lspconfig.tailwindcss.setup {
   capabilities = capabilities,
 }
 

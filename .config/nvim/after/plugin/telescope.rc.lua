@@ -43,6 +43,9 @@ vim.keymap.set('n', '<leader>ff', function()
 end)
 vim.keymap.set('n', '<leader>fg', function()
   builtin.live_grep({
+    additional_args = function(opts)
+      return {"--hidden"}
+    end,
     file_ignore_patterns = { '.git' },
     cwd = FindRootDir(),
   })

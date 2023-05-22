@@ -14,7 +14,7 @@ require('packer').startup(function()
   use 'jose-elias-alvarez/null-ls.nvim'   -- More language tools
   use 'ray-x/lsp_signature.nvim'          -- for better python autocmplete
   use {                                   -- Find everything
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { { 'nvim-lua/plenary.nvim' } },
   }
   use 'nvim-tree/nvim-tree.lua' -- file tree on sidebar

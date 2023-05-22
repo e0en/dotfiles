@@ -25,9 +25,7 @@ require('packer').startup(function()
       'nvim-tree/nvim-web-devicons',
     }
   }
-  use 'folke/lsp-colors.nvim'          -- Better highlighting for LSP
   use 'flazz/vim-colorschemes'         -- All colorschemes at once
-  use 'morhetz/gruvbox'                -- gruvbox colorscheme
   use 'lewis6991/gitsigns.nvim'        -- Hightlight git diffs by line
   use 'glepnir/lspsaga.nvim'           -- pretty LSP UIs
   use 'L3MON4D3/LuaSnip'               -- auto expand using snippets

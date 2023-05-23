@@ -13,6 +13,7 @@
 /.config/htop
 /.config/gtk-2.0
 /.config/gh
+/.config/fontforge
 /.config/nvim/lua/.luarc.json
 
 # homebrew

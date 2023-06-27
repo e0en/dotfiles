@@ -5,6 +5,7 @@ require('packer').startup(function()
     "williamboman/mason.nvim",
     run = ":MasonUpdate"                  -- :MasonUpdate updates registry contents
   }
+  use "m4xshen/hardtime.nvim"             -- learn the keys!
   use "williamboman/mason-lspconfig.nvim" -- easier LSP management
   use 'nvim-tree/nvim-web-devicons'       -- a colored icon set
   use 'neovim/nvim-lspconfig'             -- Configurations for Nvim LSP

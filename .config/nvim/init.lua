@@ -22,7 +22,7 @@ vim.opt.incsearch = true
 -- line number
 vim.opt.number = true
 
- -- backups
+-- backups
 vim.opt.updatetime = 300 -- save every 300ms
 
 -- aesthetics

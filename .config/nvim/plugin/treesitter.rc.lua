@@ -1,6 +1,8 @@
+require('nvim-treesitter.install').prefer_git = true
 require('nvim-treesitter.configs').setup {
   -- A list of parser names, or 'all'
-  ensure_installed = { 'bash', 'c', 'cpp', 'css', 'gitignore', 'html', 'javascript', 'json', 'json5', 'lua', 'make', 'markdown', 'python', 'rust', 'sql', 'toml', 'tsx', 'typescript', 'vim', 'yaml' },
+  ensure_installed = { 'bash', 'c', 'cpp', 'css', 'gitignore', 'html', 'javascript', 'json', 'json5', 'lua', 'make',
+    'markdown', 'python', 'rust', 'sql', 'toml', 'tsx', 'typescript', 'vim', 'yaml' },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -38,7 +40,7 @@ require('nvim-treesitter.configs').setup {
       -- You can choose the select mode (default is charwise 'v')
       selection_modes = {
         ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
+        ['@function.outer'] = 'V',  -- linewise
         ['@class.outer'] = '<c-v>', -- blockwise
       },
       -- If you set this to `true` (default is `false`) then any textobject is

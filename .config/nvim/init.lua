@@ -27,7 +27,9 @@ vim.opt.updatetime = 300 -- save every 300ms
 vim.opt.termguicolors = true
 vim.opt.hlsearch = true
 vim.opt.cursorline = true
-vim.cmd('colorscheme base16-black-metal-venom')
+
+vim.cmd("set background=dark")
+vim.cmd("colorscheme everforest")
 require('gitsigns').setup()
 
 -- wrapped lines continue visually indented

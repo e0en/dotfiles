@@ -31,6 +31,7 @@ require("lazy").setup({
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
   "smallwat3r/vim-efficient",          -- monochrome + red accent
+  "kihachi2000/yash.nvim",             -- kinda muted bluish theme with LSP support
   "flazz/vim-colorschemes",            -- All colorschemes at once
   "lewis6991/gitsigns.nvim",           -- Hightlight git diffs by line
   "glepnir/lspsaga.nvim",              -- pretty LSP UIs

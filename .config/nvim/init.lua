@@ -28,7 +28,7 @@ vim.opt.updatetime = 300 -- save every 300ms
 vim.opt.termguicolors = true
 vim.opt.hlsearch = true
 vim.opt.cursorline = true
-vim.cmd('colorscheme efficient')
+vim.cmd('colorscheme yash')
 require('gitsigns').setup()
 
 -- wrapped lines continue visually indented

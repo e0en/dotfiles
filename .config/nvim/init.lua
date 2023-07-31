@@ -4,7 +4,6 @@ require('statusline')
 
 -- encoding
 vim.opt.encoding = 'utf-8'
-vim.opt.fileformat = 'unix'
 
 -- indentation
 vim.opt.shiftwidth = 2

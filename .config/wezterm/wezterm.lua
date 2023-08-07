@@ -26,9 +26,5 @@ return {
 
   -- color
   -- https://wezfurlong.org/wezterm/colorschemes/index.html
-  -- color_scheme = "Vacuous 2 (terminal.sexy)",
-  -- color_scheme = "VisiBone (terminal.sexy)",
-  color_scheme = "vulcan (base16)",
-  -- color_scheme = "SleepyHollow",
-  -- color_scheme = "Mashup Colors (terminal.sexy)",
+  color_scheme = "SleepyHollow",
 }

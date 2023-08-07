@@ -12,18 +12,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate"             -- :MasonUpdate updates registry contents
-  },
   "m4xshen/hardtime.nvim",             -- learn the keys!
-  "williamboman/mason-lspconfig.nvim", -- easier LSP management
   "nvim-tree/nvim-web-devicons",       -- a colored icon set
   "neovim/nvim-lspconfig",             -- Configurations for Nvim LSP
   "hrsh7th/nvim-cmp",                  -- Enhanced autocompletion
   "hrsh7th/cmp-nvim-lsp",              -- Autocomplete with Nvim LSP
   "hrsh7th/cmp-nvim-lua",              -- Autocomplete for Nvim lua
-  "jose-elias-alvarez/null-ls.nvim",   -- More language tools
   "ray-x/lsp_signature.nvim",          -- for better python autocmplete
   {                                    -- Find everything
     "nvim-telescope/telescope.nvim",

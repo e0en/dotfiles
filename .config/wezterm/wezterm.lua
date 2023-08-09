@@ -26,5 +26,5 @@ return {
 
   -- color
   -- https://wezfurlong.org/wezterm/colorschemes/index.html
-  color_scheme = "SleepyHollow",
+  color_scheme = "Deafened (terminal.sexy)",
 }

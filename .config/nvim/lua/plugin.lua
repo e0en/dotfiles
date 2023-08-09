@@ -27,6 +27,7 @@ require("lazy").setup({
   "smallwat3r/vim-efficient",          -- monochrome + red accent
   "kihachi2000/yash.nvim",             -- kinda muted bluish theme with LSP support
   "neanias/everforest-nvim",           -- greenish colorscheme
+  "xero/miasma.nvim",                  -- foggy woody colorscheme
   "flazz/vim-colorschemes",            -- All colorschemes at once
   "tinted-theming/base16-vim",         -- over 200 vim colorschemes, requires base16-shell
   "lewis6991/gitsigns.nvim",           -- Hightlight git diffs by line

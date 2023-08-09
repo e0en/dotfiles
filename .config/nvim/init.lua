@@ -29,7 +29,7 @@ vim.opt.hlsearch = true
 vim.opt.cursorline = true
 
 vim.cmd("set background=dark")
-vim.cmd("colorscheme everforest")
+vim.cmd("colorscheme miasma")
 require('gitsigns').setup()
 
 -- wrapped lines continue visually indented

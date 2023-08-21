@@ -1,0 +1,22 @@
+font:
+  normal:
+    family: Berkeley Mono
+    style: Regular
+
+  bold:
+    family: Berkeley Mono
+    style: Bold
+
+  italic:
+    family: Berkeley Mono
+    style: Italic
+
+  bold_italic:
+    family: Berkeley Mono
+    style: Bold Italic
+
+  size: 8
+
+import:
+  # https://github.com/alacritty/alacritty-theme
+  - ~/.config/alacritty/themes/themes/seashells.yaml

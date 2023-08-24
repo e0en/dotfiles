@@ -15,8 +15,11 @@ font:
     family: Berkeley Mono
     style: Bold Italic
 
-  size: 8
+  size: 10
 
 import:
   # https://github.com/alacritty/alacritty-theme
   - ~/.config/alacritty/themes/themes/seashells.yaml
+
+window:
+  decorations: buttonless

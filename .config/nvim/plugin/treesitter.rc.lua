@@ -1,7 +1,9 @@
 require('nvim-treesitter.install').prefer_git = true
 require('nvim-treesitter.configs').setup {
+  -- Fix tree-sitter-lua installation
+  prefer_git = true,
   -- A list of parser names, or 'all'
-  ensure_installed = { 'bash', 'c', 'cpp', 'css', 'gitignore', 'html', 'javascript', 'json', 'json5', 'lua', 'make',
+  ensure_installed = { 'bash', 'c', 'cpp', 'css', 'gitignore', 'html', 'javascript', 'json', 'json5', 'make',
     'markdown', 'python', 'rust', 'sql', 'toml', 'tsx', 'typescript', 'vim', 'yaml' },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

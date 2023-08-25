@@ -12,14 +12,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-  "m4xshen/hardtime.nvim",             -- learn the keys!
-  "nvim-tree/nvim-web-devicons",       -- a colored icon set
-  "neovim/nvim-lspconfig",             -- Configurations for Nvim LSP
-  "hrsh7th/nvim-cmp",                  -- Enhanced autocompletion
-  "hrsh7th/cmp-nvim-lsp",              -- Autocomplete with Nvim LSP
-  "hrsh7th/cmp-nvim-lua",              -- Autocomplete for Nvim lua
-  "ray-x/lsp_signature.nvim",          -- for better python autocmplete
-  {                                    -- Find everything
+  "m4xshen/hardtime.nvim",       -- learn the keys!
+  "nvim-tree/nvim-web-devicons", -- a colored icon set
+  "neovim/nvim-lspconfig",       -- Configurations for Nvim LSP
+  "hrsh7th/nvim-cmp",            -- Enhanced autocompletion
+  "hrsh7th/cmp-nvim-lsp",        -- Autocomplete with Nvim LSP
+  "hrsh7th/cmp-nvim-lua",        -- Autocomplete for Nvim lua
+  "ray-x/lsp_signature.nvim",    -- for better python autocmplete
+  {                              -- Find everything
     "nvim-telescope/telescope.nvim",
     tag = "0.1.1",
     dependencies = { { "nvim-lua/plenary.nvim" } },
@@ -36,9 +36,6 @@ require("lazy").setup({
   "saadparwaiz1/cmp_luasnip",          -- luaSnip in cmp
   "rafamadriz/friendly-snippets",      -- a lot of snippets
   "filipdutescu/renamer.nvim",         -- rename like VS Code
-  {
-    "nvim-treesitter/nvim-treesitter", -- parsers for a lot of languages
-    build = ":TSUpdate",
-  },
+  "nvim-treesitter/nvim-treesitter", -- parsers for a lot of languages
   "nvim-treesitter/nvim-treesitter-textobjects",
 })

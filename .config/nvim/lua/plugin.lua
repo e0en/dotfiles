@@ -38,4 +38,5 @@ require("lazy").setup({
   "filipdutescu/renamer.nvim",         -- rename like VS Code
   "nvim-treesitter/nvim-treesitter", -- parsers for a lot of languages
   "nvim-treesitter/nvim-treesitter-textobjects",
+  "mhartington/formatter.nvim",
 })

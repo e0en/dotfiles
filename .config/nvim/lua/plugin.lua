@@ -39,4 +39,5 @@ require("lazy").setup({
   "nvim-treesitter/nvim-treesitter", -- parsers for a lot of languages
   "nvim-treesitter/nvim-treesitter-textobjects",
   "mhartington/formatter.nvim",
+  "folke/trouble.nvim", -- better diagnostics
 })

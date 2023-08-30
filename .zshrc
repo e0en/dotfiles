@@ -123,3 +123,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
 alias ls='exa -Fgl --color=always'
 alias vim='nvim'
+alias ssh='TERM=xterm-256color ssh'

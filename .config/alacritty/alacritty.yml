@@ -19,7 +19,7 @@ font:
 
 import:
   # https://github.com/alacritty/alacritty-theme
-  - ~/.config/alacritty/themes/themes/seashells.yaml
+  - ~/.config/alacritty/themes/themes/everforest_dark.yaml
 
 window:
   decorations: buttonless

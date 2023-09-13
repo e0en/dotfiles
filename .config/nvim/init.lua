@@ -1,9 +1,9 @@
-require('plugin')
-require('filetype')
-require('statusline')
+require("plugin")
+require("filetype")
+require("statusline")
 
 -- encoding
-vim.opt.encoding = 'utf-8'
+vim.opt.encoding = "utf-8"
 
 -- indentation
 vim.opt.shiftwidth = 2
@@ -29,8 +29,8 @@ vim.opt.hlsearch = true
 vim.opt.cursorline = true
 
 vim.cmd("set background=dark")
-vim.cmd("colorscheme miasma")
-require('gitsigns').setup()
+vim.cmd("colorscheme everforest")
+require("gitsigns").setup()
 
 -- wrapped lines continue visually indented
 vim.opt.breakindent = true

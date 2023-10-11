@@ -21,7 +21,6 @@ require("lazy").setup({
   "ray-x/lsp_signature.nvim",    -- for better python autocmplete
   {                              -- Find everything
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
   "smallwat3r/vim-efficient",          -- monochrome + red accent

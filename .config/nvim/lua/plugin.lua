@@ -23,18 +23,15 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
-  "smallwat3r/vim-efficient",          -- monochrome + red accent
-  "kihachi2000/yash.nvim",             -- kinda muted bluish theme with LSP support
-  "neanias/everforest-nvim",           -- greenish colorscheme
-  "xero/miasma.nvim",                  -- foggy woody colorscheme
-  "flazz/vim-colorschemes",            -- All colorschemes at once
-  "tinted-theming/base16-vim",         -- over 200 vim colorschemes, requires base16-shell
-  "lewis6991/gitsigns.nvim",           -- Hightlight git diffs by line
-  "glepnir/lspsaga.nvim",              -- pretty LSP UIs
-  "L3MON4D3/LuaSnip",                  -- auto expand using snippets
-  "saadparwaiz1/cmp_luasnip",          -- luaSnip in cmp
-  "rafamadriz/friendly-snippets",      -- a lot of snippets
-  "filipdutescu/renamer.nvim",         -- rename like VS Code
+  "smallwat3r/vim-efficient",        -- monochrome + red accent
+  "neanias/everforest-nvim",         -- greenish colorscheme
+  "xero/miasma.nvim",                -- foggy woody colorscheme
+  "lewis6991/gitsigns.nvim",         -- Hightlight git diffs by line
+  "glepnir/lspsaga.nvim",            -- pretty LSP UIs
+  "L3MON4D3/LuaSnip",                -- auto expand using snippets
+  "saadparwaiz1/cmp_luasnip",        -- luaSnip in cmp
+  "rafamadriz/friendly-snippets",    -- a lot of snippets
+  "filipdutescu/renamer.nvim",       -- rename like VS Code
   "nvim-treesitter/nvim-treesitter", -- parsers for a lot of languages
   "nvim-treesitter/nvim-treesitter-textobjects",
   "mhartington/formatter.nvim",

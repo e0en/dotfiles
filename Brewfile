@@ -25,7 +25,6 @@ cask "arduino"
 
 # CLI utils
 brew "watch"
-brew "thefuck"
 brew "tmux"
 
 # GUI apps

@@ -36,4 +36,5 @@ require("lazy").setup({
   "nvim-treesitter/nvim-treesitter-textobjects",
   "mhartington/formatter.nvim",
   "folke/trouble.nvim", -- better diagnostics
+  "github/copilot.vim",
 })

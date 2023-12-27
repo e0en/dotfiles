@@ -3,30 +3,50 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 
-# Neovim
-brew "llvm"
+# language servers and linters
+brew "clang-format"
 brew "lua-language-server"
-brew "neovim"
+brew "prettier"
+brew "prettierd"
+brew "pyright"
 brew "rust-analyzer"
-brew "rg"
-brew "tree-sitter"
-brew "nnn"
+brew "stylua"
+brew "tailwindcss-language-server"
+brew "taplo"
+brew "typescript-language-server"
+brew "vscode-langservers-extracted"
+brew "yamlfmt"
 
 # Build tools
 brew "cmake"
 brew "git"
+brew "llvm"
 brew "pkg-config"
 brew "poetry"
 
-# Programming tools
+# version managers
+brew "fnm"
+brew "pyenv"
+
+# Programming languages
 brew "arduino-cli"
 brew "go"
-cask "visual-studio-code"
 cask "arduino"
 
 # CLI utils
-brew "watch"
+brew "btop"
+brew "curl"
+brew "graphviz"
+brew "httpie"
+brew "imagemagick"
+brew "jq"
+brew "neovim"
+brew "nnn"
+brew "rg"
 brew "tmux"
+brew "tree-sitter"
+brew "watch"
+brew "wget"
 
 # GUI apps
 cask "1password"
@@ -34,7 +54,7 @@ cask "blender"
 cask "caffeine"
 cask "dropbox"
 cask "firefox"
-cask "wezterm"
+cask "karabiner-elements"
 cask "obsidian"
 cask "rectangle"
-cask "karabiner-elements"
+cask "wezterm"

@@ -16,6 +16,7 @@
 /.config/gh
 /.config/fontforge
 /.config/nvim/lua/.luarc.json
+/.config/nnn/sessions/*
 
 # homebrew
 Brewfile.lock.json

@@ -119,8 +119,13 @@ source ~/.zsh-async/async.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# nnn preview
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_PLUG='1:ipinfo;p:preview-tui;o:fzz;b:nbak'
+
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
 alias ls='exa -Fgl --color=always'
 alias vim='nvim'
 alias ssh='TERM=xterm-256color ssh'
+alias nnn='nnn -a -H -Pp'

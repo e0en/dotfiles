@@ -37,4 +37,5 @@ require("lazy").setup({
   "mhartington/formatter.nvim",
   "folke/trouble.nvim", -- better diagnostics
   "github/copilot.vim",
+  "luukvbaal/nnn.nvim", -- file explorer, powered by nnn
 })

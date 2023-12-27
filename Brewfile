@@ -10,6 +10,7 @@ brew "neovim"
 brew "rust-analyzer"
 brew "rg"
 brew "tree-sitter"
+brew "nnn"
 
 # Build tools
 brew "cmake"

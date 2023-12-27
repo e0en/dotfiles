@@ -19,6 +19,7 @@ vim.opt.incsearch = true
 
 -- line number
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- backups
 vim.opt.updatetime = 300 -- save every 300ms

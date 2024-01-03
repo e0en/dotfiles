@@ -39,6 +39,7 @@ cask "arduino"
 # CLI utils
 brew "btop"
 brew "curl"
+brew "eza"
 brew "graphviz"
 brew "httpie"
 brew "imagemagick"

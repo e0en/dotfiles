@@ -125,7 +125,7 @@ export NNN_PLUG='1:ipinfo;p:preview-tui;o:fzz;b:nbak'
 
 # aliases
 alias gitlog='git log --oneline --date-order --graph --since="yesterday" --decorate'
-alias ls='exa -Fgl --color=always'
+alias ls='eza -Fgl --color=always'
 alias vim='nvim'
 alias ssh='TERM=xterm-256color ssh'
 alias nnn='nnn -a -H -Pp'

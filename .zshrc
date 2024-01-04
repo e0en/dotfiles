@@ -11,13 +11,6 @@ else
     exit 1
 fi
 
-is_ec2=false
-LOCAL_HOSTNAME=$(hostname -f)
-if [[ ${LOCAL_HOSTNAME} =~ .*\.compute\.internal ]]; then
-    is_ec2=true
-fi
-
-
 # basic path settings
 if [[ $platform == 'linux' ]]; then
     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
@@ -101,7 +94,6 @@ export PATH="./node_modules/.bin:$PATH"
 eval "$(fnm env)"
 
 export EDITOR="nvim"
-export DISPLAY='' # nullify DISPLAY to disable xquartz
 
 # thefuck
 if whence -cp thefuck &> /dev/null; then

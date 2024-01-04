@@ -121,3 +121,6 @@ alias ls='eza -Fgl --color=always'
 alias vim='nvim'
 alias ssh='TERM=xterm-256color ssh'
 alias nnn='nnn -a -H -Pp'
+
+alias pbcopy="xsel --clipboard --input"
+alias pbpbaste="xsel --clipboard --output"

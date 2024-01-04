@@ -3,21 +3,16 @@
 *.pyc
 **/__pycache__/
 
-/.config/configstore/*
-/.config/direnv/allow/*
-/.config/github-copilot/*
+/.config/
+!/.config/alacritty
+!/.config/git
+!/.config/nnn
+!/.config/nvim
+!/.config/sway
+!/.config/wezterm
 /.config/nvim/lazy-lock.json
-/.config/configstore/*
-/.config/tmuxinator/*
-/.config/evcxr/*
-/.config/karabiner/*
-/.config/htop
-/.config/gtk-2.0
-/.config/gh
-/.config/fontforge
 /.config/nvim/lua/.luarc.json
 /.config/nnn/sessions/*
-/.config/btop
 
 # homebrew
 Brewfile.lock.json

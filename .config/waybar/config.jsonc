@@ -1,0 +1,85 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 4,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["custom/gpu", "cpu", "memory", "disk", "pulseaudio", "network", "temperature", "clock"],
+
+  "cpu": {
+    "format": "CPU {usage}%",
+    "tooltip": true,
+    "interval": 1,
+    "on-click": "alacritty -e htop",
+  },
+  "memory": {
+    "format": "RAM {percentage}%",
+    "tooltip-format": "{used}GiB/{total}GiB RAM",
+    "interval": 1,
+    "on-click": "alacritty -e htop",
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "{path} {free}",
+    "path": "/"
+  },
+
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    },
+  },
+
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  },
+
+  "custom/gpu": {
+    "format": "GPU {}",
+    "exec-if": "nvidia-smi",
+    "exec": "$HOME/.config/waybar/scripts/gpu-usage-waybar",
+    "return-type": "json",
+    "on-click": "alacritty -e nvtop",
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "urgent": "",
+      "focused": "",
+      "active": "",
+      "default": ""
+    },
+    "on-click": "activate"
+  },
+}

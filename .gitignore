@@ -5,6 +5,7 @@
 
 /.config/
 !/.config/alacritty
+!/.config/dconf
 !/.config/git
 !/.config/nnn
 !/.config/nvim

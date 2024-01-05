@@ -67,6 +67,7 @@ sudo pacman -Syu --needed \
 
 paru 1password
 paru dropbox
+paru openrgb
 
 cargo install fnm
 fnm install ${NODE_VERSION}

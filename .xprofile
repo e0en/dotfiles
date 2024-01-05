@@ -6,3 +6,4 @@ USRRESOURCES=$HOME/.Xresources
 setxkbmap -option ctrl:nocaps
 
 fcitx5 &
+/usr/bin/dropbox &

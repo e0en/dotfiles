@@ -95,5 +95,5 @@ smart_borders on
 for_window [class="1Password"] floating enable
 assign [class="PrusaSlicer"] $ws2
 assign [class="FreeCAD"] $ws2
-
+assign [class="Arduino IDE"] $ws3
 assign [class="steam"] $ws5

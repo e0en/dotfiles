@@ -32,7 +32,6 @@ sudo pacman -Syu --needed \
   btop \
   clang \
   cmake \
-  cuda \
   curl \
   eza \
   ffmpeg \
@@ -68,6 +67,13 @@ sudo pacman -Syu --needed \
 paru 1password
 paru dropbox
 paru openrgb
+
+# machine learning
+sudo pacman -Syu --needed \
+  cuda \
+  opencv-cuda
+
+paru python-jax
 
 cargo install fnm
 fnm install ${NODE_VERSION}

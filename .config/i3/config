@@ -1,0 +1,4 @@
+font pango:Berkely Mono 10
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+r restart

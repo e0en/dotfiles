@@ -4,13 +4,11 @@
 **/__pycache__/
 
 /.config/
-!/.config/alacritty
 !/.config/dconf
 !/.config/git
-!/.config/hypr
+!/.config/i3
 !/.config/nnn
 !/.config/nvim
-!/.config/waybar
 !/.config/wezterm
 /.config/nvim/lazy-lock.json
 /.config/nvim/lua/.luarc.json

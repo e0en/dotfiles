@@ -14,12 +14,19 @@ fi
 # basic path settings
 if [[ $platform == 'linux' ]]; then
     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+    dist=`lsb_release -si`
 
-    function update_pkg () {
-        sudo apt -yy update
-        sudo apt -yy upgrade
-        sudo apt -yy autoremove
-    }
+    if [[ $dist == "Arch" ]]; then
+      function update_pkg () {
+        sudo paru -Syu
+      }
+    else
+      function update_pkg () {
+          sudo apt -yy update
+          sudo apt -yy upgrade
+          sudo apt -yy autoremove
+      }
+    fi
 elif [[ $platform == "macos" ]]; then
     function update_pkg () {
         brew update

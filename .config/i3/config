@@ -10,7 +10,7 @@ set $left j
 set $right semicolon
 
 bindsym $mod+Return exec wezterm
-bindsym $mod+r exec "rofi -modi drun,run -show drun"
+bindsym $mod+r exec "rofi -show combi"
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+q kill

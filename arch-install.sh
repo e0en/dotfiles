@@ -27,8 +27,6 @@ sudo pacman -Syu --needed \
 
 # applications
 sudo pacman -Syu --needed \
-  1password \
-  1password-cli \
   blender \
   btop \
   clang \
@@ -65,6 +63,9 @@ sudo pacman -Syu --needed \
   wezterm \
   wget \
   yamlfmt
+
+paru 1password
+paru dropbox
 
 cargo install fnm
 fnm install ${NODE_VERSION}

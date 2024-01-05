@@ -23,6 +23,7 @@ sudo pacman -Syu --needed \
 # hangul
 sudo pacman -Syu --needed \
   fcitx5-hangul \
+  fcitx5-im \
   noto-fonts-cjk
 
 # applications

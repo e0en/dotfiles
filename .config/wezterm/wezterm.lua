@@ -1,5 +1,7 @@
 local wezterm = require("wezterm")
 
+local config = {}
+
 if wezterm.target_triple == "aarch64-apple-darwin" then
   config = {
     -- window appearance
@@ -34,7 +36,10 @@ end
 
 -- https://wezfurlong.org/wezterm/colorschemes/index.html
 config.color_scheme = "ayu"
-config.font = wezterm.font("Berkeley Mono", { weight = "Regular", stretch = "Normal", style = "Normal" })
+config.font = wezterm.font_with_fallback({
+  { family = "Berkeley Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
+  { family = "D2Coding",      weight = "Regular", stretch = "Normal", style = "Normal" },
+})
 config.unicode_version = 1
 
 return config

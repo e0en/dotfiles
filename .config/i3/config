@@ -1,4 +1,6 @@
-font pango:Berkely Mono 10
+font pango:Berkely Mono 8
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 set $mod Mod4
 
@@ -9,7 +11,9 @@ set $right semicolon
 
 bindsym $mod+Return exec wezterm
 bindsym $mod+r exec "rofi -modi drun,run -show drun"
+
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+q kill
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -86,11 +90,6 @@ smart_gaps on
 default_border pixel 5
 hide_edge_borders smart
 smart_borders on
-
-bar {
-  position top
-  status_command i3status
-}
 
 # application-specific settings
 for_window [class="1Password"] floating enable

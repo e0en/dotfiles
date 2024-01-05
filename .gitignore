@@ -9,6 +9,7 @@
 !/.config/i3
 !/.config/nnn
 !/.config/nvim
+!/.config/polybar
 !/.config/wezterm
 /.config/nvim/lazy-lock.json
 /.config/nvim/lua/.luarc.json

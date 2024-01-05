@@ -20,6 +20,10 @@ sudo pacman -Syu --needed \
   xorg-server \
   xorg-xinit
 
+# nvidia!
+sudo pacman -Syu --needed \
+  libva-nvidia-driver
+
 # hangul
 sudo pacman -Syu --needed \
   fcitx5-hangul \

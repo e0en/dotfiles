@@ -2,6 +2,11 @@ GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 
+MOZ_DISABLE_RDD_SANDBOX=1
+LIBVA_DRIVER_NAME=nvidia
+__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
+LIBVA_MESSAGING_LEVEL=1
+
 USRRESOURCES=$HOME/.Xresources
 setxkbmap -option ctrl:nocaps
 

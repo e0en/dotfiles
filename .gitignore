@@ -3,7 +3,7 @@
 *.pyc
 **/__pycache__/
 
-/.config/
+/.config/*
 !/.config/dconf
 !/.config/git
 !/.config/i3

@@ -1,0 +1,10 @@
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun ];
+}
+
+@theme "DarkBlue"
+
+window {
+  font: "Berkeley Mono 16";
+}

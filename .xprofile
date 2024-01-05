@@ -1,0 +1,2 @@
+USRRESOURCES=$HOME/.Xresources
+setxkbmap -option ctrl:nocaps

@@ -97,3 +97,6 @@ assign [class="PrusaSlicer"] $ws2
 assign [class="FreeCAD"] $ws2
 assign [class="Arduino IDE"] $ws3
 assign [class="steam"] $ws5
+
+# go to newly opened window's workspace
+for_window [urgent=latest] focus

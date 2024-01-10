@@ -12,3 +12,4 @@ setxkbmap -option ctrl:nocaps
 
 fcitx5 &
 /usr/bin/dropbox &
+1password &

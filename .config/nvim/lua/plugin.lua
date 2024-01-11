@@ -35,8 +35,16 @@ require("lazy").setup({
   "nvim-treesitter/nvim-treesitter", -- parsers for a lot of languages
   "nvim-treesitter/nvim-treesitter-textobjects",
   "mhartington/formatter.nvim",
-  "folke/trouble.nvim", -- better diagnostics
+  "folke/trouble.nvim",     -- better diagnostics
   "github/copilot.vim",
-  "luukvbaal/nnn.nvim", -- file explorer, powered by nnn
-  "normen/vim-pio",     -- platformIO
+  "luukvbaal/nnn.nvim",     -- file explorer, powered by nnn
+  "normen/vim-pio",         -- platformIO
+  {
+    "folke/which-key.nvim", -- show key mappings
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+  },
 })

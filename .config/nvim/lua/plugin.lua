@@ -38,4 +38,5 @@ require("lazy").setup({
   "folke/trouble.nvim", -- better diagnostics
   "github/copilot.vim",
   "luukvbaal/nnn.nvim", -- file explorer, powered by nnn
+  "normen/vim-pio",     -- platformIO
 })

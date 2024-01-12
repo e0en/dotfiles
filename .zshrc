@@ -11,6 +11,13 @@ else
     exit 1
 fi
 
+
+if [ ! -d "$HOME/.zim" ]; then
+    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+else
+    source $HOME/dotfiles/.zim-zshrc
+fi
+
 # basic path settings
 if [[ $platform == 'linux' ]]; then
     export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
@@ -59,6 +66,32 @@ function cleanup_git {
     git branch -vv | grep -v "\]" | awk '{print $1}' | xargs git branch -D
 }
 
+
+function kitty-theme {
+  THEME_FILE="$HOME/.kitty-themes/themes/$1"
+
+  # Check if the theme file exists
+  if [ ! -f "$THEME_FILE" ]; then
+      echo "Theme file does not exist: $THEME_FILE"
+      return 1
+  fi
+  ln -s -f "$THEME_FILE" "$HOME/.config/kitty/theme.conf"
+  kitty @ set-colors -a -c "$THEME_FILE"
+}
+
+# Load compinit if not already loaded
+if (( ! ${+functions[compdef]} && ! ${+functions[compadd]} )); then
+  autoload -Uz compinit
+  compinit
+fi
+
+function _complete_kitty_theme {
+  local -a theme_files
+  theme_files=(${(f)"$(find $HOME/.kitty-themes/themes/*.conf -exec basename {} \;)"})
+  _describe 'theme file' theme_files
+}
+compdef _complete_kitty_theme kitty-theme
+
 zmodload zsh/zprof
 
 if [[ $platform == "macos" ]]; then
@@ -77,11 +110,6 @@ export LC_ALL="en_US.UTF-8"
 # https://unix.stackexchange.com/questions/598440/zsh-indic-fonts-support-rendering-issue-which-is-working-fine-on-bash
 setopt COMBINING_CHARS
 
-if [ ! -d "$HOME/.zim" ]; then
-    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-else
-    source $HOME/dotfiles/.zim-zshrc
-fi
 
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"

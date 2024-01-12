@@ -7,15 +7,16 @@
 !/.config/dconf
 !/.config/git
 !/.config/i3
+!/.config/kitty
 !/.config/nnn
 !/.config/nvim
 !/.config/picom
 !/.config/polybar
 !/.config/rofi
-!/.config/wezterm
 /.config/nvim/lazy-lock.json
 /.config/nvim/lua/.luarc.json
 /.config/nnn/sessions/*
+/.config/kitty/theme.conf
 
 # homebrew
 Brewfile.lock.json

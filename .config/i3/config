@@ -10,7 +10,7 @@ set $down k
 set $left j
 set $right semicolon
 
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec kitty
 bindsym $mod+r exec "rofi -show combi"
 
 bindsym $mod+f fullscreen toggle

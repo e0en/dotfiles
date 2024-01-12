@@ -86,3 +86,6 @@ fnm default ${NODE_VERSION}
 
 npm install -g @fsouza/prettierd
 npm install -g @tailwindcss/language-server
+
+git clone https://github.com/dexpota/kitty-themes
+mv kitty-themes .kitty-themes

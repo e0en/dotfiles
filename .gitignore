@@ -9,6 +9,7 @@
 !/.config/i3
 !/.config/nnn
 !/.config/nvim
+!/.config/picom
 !/.config/polybar
 !/.config/rofi
 !/.config/wezterm

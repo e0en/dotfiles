@@ -106,9 +106,9 @@ smart_borders on
 # - split_indicator: window border at the split direction
 # - child border: window borders around the window (except the split direction)
 
-client.focused          #00000000 #00000000 #00000000 #0000FFFF #0000FF80
-client.focused_inactive #00000000 #00000000 #00000000 #0000FF80 #0000FF40
-client.unfocused        #00000000 #00000000 #00000000 #FF000088 #0000FF88
+client.focused          #00000000 #00000000 #00000000 #FFFFFFFF #FFFFFF80
+client.focused_inactive #00000000 #00000000 #00000000 #FFFFFF80 #FFFFFF00
+client.unfocused        #00000000 #00000000 #00000000 #FFFFFF00 #FFFFFF00
 client.urgent           #00000000 #00000000 #00000000 #FF0000FF #FF0000FF
 client.background       #00000000
 

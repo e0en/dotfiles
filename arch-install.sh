@@ -124,6 +124,9 @@ pacman -Syu --needed \
   ttf-nerd-fonts-symbols
 
 paru openrgb
+sudo cp $HOME/dotfiles/systemd/openrgb.conf
+sudo systemctl enable openrgb
+sudo systemctl start openrgb
 
 git clone https://github.com/dexpota/kitty-themes
 mv kitty-themes $HOME/.kitty-themes

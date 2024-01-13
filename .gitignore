@@ -4,7 +4,6 @@
 **/__pycache__/
 
 /.config/*
-!/.config/dconf
 !/.config/git
 !/.config/i3
 !/.config/kitty

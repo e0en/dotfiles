@@ -2,10 +2,15 @@ GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 
+# see https://github.com/elFarto/nvidia-vaapi-driver
 MOZ_DISABLE_RDD_SANDBOX=1
 LIBVA_DRIVER_NAME=nvidia
 __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
 LIBVA_MESSAGING_LEVEL=1
+
+# see https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuring_VA-API
+LIBVA_DRIVER_NAME=nvidia
+VDPAU_DRIVER=nvidia
 
 USRRESOURCES=$HOME/.Xresources
 setxkbmap -option ctrl:nocaps

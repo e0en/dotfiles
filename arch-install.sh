@@ -1,28 +1,57 @@
 #!/bin/bash
 NODE_VERSION="v21.5.0"
 
-# system utilities
+# very basic packages
 sudo pacman -Syu --needed \
+  base-devel \
   git \
   vim \
   openssh \
   zsh
 
-# GUI
+# paru to use AUR packages
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
+# programming languages
+sudo pacman -Syu --needed \
+  clang \
+  cmake \
+  llvm \
+  pyenv \
+  python-poetry \
+  rust-analyzer \
+  rustup
+
+cargo install fnm
+fnm install ${NODE_VERSION}
+fnm use ${NODE_VERSION}
+fnm default ${NODE_VERSION}
+
+# GUI essentials
 sudo pacman -Syu --needed \
   i3-wm \
-  i3lock \
   ly \
-  polybar \
-  rofi \
   xdg-utils \
   xorg-apps \
   xorg-server \
   xorg-xinit
 
+# sound and bluetooth
+sudo pacman -Syu --needed \
+  bluez \
+  bluez-utils \
+  pipewire-pulse
+
+sudo systemctl bluetooth
+
 # nvidia!
 sudo pacman -Syu --needed \
-  libva-nvidia-driver
+  libva-nvidia-driver \
+  nvidia \
+  nvidia-prime \
+  nvtop
 
 # hangul
 sudo pacman -Syu --needed \
@@ -32,60 +61,70 @@ sudo pacman -Syu --needed \
 
 # applications
 sudo pacman -Syu --needed \
-  blender \
   btop \
-  clang \
-  cmake \
   curl \
   eza \
   ffmpeg \
   firefox \
-  freecad \
-  go \
   graphviz \
   httpie \
   imagemagick \
   jq \
+  kitty \
   less \
-  llvm \
-  lua-language-server \
+  lsb-release \
   neovim \
   nnn \
-  poetry \
-  prettier \
-  prusa-slicer \
-  pyenv \
   ripgrep \
   rq \
-  shellharden \
-  shfmt \
-  stylua \
-  taplo \
   tmux \
-  typescript-language-server \
   unzip \
-  wezterm \
-  wget \
-  yamlfmt
-
+  wget
 paru 1password
 paru dropbox
-paru openrgb
+paru rustdesk
+sudo systemctl enable rustdesk
+
+# make
+sudo pacman -Syu --needed \
+  blender \
+  freecad \
+  platformio-core \
+  platformio-core-udev \
+  prusa-slicer
 
 # machine learning
 sudo pacman -Syu --needed \
   cuda \
   opencv-cuda
-
 paru python-jax
 
-cargo install fnm
-fnm install ${NODE_VERSION}
-fnm use ${NODE_VERSION}
-fnm default ${NODE_VERSION}
+# language servers, formatters
+sudo pacman -Syu --needed \
+  lua-language-server \
+  prettier \
+  shellharden \
+  shfmt \
+  stylua \
+  taplo-cli \
+  typescript-language-server \
+  vscode-json-languageserver \
+  yamlfmt
 
 npm install -g @fsouza/prettierd
 npm install -g @tailwindcss/language-server
 
+# theming & looks
+pacman -Syu --needed \
+  feh \
+  i3lock \
+  picom \
+  polybar \
+  rofi \
+  ttf-nerd-fonts-symbols
+
+paru openrgb
+
 git clone https://github.com/dexpota/kitty-themes
-mv kitty-themes .kitty-themes
+mv kitty-themes $HOME/.kitty-themes
+ln -s $HOME/.kitty-themes/themes/FunForrest.conf

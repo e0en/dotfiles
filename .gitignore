@@ -7,6 +7,7 @@
 !/.config/git
 !/.config/i3
 !/.config/kitty
+!/.config/newsboat
 !/.config/nnn
 !/.config/nvim
 !/.config/picom

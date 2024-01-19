@@ -76,6 +76,7 @@ sudo pacman -Syu --needed \
 	neovim \
 	nnn \
 	newsboat \
+	obsidian \
 	ripgrep \
 	rq \
 	tmux \

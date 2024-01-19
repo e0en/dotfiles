@@ -90,7 +90,7 @@ bindsym $mod+s layout default
 # looks
 gaps inner 10
 gaps outer 0
-smart_gaps inverse_outer
+smart_gaps on
 
 default_border pixel 5
 hide_edge_borders smart

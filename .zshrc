@@ -25,7 +25,7 @@ if [[ $platform == 'linux' ]]; then
 
     if [[ $dist == "Arch" ]]; then
       function update_pkg () {
-        sudo paru -Syu
+        paru -Syu
       }
     else
       function update_pkg () {

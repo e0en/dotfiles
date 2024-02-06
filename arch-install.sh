@@ -31,12 +31,8 @@ fnm default ${NODE_VERSION}
 
 # GUI essentials
 sudo pacman -Syu --needed \
-	i3-wm \
 	ly \
-	xdg-utils \
-	xorg-apps \
-	xorg-server \
-	xorg-xinit
+	gnome
 
 # sound and bluetooth
 sudo pacman -Syu --needed \
@@ -55,8 +51,6 @@ sudo pacman -Syu --needed \
 
 # hangul
 sudo pacman -Syu --needed \
-	fcitx5-hangul \
-	fcitx5-im \
 	noto-fonts-cjk
 
 # applications
@@ -118,11 +112,6 @@ npm install -g @tailwindcss/language-server
 
 # theming & looks
 pacman -Syu --needed \
-	feh \
-	i3lock \
-	picom \
-	polybar \
-	rofi \
 	ttf-nerd-fonts-symbols
 
 paru openrgb

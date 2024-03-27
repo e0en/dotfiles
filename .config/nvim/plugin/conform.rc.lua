@@ -29,3 +29,7 @@ require("conform").setup({
     lsp_fallback = true,
   },
 })
+
+require("conform").formatters.shfmt = {
+  args = { "-s", "-i", "4" },
+}

@@ -10,7 +10,7 @@ require("conform").setup({
     json = { "prettierd" },
     lua = { "stylua" },
     markdown = { "prettierd" },
-    python = { "black" },
+    python = { "ruff_format" },
     rust = { "rustfmt" },
     sh = { "shfmt" },
     sql = { "sqlfluff" },

@@ -1,3 +1,7 @@
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+
 # see https://github.com/elFarto/nvidia-vaapi-driver
 MOZ_DISABLE_RDD_SANDBOX=1
 LIBVA_DRIVER_NAME=nvidia
@@ -13,3 +17,7 @@ VDPAU_DRIVER=nvidia
 
 USRRESOURCES=$HOME/.Xresources
 setxkbmap -option ctrl:nocaps
+
+fcitx5 &
+/usr/bin/dropbox &
+1password &

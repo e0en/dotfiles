@@ -17,6 +17,7 @@
 /.config/nvim/lua/.luarc.json
 /.config/nnn/sessions/*
 /.config/kitty/theme.conf
+/.config/i3/config
 
 # homebrew
 Brewfile.lock.json

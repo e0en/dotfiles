@@ -21,7 +21,7 @@ interval=10
 
 [time]
 label= 
-command=date '+%d/%m/%Y %H:%M'
+command=date '+%Y-%m-%d %H:%M'
 interval=1
 
 [battery]

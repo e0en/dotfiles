@@ -1,0 +1,30 @@
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[weather]
+command=curl -Ss 'https://wttr.in/Seoul?format=3' | xargs echo
+interval=3600
+color=#A4C2F4
+
+[volume]
+label=VOL
+label=♪
+instance=Master
+instance=PCM
+interval=once
+signal=10
+
+[bluetooth]
+label=
+interval=10
+
+[time]
+label= 
+command=date '+%d/%m/%Y %H:%M'
+interval=1
+
+[battery]
+command=~/.config/i3/scripts/rpibat.sh 
+interval=10
+

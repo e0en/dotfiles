@@ -6,6 +6,7 @@
 /.config/*
 !/.config/git
 !/.config/i3
+!/.config/i3blocks
 !/.config/kitty
 !/.config/newsboat
 !/.config/nnn

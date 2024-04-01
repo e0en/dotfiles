@@ -1,4 +1,5 @@
-command=/usr/share/i3blocks/$BLOCK_NAME
+# command=/usr/share/i3blocks/$BLOCK_NAME
+command=~/.local/libexec/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -7,24 +8,36 @@ command=curl -Ss 'https://wttr.in/Seoul?format=3' | xargs echo
 interval=3600
 color=#A4C2F4
 
-[volume]
-label=VOL
-label=♪
-instance=Master
-instance=PCM
+[volume-pipewire]
 interval=once
-signal=10
+signal=1
+#USE_ALSA_NAME=1
 
 [bluetooth]
 label=
 interval=10
 
-[time]
-label= 
-command=date '+%Y-%m-%d %H:%M'
-interval=1
+[iface]
+#IFACE=wlan0
+color=#00FF00
+interval=10
+separator=false
+
+[wifi]
+#INTERFACE=wlp3s0
+label=wifi:
+interval=10
+separator=false
+
+[bandwidth]
+#INTERFACE=eth0
+interval=5
 
 [battery]
-command=~/.config/i3/scripts/rpibat.sh 
+command=~/.config/i3/scripts/rpibat.sh
 interval=10
 
+[time]
+label=
+command=date '+%Y-%m-%d %H:%M'
+interval=1

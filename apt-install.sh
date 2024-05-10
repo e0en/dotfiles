@@ -59,13 +59,13 @@ sudo apt install -y \
     httpie \
     imagemagick \
     jq \
+    kitty \
     less \
     lsb-release \
     neovim \
     newsboat \
     ripgrep \
     rq \
-    rxvt-unicode-256color \
     tmux \
     unzip \
     wget
@@ -95,3 +95,7 @@ sudo apt install -y \
     picom
 
 # ttf-nerd-fonts-symbols
+
+git clone https://github.com/dexpota/kitty-themes
+mv kitty-themes $HOME/.kitty-themes
+ln -s $HOME/.kitty-themes/themes/FunForrest.conf

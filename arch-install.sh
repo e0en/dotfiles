@@ -78,10 +78,9 @@ sudo pacman -Syu --needed \
     obsidian \
     ripgrep \
     rq \
-    rxvt-unicode \
     tmux \
     unzip \
-    urxvt-perls \
+    kitty \
     wget
 paru 1password
 paru dropbox
@@ -129,3 +128,7 @@ paru openrgb
 sudo cp $HOME/dotfiles/systemd/openrgb.conf
 sudo systemctl enable openrgb
 sudo systemctl start openrgb
+
+git clone https://github.com/dexpota/kitty-themes
+mv kitty-themes $HOME/.kitty-themes
+ln -s $HOME/.kitty-themes/themes/FunForrest.conf

@@ -19,6 +19,8 @@ sudo pacman -Syu --needed \
     clang \
     cmake \
     llvm \
+    platformio-core \
+    platformio-core-udev \
     pyenv \
     python-poetry \
     rust-analyzer \

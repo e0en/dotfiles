@@ -23,6 +23,8 @@ sudo pacman -Syu --needed \
     python-poetry \
     rust-analyzer \
     rustup
+paru -Syu esp-idf
+/opt/esp-idf/install.sh
 
 cargo install fnm
 fnm install ${NODE_VERSION}

@@ -159,3 +159,7 @@ alias nnn='nnn -a -H -Pp'
 
 alias pbcopy="xsel --clipboard --input"
 alias pbpbaste="xsel --clipboard --output"
+
+if [ -f "/opt/esp-idf/export.sh" ]; then
+  source /opt/esp-idf/export.sh
+fi

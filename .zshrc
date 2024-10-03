@@ -11,6 +11,9 @@ else
     exit 1
 fi
 
+if [ ! -f $HOME/.profile ]; then
+    source $HOME/.profie
+fi
 
 if [ ! -d "$HOME/.zim" ]; then
     curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh

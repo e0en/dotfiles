@@ -1,6 +1,4 @@
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
+source $HOME/.profile
 
 # see https://github.com/elFarto/nvidia-vaapi-driver
 MOZ_DISABLE_RDD_SANDBOX=1

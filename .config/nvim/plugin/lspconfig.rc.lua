@@ -73,6 +73,9 @@ lspconfig.ts_ls.setup({
 lspconfig.tailwindcss.setup({
   capabilities = capabilities,
 })
+lspconfig.wgsl_analyzer.setup({
+  capabilities = capabilities,
+})
 
 vim.diagnostic.config({
   update_in_insert = true,

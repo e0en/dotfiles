@@ -60,3 +60,6 @@ if [ ! -f $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
 fi
 
 npm i -g vscode-langservers-extracted
+
+# wgpu
+cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgsl_analyzer

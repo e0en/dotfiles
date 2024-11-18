@@ -63,6 +63,16 @@ function update-all () {
     cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
 }
 
+function install-esp-idf () {
+    readonly port=${1:?"The version must be specified. https://github.com/espressif/esp-idf/tags"}
+    rm -rf $HOME/esp
+    mkdir -p $HOME/esp
+    cd $HOME/esp
+    git clone -b $1 --recursive https://github.com/espressif/esp-idf.git
+    cd $HOME/esp/esp-idf
+    ./install.sh all
+}
+
 function cleanup_git {
     git remote prune origin
     git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
@@ -145,7 +155,6 @@ if [ ! -d ~/.zsh-async ]; then
     git clone git@github.com:mafredri/zsh-async.git ~/.zsh-async
 fi
 source ~/.zsh-async/async.zsh
-
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

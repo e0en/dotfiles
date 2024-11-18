@@ -38,7 +38,7 @@ if [ ! -d "$HOME/.cargo" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 cargo install difftastic
-cargo install exa
+cargo install eza
 cargo install fnm
 
 

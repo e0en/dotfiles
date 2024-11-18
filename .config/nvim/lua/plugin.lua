@@ -43,9 +43,6 @@ require("lazy").setup({
   {
     "folke/which-key.nvim",         -- show key mappings
     event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
+    opts = {},
   },
 })

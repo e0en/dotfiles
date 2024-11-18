@@ -44,7 +44,7 @@ lspconfig.arduino_language_server.setup({
 lspconfig.pyright.setup({
   capabilities = capabilities,
 })
-lspconfig.ruff_lsp.setup({
+lspconfig.ruff.setup({
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     -- Disable hover in favor of Pyright
@@ -67,7 +67,7 @@ lspconfig.rust_analyzer.setup({
 lspconfig.jsonls.setup({
   capabilities = capabilities,
 })
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   capabilities = capabilities,
 })
 lspconfig.tailwindcss.setup({

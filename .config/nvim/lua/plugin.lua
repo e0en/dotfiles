@@ -23,9 +23,21 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
-  "smallwat3r/vim-efficient",       -- monochrome + red accent
-  "neanias/everforest-nvim",        -- greenish colorscheme
-  "xero/miasma.nvim",               -- foggy woody colorscheme
+  {
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+  },
+  "smallwat3r/vim-efficient", -- monochrome + red accent
+  "neanias/everforest-nvim", -- greenish colorscheme
+  "xero/miasma.nvim",        -- foggy woody colorscheme
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    lazy = false,
+  },
+  "AlexvZyl/nordic.nvim",
+  "NLKNguyen/papercolor-theme",
   "lewis6991/gitsigns.nvim",        -- Hightlight git diffs by line
   "glepnir/lspsaga.nvim",           -- pretty LSP UIs
   "L3MON4D3/LuaSnip",               -- auto expand using snippets

@@ -29,8 +29,8 @@ vim.opt.termguicolors = true
 vim.opt.hlsearch = true
 vim.opt.cursorline = true
 
-vim.cmd("set background=dark")
-vim.cmd("colorscheme everforest")
+vim.o.background = "light"
+vim.cmd.colorscheme = "PaperColor"
 require("gitsigns").setup()
 
 -- wrapped lines continue visually indented

@@ -41,10 +41,10 @@ URxvt.color14: #33c5ba
 URxvt.color7: #bfbaac
 URxvt.color15: #fdf6e3
 
-URxvt.font: xft:TX-02:style=Regular:size=8
-URxvt.boldFont: xft:TX-02:style=Bold:size=8
-URxvt.italicFont: xft:TX-02:style=Italic:size=8
-URxvt.boldItalicFont: xft:TX-02:style=Bold Italic:size=8
+URxvt.font: xft:Berkeley Mono Variable:style=Regular:size=8
+URxvt.boldFont: xft:Berkeley Mono Variable:style=Bold:size=8
+URxvt.italicFont: xft:Berkeley Mono Variable:style=Italic:size=8
+URxvt.boldItalicFont: xft:Berkeley Mono Variable:style=Bold Italic:size=8
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24

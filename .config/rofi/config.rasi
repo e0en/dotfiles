@@ -8,7 +8,7 @@ configuration {
 
 
 * {
-  font: "TX-02 16";
+  font: "Berkeley Mono Variable 16";
 
   bg0:     #2B3339;
   bg1:     #323D43;

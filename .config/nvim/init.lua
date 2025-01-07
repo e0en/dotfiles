@@ -29,6 +29,10 @@ vim.opt.termguicolors = true
 vim.opt.hlsearch = true
 vim.opt.cursorline = true
 
+if vim.g.neovide then
+  vim.o.guifont = "Berkeley Mono Variable:h12"
+end
+
 vim.o.background = "light"
 vim.cmd.colorscheme = "PaperColor"
 require("gitsigns").setup()

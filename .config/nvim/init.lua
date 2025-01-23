@@ -33,8 +33,8 @@ if vim.g.neovide then
   vim.o.guifont = "Berkeley Mono Variable:h12"
 end
 
-vim.o.background = "dark"
-vim.cmd([[colorscheme PaperColor]])
+vim.o.background = "light"
+vim.cmd([[colorscheme everforest]])
 require("gitsigns").setup()
 
 -- wrapped lines continue visually indented

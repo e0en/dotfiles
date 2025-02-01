@@ -1,15 +1,19 @@
 # detect OS to have platform-specific settings
-unamestr=`uname`
 platform='unknown'
+os_name=$(uname -s | tr '[:upper:]' '[:lower:]')
 
-if [[ "$unamestr" == "Linux" ]]; then
-    platform='linux'
-elif [[ "$unamestr" == "Darwin" ]]; then
-    platform='macos'
-else
-    >&2 echo "$unamestr is not supported."
-    exit 1
-fi
+case "${os_name}" in
+    linux*)
+        platform='linux'
+        ;;
+    darwin*)
+        platform='macos'
+        ;;
+    *)
+        >&2 echo "Operating system ${os_name} is not supported."
+        exit 1
+        ;;
+esac
 
 if [ ! -f $HOME/.profile ]; then
     source $HOME/.profie

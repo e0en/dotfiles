@@ -33,7 +33,7 @@ if vim.g.neovide then
   vim.o.guifont = "Berkeley Mono Variable:h12"
 end
 
-vim.o.background = "light"
+require("dark_notify").run()
 vim.cmd([[colorscheme everforest]])
 require("gitsigns").setup()
 

@@ -24,6 +24,8 @@ require("lazy").setup({
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
   "smallwat3r/vim-efficient", -- monochrome + red accent
+
+  "cormacrelf/dark-notify",  -- auto change colorscheme based on system
   "neanias/everforest-nvim", -- greenish colorscheme
   "xero/miasma.nvim",        -- foggy woody colorscheme
   "AlexvZyl/nordic.nvim",

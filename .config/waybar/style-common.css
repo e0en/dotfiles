@@ -9,13 +9,14 @@
 
 window#waybar {
   padding: 0;
-  background-color: @theme_bg_color;
-  color: @theme_fg_color;
+  background-color: @bg_color;
+  color: @fg_color;
 }
 
 #clock,
 #cpu,
 #custom-gpu,
+#custom-darkmode,
 #pulseaudio,
 #temperature,
 #bluetooth,
@@ -31,14 +32,14 @@ window#waybar {
 
 #workspaces button {
   background-color: transparent;
-  color: @theme_fg_color;
+  color: @fg_color;
   border-radius: 0;
   margin: 3px;
 }
 
 
 #workspaces button.active {
-  background-color: @theme_selected_bg_color;
+  background-color: @selected_bg_color;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

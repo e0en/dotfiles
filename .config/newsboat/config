@@ -1,2 +1,0 @@
-include /usr/share/doc/newsboat/contrib/colorschemes/gruvbox
-bookmark-cmd "~/.config/newsboat/bookmark.py"

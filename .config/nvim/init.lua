@@ -30,7 +30,7 @@ vim.opt.hlsearch = true
 vim.opt.cursorline = true
 
 if vim.g.neovide then
-  vim.o.guifont = "Berkeley Mono Variable:h12"
+	vim.o.guifont = "Berkeley Mono Variable:h12"
 end
 
 require("dark_notify").run()
@@ -39,3 +39,5 @@ require("gitsigns").setup()
 
 -- wrapped lines continue visually indented
 vim.opt.breakindent = true
+
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP rename" })

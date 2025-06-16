@@ -1,34 +1,18 @@
-require("trouble").setup({
-	icons = false,
-	fold_open = "v", -- icon used for open folds
-	fold_closed = ">", -- icon used for closed folds
-	indent_lines = false, -- add an indent guide below the fold icons
-	signs = {
-		-- icons / text used for a diagnostic
-		error = "error",
-		warning = "warn",
-		hint = "hint",
-		information = "info",
-	},
-	use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
-})
+require("trouble").setup()
 
 -- Lua
 vim.keymap.set("n", "<leader>xx", function()
-	require("trouble").open()
-end)
-vim.keymap.set("n", "<leader>xw", function()
-	require("trouble").open("workspace_diagnostics")
+  vim.cmd("Trouble diagnostics toggle")
 end)
 vim.keymap.set("n", "<leader>xd", function()
-	require("trouble").open("document_diagnostics")
+  vim.cmd("Trouble diagnostics toggle filter.buf=0")
 end)
 vim.keymap.set("n", "<leader>xq", function()
-	require("trouble").open("quickfix")
+  vim.cmd("Trouble qflist toggle")
 end)
 vim.keymap.set("n", "<leader>xl", function()
-	require("trouble").open("loclist")
+  vim.cmd("Trouble loclist toggle")
 end)
 vim.keymap.set("n", "gR", function()
-	require("trouble").open("lsp_references")
+  vim.cmd("Trouble lsp toggle focus=false win.position=right")
 end)

@@ -50,6 +50,13 @@ require("lazy").setup({
   -- git
   "lewis6991/gitsigns.nvim",
 
+  -- rust
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+
   -- platformIO
   "normen/vim-pio",
 

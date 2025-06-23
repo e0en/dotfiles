@@ -61,9 +61,6 @@ lspconfig.clangd.setup({
 lspconfig.cmake.setup({
   capabilities = capabilities,
 })
-lspconfig.rust_analyzer.setup({
-  capabilities = capabilities,
-})
 lspconfig.jsonls.setup({
   capabilities = capabilities,
 })

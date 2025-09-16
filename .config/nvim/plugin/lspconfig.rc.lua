@@ -41,7 +41,10 @@ lspconfig.arduino_language_server.setup({
   },
   capabilities = capabilities,
 })
-lspconfig.pyright.setup({
+lspconfig.ty.setup({
+  cmd = { "ty", "server" },
+  filetypes = { "python" },
+  root_markers = { "ty.toml", "pyproject.toml", ".git" },
   capabilities = capabilities,
 })
 lspconfig.ruff.setup({
@@ -86,3 +89,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.lsp.buf.format()
   end,
 })
+
+vim.lsp.enable("ty")

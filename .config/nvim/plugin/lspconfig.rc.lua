@@ -1,81 +1,13 @@
-local status, lspconfig = pcall(require, "lspconfig")
-if not status then
-  return
-end
-
--- Set up completion using nvim_cmp with LSP source
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- fix warning: multiple different client offset_encodings
-capabilities.offsetEncoding = { "utf-16" }
-
-lspconfig.lua_ls.setup({
-  settings = {
-    Lua = {
-      runtime = {
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        -- Get the language server to recognize the 'vim' global
-        globals = { "vim" },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false,
-      },
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-  capabilities = capabilities,
-})
-lspconfig.openscad_ls.setup({
-  capabilities = capabilities,
-})
-lspconfig.arduino_language_server.setup({
-  cmd = {
-    "arduino-language-server",
-    "-cli-config",
-    "$HOME/Library/Arduino15/arduino-cli.yaml",
-  },
-  capabilities = capabilities,
-})
-lspconfig.ty.setup({
-  cmd = { "ty", "server" },
-  filetypes = { "python" },
-  root_markers = { "ty.toml", "pyproject.toml", ".git" },
-  capabilities = capabilities,
-})
-lspconfig.ruff.setup({
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    -- Disable hover in favor of Pyright
-    client.server_capabilities.hoverProvider = false
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      callback = vim.lsp.buf.format,
-    })
-  end,
-})
-lspconfig.clangd.setup({
-  capabilities = capabilities,
-})
-lspconfig.cmake.setup({
-  capabilities = capabilities,
-})
-lspconfig.jsonls.setup({
-  capabilities = capabilities,
-})
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
-})
-lspconfig.tailwindcss.setup({
-  capabilities = capabilities,
-})
-lspconfig.wgsl_analyzer.setup({
-  capabilities = capabilities,
-})
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("openscad_ls")
+vim.lsp.enable("ty")
+vim.lsp.enable("ruff")
+vim.lsp.enable("clangd")
+vim.lsp.enable("cmake")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("tailwindcss")
+vim.lsp.enable("wgsl_analyzer")
 
 vim.diagnostic.config({
   update_in_insert = true,
@@ -89,5 +21,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.lsp.buf.format()
   end,
 })
-
-vim.lsp.enable("ty")

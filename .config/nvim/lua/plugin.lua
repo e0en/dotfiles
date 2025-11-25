@@ -25,11 +25,9 @@ require("lazy").setup({
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",             -- LSP-baed completion
+      "hrsh7th/cmp-nvim-lsp",             -- LSP-based completion
       "hrsh7th/cmp-nvim-lua",             -- autocomplete for neovim scripts
       "hrsh7th/cmp-nvim-lsp-signature-help", -- lean signature popup
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
     },
   },
 

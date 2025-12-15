@@ -9,9 +9,9 @@ sudo pacman -Syu --needed \
     openssh \
     zsh
 
-# paru to use AUR packages
-git clone https://aur.archlinux.org/paru.git
-cd paru
+# yay to use AUR packages
+git clone https://aur.archlinux.org/yay.git
+cd yay
 makepkg -si
 
 # programming languages
@@ -25,7 +25,7 @@ sudo pacman -Syu --needed \
     python-poetry \
     rust-analyzer \
     rustup
-paru -Syu esp-idf
+yay -Syu esp-idf
 /opt/esp-idf/install.sh
 
 cargo install fnm
@@ -86,9 +86,9 @@ sudo pacman -Syu --needed \
     unzip \
     kitty \
     wget
-paru 1password
-paru dropbox
-paru rustdesk
+yay 1password
+yay dropbox
+yay rustdesk
 sudo systemctl enable rustdesk
 
 # make
@@ -103,7 +103,7 @@ sudo pacman -Syu --needed \
 sudo pacman -Syu --needed \
     cuda \
     opencv-cuda
-paru python-jax
+yay python-jax
 
 # language servers, formatters
 sudo pacman -Syu --needed \
@@ -128,11 +128,7 @@ pacman -Syu --needed \
     rofi \
     ttf-nerd-fonts-symbols
 
-paru openrgb
+yay openrgb
 sudo cp $HOME/dotfiles/systemd/openrgb.conf
 sudo systemctl enable openrgb
 sudo systemctl start openrgb
-
-git clone https://github.com/dexpota/kitty-themes
-mv kitty-themes $HOME/.kitty-themes
-ln -s $HOME/.kitty-themes/themes/FunForrest.conf

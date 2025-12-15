@@ -32,7 +32,7 @@ if [[ $platform == 'linux' ]]; then
 
     if [[ $dist == "Arch" ]]; then
       function update_pkg () {
-        paru -Syu
+        yay -Syu
       }
     else
       function update_pkg () {

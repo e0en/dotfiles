@@ -32,7 +32,7 @@ if [[ $platform == 'linux' ]]; then
 
     if [[ $dist == "Arch" ]]; then
       function update_pkg () {
-        yay -Syu
+        MAKEFLAGS="-j$(nproc)" yay -Syu
       }
     else
       function update_pkg () {

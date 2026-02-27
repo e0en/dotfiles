@@ -58,8 +58,7 @@ function pip-install-basics () {
 
 function update-all () {
     pushd $HOME/dotfiles
-    git reset --hard
-    git pull --rebase
+    git pull --rebase --autostash
     popd
 
     rustup update

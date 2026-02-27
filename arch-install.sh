@@ -1,5 +1,5 @@
 #!/bin/bash
-NODE_VERSION="v21.5.0"
+NODE_VERSION="v24"
 
 # very basic packages
 sudo pacman -Syu --needed \
@@ -15,14 +15,10 @@ cd yay
 makepkg -si
 
 # programming languages
-sudo pacman -Syu --needed \
+yay -Syu --needed \
     clang \
     cmake \
     llvm \
-    platformio-core \
-    platformio-core-udev \
-    pyenv \
-    python-poetry \
     rust-analyzer \
     rustup
 yay -Syu esp-idf
@@ -77,7 +73,6 @@ sudo pacman -Syu --needed \
     lsb-release \
     neovim \
     nnn \
-    newsboat \
     obsidian \
     ripgrep \
     rq \
@@ -85,23 +80,18 @@ sudo pacman -Syu --needed \
     unzip \
     wget
 yay -S --needed 1password
-yay -S --needed dropbox
-yay -S --needed rustdesk
-sudo systemctl enable --now rustdesk
 
 # make
-sudo pacman -Syu --needed \
+yay -Syu --needed \
     blender \
     freecad \
-    platformio-core \
-    platformio-core-udev \
     prusa-slicer
 
 # machine learning
-sudo pacman -Syu --needed \
+yay -Syu --needed \
     cuda \
-    opencv-cuda
-yay python-jax
+    opencv-cuda \
+    python-jax
 
 # language servers, formatters
 sudo pacman -Syu --needed \
@@ -119,10 +109,7 @@ npm install -g @fsouza/prettierd
 npm install -g @tailwindcss/language-server
 
 # theming & looks
-sudo pacman -Syu --needed \
-    feh \
-    picom \
-    rofi \
+yay -Syu --needed \
     ttf-nerd-fonts-symbols
 
 yay -S --needed openrgb

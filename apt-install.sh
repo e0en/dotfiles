@@ -1,5 +1,5 @@
 #!/bin/bash
-NODE_VERSION="v21.5.0"
+NODE_VERSION="v24"
 
 # very basic packages
 sudo apt install -y \
@@ -15,8 +15,7 @@ sudo apt install -y \
     cmake \
     llvm
 
-# pyenv
-# poetry
+# uv
 # rust-analyzer
 # rustup
 
@@ -60,7 +59,6 @@ sudo apt install -y \
     less \
     lsb-release \
     neovim \
-    newsboat \
     ripgrep \
     rq \
     tmux \
@@ -68,7 +66,6 @@ sudo apt install -y \
     wget
 
 # obsidian
-# dropbox
 
 # language servers, formatters
 sudo apt install -y \
@@ -81,11 +78,6 @@ npm install -g typescript-language-server
 npm install -g vscode-langservers-extracted
 npm install -g @fsouza/prettierd
 npm install -g @tailwindcss/language-server
-
-# theming & looks
-sudo apt install -y \
-    feh \
-    picom
 
 # ttf-nerd-fonts-symbols
 

@@ -74,17 +74,14 @@ sudo apt install -y \
 # dropbox
 
 # language servers, formatters
-sudo pacman -Syu --needed \
-    lua-language-server \
-    prettier \
+sudo apt install -y \
     shellharden \
-    shfmt \
-    stylua \
-    taplo-cli \
-    typescript-language-server \
-    vscode-json-languageserver \
-    yamlfmt
+    shfmt
 
+cargo install taplo-cli
+npm install -g prettier
+npm install -g typescript-language-server
+npm install -g vscode-langservers-extracted
 npm install -g @fsouza/prettierd
 npm install -g @tailwindcss/language-server
 

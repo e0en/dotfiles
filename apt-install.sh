@@ -29,14 +29,13 @@ fnm default ${NODE_VERSION}
 sudo apt install -y \
     i3-wm \
     xdg-utils \
-    xorg-apps \
-    xorg-server \
-    xorg-xinit
+    x11-apps \
+    xorg \
+    xinit
 
 # sound and bluetooth
 sudo apt install -y \
     bluez \
-    bluez-utils \
     pipewire-pulse
 
 sudo systemctl bluetooth
@@ -44,8 +43,8 @@ sudo systemctl bluetooth
 # hangul
 sudo apt install -y \
     fcitx5-hangul \
-    fctix5-config-qt \
-    fctix5-frontend-qt5 \
+    fcitx5-config-qt \
+    fcitx5-frontend-qt5 \
     fonts-noto-cjk
 
 # applications

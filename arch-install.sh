@@ -48,7 +48,7 @@ sudo pacman -Syu --needed \
     bluez-utils \
     pipewire-pulse
 
-sudo systemctl bluetooth
+sudo systemctl enable --now bluetooth
 
 # nvidia!
 sudo pacman -Syu --needed \
@@ -86,10 +86,10 @@ sudo pacman -Syu --needed \
     unzip \
     kitty \
     wget
-yay 1password
-yay dropbox
-yay rustdesk
-sudo systemctl enable rustdesk
+yay -S --needed 1password
+yay -S --needed dropbox
+yay -S --needed rustdesk
+sudo systemctl enable --now rustdesk
 
 # make
 sudo pacman -Syu --needed \
@@ -121,14 +121,15 @@ npm install -g @fsouza/prettierd
 npm install -g @tailwindcss/language-server
 
 # theming & looks
-pacman -Syu --needed \
+sudo pacman -Syu --needed \
     feh \
     i3-status \
     picom \
     rofi \
     ttf-nerd-fonts-symbols
 
-yay openrgb
-sudo cp $HOME/dotfiles/systemd/openrgb.conf
-sudo systemctl enable openrgb
-sudo systemctl start openrgb
+yay -S --needed openrgb
+sudo mkdir -p /etc/systemd/system/openrgb.service.d
+sudo cp "$HOME/dotfiles/systemd/openrgb.conf" /etc/systemd/system/openrgb.service.d/override.conf
+sudo systemctl daemon-reload
+sudo systemctl enable --now openrgb

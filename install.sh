@@ -12,10 +12,11 @@ else
     exit 1
 fi
 
-if [ -d "$HOME/.config" ]; then
-    mv $HOME/.config $HOME/.config.old
+if [ -e "$HOME/.config" ] && [ ! -L "$HOME/.config" ]; then
+    backup_path="$HOME/.config.old.$(date +%Y%m%d%H%M%S)"
+    mv "$HOME/.config" "$backup_path"
 fi
-ln -s $HOME/dotfiles/.config $HOME/.config
+ln -sfn "$HOME/dotfiles/.config" "$HOME/.config"
 
 
 if [[ $platform == 'macos' ]]; then

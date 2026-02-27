@@ -15,8 +15,8 @@ case "${os_name}" in
         ;;
 esac
 
-if [ ! -f $HOME/.profile ]; then
-    source $HOME/.profie
+if [ -f "$HOME/.profile" ]; then
+    source "$HOME/.profile"
 fi
 
 if [ ! -d "$HOME/.zim" ]; then

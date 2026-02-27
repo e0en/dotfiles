@@ -58,7 +58,6 @@ sudo apt install -y \
     httpie \
     imagemagick \
     jq \
-    kitty \
     less \
     lsb-release \
     neovim \
@@ -91,9 +90,5 @@ sudo apt install -y \
     picom
 
 # ttf-nerd-fonts-symbols
-
-git clone https://github.com/dexpota/kitty-themes
-mv kitty-themes $HOME/.kitty-themes
-ln -s $HOME/.kitty-themes/themes/FunForrest.conf
 
 bash "$HOME/dotfiles/scripts/setup-gnome.sh"

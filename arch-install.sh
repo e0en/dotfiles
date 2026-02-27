@@ -84,7 +84,6 @@ sudo pacman -Syu --needed \
     rq \
     tmux \
     unzip \
-    kitty \
     wget
 yay -S --needed 1password
 yay -S --needed dropbox

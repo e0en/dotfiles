@@ -133,3 +133,5 @@ sudo mkdir -p /etc/systemd/system/openrgb.service.d
 sudo cp "$HOME/dotfiles/systemd/openrgb.conf" /etc/systemd/system/openrgb.service.d/override.conf
 sudo systemctl daemon-reload
 sudo systemctl enable --now openrgb
+
+bash "$HOME/dotfiles/scripts/setup-gnome.sh"

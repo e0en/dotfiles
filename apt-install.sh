@@ -95,3 +95,5 @@ sudo apt install -y \
 git clone https://github.com/dexpota/kitty-themes
 mv kitty-themes $HOME/.kitty-themes
 ln -s $HOME/.kitty-themes/themes/FunForrest.conf
+
+bash "$HOME/dotfiles/scripts/setup-gnome.sh"

@@ -1,5 +1,0 @@
-@define-color fg_color black;
-@define-color bg_color white;
-@define-color selected_bg_color #ccc;
-
-@import "style-common.css";

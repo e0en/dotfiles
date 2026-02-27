@@ -19,8 +19,7 @@ ln -s $HOME/dotfiles/.config $HOME/.config
 
 
 if [[ $platform == 'macos' ]]; then
-    xcode-select &> /dev/null
-    if [ ! $? ]; then
+    if ! xcode-select -p &> /dev/null; then
         xcode-select --install
     fi
 

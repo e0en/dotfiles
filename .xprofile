@@ -1,19 +1,19 @@
 source $HOME/.profile
 
 # see https://github.com/elFarto/nvidia-vaapi-driver
-MOZ_DISABLE_RDD_SANDBOX=1
-LIBVA_DRIVER_NAME=nvidia
-__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
-LIBVA_MESSAGING_LEVEL=1
-__NV_PRIME_RENDER_OFFLOAD=1
-__GLX_VENDOR_LIBRARY_NAME=nvidia
-__VK_LAYER_NV_optimus=NVIDIA_only
-NVD_BACKEND=direct
+export MOZ_DISABLE_RDD_SANDBOX=1
+export LIBVA_DRIVER_NAME=nvidia
+export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
+export LIBVA_MESSAGING_LEVEL=1
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __VK_LAYER_NV_optimus=NVIDIA_only
+export NVD_BACKEND=direct
 
 # see https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuring_VA-API
-VDPAU_DRIVER=nvidia
+export VDPAU_DRIVER=nvidia
 
-USRRESOURCES=$HOME/.Xresources
+export USRRESOURCES=$HOME/.Xresources
 setxkbmap -option ctrl:nocaps
 
 fcitx5 &

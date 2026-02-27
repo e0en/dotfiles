@@ -35,7 +35,6 @@ fnm default ${NODE_VERSION}
 
 # GUI essentials
 sudo pacman -Syu --needed \
-    i3-wm \
     ly \
     xdg-utils \
     xorg-apps \
@@ -122,7 +121,6 @@ npm install -g @tailwindcss/language-server
 # theming & looks
 sudo pacman -Syu --needed \
     feh \
-    i3-status \
     picom \
     rofi \
     ttf-nerd-fonts-symbols

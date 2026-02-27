@@ -27,7 +27,6 @@ fnm default ${NODE_VERSION}
 
 # GUI essentials
 sudo apt install -y \
-    i3-wm \
     xdg-utils \
     x11-apps \
     xorg \
@@ -86,7 +85,6 @@ npm install -g @tailwindcss/language-server
 # theming & looks
 sudo apt install -y \
     feh \
-    i3status \
     picom
 
 # ttf-nerd-fonts-symbols

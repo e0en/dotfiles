@@ -129,6 +129,7 @@ setopt COMBINING_CHARS
 
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
+export KICAD_PARTS="$HOME/Developer/kicad-parts"
 
 # golang
 export PATH="$HOME/go/bin:$PATH"

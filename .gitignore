@@ -22,3 +22,6 @@
 # homebrew
 Brewfile.lock.json
 homebrew-github-token.sh
+
+# neovim
+nvim.log

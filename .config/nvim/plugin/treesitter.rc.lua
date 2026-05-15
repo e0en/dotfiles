@@ -18,6 +18,12 @@ require('nvim-treesitter.configs').setup {
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
+    -- Workaround for Neovim 0.12 markdown Tree-sitter crash.
+    -- Remove this once markdown/markdown_inline no longer trigger
+    -- `attempt to call method 'range' (a nil value)`.
+    disable = function(lang, _buf)
+      return lang == 'markdown' or lang == 'markdown_inline'
+    end,
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

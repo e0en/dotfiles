@@ -14,3 +14,12 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     vim.bo.filetype = "wgsl"
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = "markdown",
+  callback = function(args)
+    -- Workaround for Neovim 0.12 markdown Tree-sitter crash.
+    -- Remove this once the upstream markdown parser/query issue is fixed.
+    pcall(vim.treesitter.stop, args.buf)
+  end,
+})

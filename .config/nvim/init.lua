@@ -1,3 +1,13 @@
+-- Compatibility for plugins that still expect the pre-0.12 helper.
+if vim.nonnil == nil and (vim.F == nil or vim.F.if_nil == nil) then
+  vim.nonnil = function(value, default)
+    if value == nil then
+      return default
+    end
+    return value
+  end
+end
+
 require("plugin")
 require("filetype")
 require("statusline")

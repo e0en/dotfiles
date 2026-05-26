@@ -8,6 +8,19 @@ if vim.nonnil == nil and (vim.F == nil or vim.F.if_nil == nil) then
   end
 end
 
+if vim.lsp and vim.lsp.get_buffers_by_client_id then
+  vim.lsp.get_buffers_by_client_id = function(client_id)
+    local client = vim.lsp.get_client_by_id(client_id)
+    if not client or not client.attached_buffers then
+      return {}
+    end
+
+    local buffers = vim.tbl_keys(client.attached_buffers)
+    table.sort(buffers)
+    return buffers
+  end
+end
+
 require("plugin")
 require("filetype")
 require("statusline")

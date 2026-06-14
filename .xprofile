@@ -3,11 +3,21 @@ source $HOME/.profile
 # see https://github.com/elFarto/nvidia-vaapi-driver
 export MOZ_DISABLE_RDD_SANDBOX=1
 export LIBVA_DRIVER_NAME=nvidia
-export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
 export LIBVA_MESSAGING_LEVEL=1
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export __VK_LAYER_NV_optimus=NVIDIA_only
+# PRIME render offload variables should be set per application.
+# Exporting them for the whole Xfce/X11 session breaks Steam CEF GPU init.
+# export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json
+# export __NV_PRIME_RENDER_OFFLOAD=1
+# export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# export __VK_LAYER_NV_optimus=NVIDIA_only
+unset GDK_GL
+unset __EGL_VENDOR_LIBRARY_FILENAMES
+unset __NV_PRIME_RENDER_OFFLOAD
+unset __GLX_VENDOR_LIBRARY_NAME
+unset __VK_LAYER_NV_optimus
+export XDG_SESSION_TYPE=x11
+export GDK_SCALE=1
+export STEAM_FORCE_DESKTOPUI_SCALING=1.0
 export NVD_BACKEND=direct
 
 # see https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuring_VA-API
@@ -17,5 +27,5 @@ export USRRESOURCES=$HOME/.Xresources
 setxkbmap -option ctrl:nocaps
 
 fcitx5 &
-/usr/bin/dropbox &
-1password &
+# /usr/bin/dropbox &
+# 1password &

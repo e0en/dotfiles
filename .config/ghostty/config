@@ -8,4 +8,3 @@ window-theme = ghostty
 window-subtitle = working-directory
 custom-shader = shaders/sonic_boom_cursor.glsl
 custom-shader = shaders/cursor_sweep.glsl
-custom-shader = shaders/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix.glsl

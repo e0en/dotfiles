@@ -8,3 +8,4 @@ window-theme = ghostty
 window-subtitle = working-directory
 custom-shader = shaders/sonic_boom_cursor.glsl
 custom-shader = shaders/cursor_sweep.glsl
+quit-after-last-window-closed = true

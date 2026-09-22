@@ -1,3 +1,7 @@
+vim.lsp.config("*", {
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+})
+
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("openscad_ls")
 vim.lsp.enable("ty")
@@ -14,10 +18,4 @@ vim.diagnostic.config({
   float = {
     source = "always", -- Or "if_many"
   },
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function()
-    vim.lsp.buf.format()
-  end,
 })

@@ -1,6 +1,6 @@
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -28,6 +28,7 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp", -- LSP-based completion
       "hrsh7th/cmp-nvim-lua", -- autocomplete for neovim scripts
       "hrsh7th/cmp-nvim-lsp-signature-help", -- lean signature popup
+      "hrsh7th/cmp-buffer",
     },
   },
 
@@ -63,7 +64,7 @@ require("lazy").setup({
   -- rust
   {
     "mrcjkb/rustaceanvim",
-    version = "^6", -- Recommended
+    version = "^9", -- Supports Neovim 0.12.
     lazy = false, -- This plugin is already lazy
   },
 

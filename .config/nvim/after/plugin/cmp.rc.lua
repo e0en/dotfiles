@@ -4,6 +4,11 @@ if not status then
 end
 
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.snippet.expand(args.body)
+    end,
+  },
   mapping = cmp.mapping.preset.insert({
     ["<C-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -32,7 +37,6 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua" },
-    { name = "luasnip" },
     { name = "buffer" },
   }),
   experimental = {

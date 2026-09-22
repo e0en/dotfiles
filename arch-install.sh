@@ -77,6 +77,7 @@ sudo pacman -Syu --needed \
     ripgrep \
     rq \
     tmux \
+    tree-sitter-cli \
     unzip \
     wget
 yay -S --needed 1password

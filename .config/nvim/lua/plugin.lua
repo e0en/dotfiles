@@ -25,8 +25,8 @@ require("lazy").setup({
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",             -- LSP-based completion
-      "hrsh7th/cmp-nvim-lua",             -- autocomplete for neovim scripts
+      "hrsh7th/cmp-nvim-lsp", -- LSP-based completion
+      "hrsh7th/cmp-nvim-lua", -- autocomplete for neovim scripts
       "hrsh7th/cmp-nvim-lsp-signature-help", -- lean signature popup
     },
   },
@@ -37,8 +37,20 @@ require("lazy").setup({
   },
 
   -- analysis
-  "nvim-treesitter/nvim-treesitter",
-  "nvim-treesitter/nvim-treesitter-textobjects",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main", -- Requires Neovim >= 0.12.
+    lazy = false,
+    build = ":TSUpdate", -- Requires tree-sitter-cli >= 0.26.1 and a C compiler.
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+    lazy = false,
+    init = function()
+      vim.g.no_plugin_maps = true
+    end,
+  },
   "folke/trouble.nvim",
 
   -- linter / formatter

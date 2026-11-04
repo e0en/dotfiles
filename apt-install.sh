@@ -40,9 +40,8 @@ sudo systemctl bluetooth
 
 # hangul
 sudo apt install -y \
-    fcitx5-hangul \
-    fcitx5-config-qt \
-    fcitx5-frontend-qt5 \
+    ibus \
+    ibus-hangul \
     fonts-noto-cjk
 
 # applications

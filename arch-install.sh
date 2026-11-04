@@ -54,8 +54,8 @@ sudo pacman -Syu --needed \
 
 # hangul
 sudo pacman -Syu --needed \
-    fcitx5-hangul \
-    fcitx5-im \
+    ibus \
+    ibus-hangul \
     noto-fonts-cjk
 
 # applications

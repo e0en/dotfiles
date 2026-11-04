@@ -11,19 +11,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
--- korean input
-hl.env("GTK_IM_MODULE", "fcitx")
-hl.env("QT_IM_MODULE", "fcitx")
-hl.env("XMODIFIERS", "@im=fcitx")
-hl.env("INPUT_METHOD", "fcitx")
-hl.env("XIM", "fcitx")
-hl.env("XIM_PROGRAM", "fcitx")
-hl.env("SDL_IM_MODULE", "fcitx")
-hl.env("GLFW_IM_MODULE", "fcitx")
-
 -- start programs
 hl.on("hyprland.start", function()
-  hl.exec_cmd("fcitx5 -d")
   hl.exec_cmd("1password --silent &")
   hl.exec_cmd("dropbox &")
 end)

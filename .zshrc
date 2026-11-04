@@ -52,8 +52,8 @@ fi
 
 
 function pip-install-basics () {
-    pip install -U wheel pip setuptools
-    pip install python-language-server flake8
+    uv tool install ruff || return
+    pipx install ty
 }
 
 function update-all () {
@@ -61,9 +61,23 @@ function update-all () {
     git pull --rebase --autostash
     popd
 
-    rustup update
-    update_pkg
-    cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
+    rustup update || return
+    update_pkg || return
+    uv python upgrade || return
+    uv tool upgrade --all || return
+    pipx upgrade-all || return
+    local node_major=$(fnm exec --using=default node -p 'process.versions.node.split(".")[0]')
+    local -a node_tools
+    node_tools=("${(@f)$(fnm exec --using=default npm list --global --depth=0 --json | python -c 'import json,sys; print("\n".join(json.load(sys.stdin).get("dependencies", {})))')}")
+    fnm install "$node_major" --use || return
+    if (( ${#node_tools} )); then
+        SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install --global "${node_tools[@]}" || return
+    fi
+    fnm default "$(node --version)" || return
+    if command -v flatpak >/dev/null; then
+        flatpak update || return
+    fi
+    cargo install $(cargo install --list | grep -E '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
 }
 
 function install-esp-idf () {

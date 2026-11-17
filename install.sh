@@ -26,10 +26,18 @@ if [[ $platform == 'macos' ]]; then
 
     if [ ! -d "/opt/homebrew" ]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
-    brew bundle
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # zerobrew uses Homebrew bottles in its own prefix; keep Homebrew for casks.
+    if ! command -v zb >/dev/null 2>&1; then
+        brew install zerobrewhq/tap/zerobrew || exit 1
+    fi
+    zb init --no-modify-path || exit 1
+    zb bundle install --file "${0:A:h}/Brewfile" || exit 1
+    brew bundle --file "${0:A:h}/Brewfile.casks" || exit 1
+    export PATH="${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/bin:${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/sbin:$PATH"
 fi
 
 # cargo

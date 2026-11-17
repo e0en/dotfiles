@@ -1,8 +1,4 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
-
+# Formulae managed by zerobrew: zb bundle
 # language servers and linters
 brew "clang-format"
 brew "lua"
@@ -34,7 +30,6 @@ brew "pyenv"
 # Programming languages
 brew "arduino-cli"
 brew "go"
-cask "arduino"
 
 # esp-idf dependencies
 brew "ninja"
@@ -54,12 +49,3 @@ brew "tmux"
 brew "tree-sitter"
 brew "watch"
 brew "wget"
-
-# GUI apps
-cask "1password"
-cask "blender"
-cask "caffeine"
-cask "dropbox"
-cask "karabiner-elements"
-cask "obsidian"
-cask "rectangle"

@@ -43,9 +43,15 @@ if [[ $platform == 'linux' ]]; then
     fi
 elif [[ $platform == "macos" ]]; then
     function update_pkg () {
-        brew update
-        brew upgrade
-        brew cleanup -s
+        # Homebrew still owns zerobrew itself, casks, and pre-existing packages.
+        brew update || return
+        brew upgrade || return
+        brew cleanup -s || return
+        if command -v zb >/dev/null 2>&1; then
+            zb update || return
+            zb upgrade || return
+            zb gc || return
+        fi
         softwareupdate --all --install --force
     }
 fi
@@ -130,6 +136,10 @@ if [[ $platform == "macos" ]]; then
     fi
     eval "$(/opt/homebrew/bin/brew shellenv)"
     source $HOME/dotfiles/homebrew-github-token.sh
+    # Prefer zerobrew packages while retaining the real brew for casks/services.
+    typeset -U path
+    path=("${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/bin"
+          "${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/sbin" $path)
 fi
 
 # locale!

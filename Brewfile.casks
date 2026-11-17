@@ -1,0 +1,9 @@
+# GUI apps managed by Homebrew: brew bundle --file=Brewfile.casks
+cask "arduino"
+cask "1password"
+cask "blender"
+cask "caffeine"
+cask "dropbox"
+cask "karabiner-elements"
+cask "obsidian"
+cask "rectangle"

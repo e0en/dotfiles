@@ -61,8 +61,8 @@ fi
 
 
 function pip-install-basics () {
-    uv tool install --managed-python --python 3.12 ruff || return
-    uv tool install --managed-python --python 3.12 ty
+    uv tool install --managed-python --python 3.15 ruff || return
+    uv tool install --managed-python --python 3.15 ty
 }
 
 function update-all () {

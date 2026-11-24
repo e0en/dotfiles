@@ -26,8 +26,11 @@ else
 fi
 
 # basic path settings
+typeset -U path
+path=("$HOME/.local/bin" $path)
+
 if [[ $platform == 'linux' ]]; then
-    export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
+    export PATH=/usr/local/bin:$PATH
     dist=`lsb_release -si`
 
     if [[ $dist == "Arch" ]]; then
@@ -58,8 +61,8 @@ fi
 
 
 function pip-install-basics () {
-    uv tool install ruff || return
-    pipx install ty
+    uv tool install --managed-python --python 3.12 ruff || return
+    uv tool install --managed-python --python 3.12 ty
 }
 
 function update-all () {
@@ -71,7 +74,6 @@ function update-all () {
     update_pkg || return
     uv python upgrade || return
     uv tool upgrade --all || return
-    pipx upgrade-all || return
     local node_major=$(fnm exec --using=default node -p 'process.versions.node.split(".")[0]')
     local -a node_tools
     node_tools=("${(@f)$(fnm exec --using=default npm list --global --depth=0 --json | python -c 'import json,sys; print("\n".join(json.load(sys.stdin).get("dependencies", {})))')}")

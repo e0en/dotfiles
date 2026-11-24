@@ -5,7 +5,6 @@ brew "lua"
 brew "lua-language-server"
 brew "prettier"
 brew "prettierd"
-brew "pyright"
 brew "rust-analyzer"
 brew "shellharden"
 brew "shfmt"
@@ -26,6 +25,7 @@ brew "poetry"
 # version managers
 brew "fnm"
 brew "pyenv"
+brew "uv"
 
 # Programming languages
 brew "arduino-cli"

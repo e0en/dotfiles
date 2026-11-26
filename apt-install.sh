@@ -36,7 +36,7 @@ sudo apt install -y \
     bluez \
     pipewire-pulse
 
-sudo systemctl bluetooth
+sudo systemctl enable --now bluetooth
 
 # hangul
 sudo apt install -y \

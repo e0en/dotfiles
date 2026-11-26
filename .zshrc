@@ -113,9 +113,14 @@ function install-esp-idf () {
 }
 
 function cleanup_git {
-    git remote prune origin
-    git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
-    git branch -vv | grep -v "\]" | awk '{print $1}' | xargs git branch -D
+    git fetch --all --prune || return
+    local branch upstream
+    git for-each-ref --merged=HEAD --format='%(refname:lstrip=2) %(upstream)' refs/heads |
+        while read -r branch upstream; do
+            if [[ -n $upstream ]] && ! git show-ref --verify --quiet "$upstream"; then
+                git branch -d -- "$branch" || return
+            fi
+        done
 }
 
 

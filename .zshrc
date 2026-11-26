@@ -79,7 +79,7 @@ function update-all () {
     uv tool upgrade --all || return
     local node_major=$(fnm exec --using=default node -p 'process.versions.node.split(".")[0]')
     local -a node_tools
-    node_tools=("${(@f)$(fnm exec --using=default npm list --global --depth=0 --json | python -c 'import json,sys; print("\n".join(json.load(sys.stdin).get("dependencies", {})))')}")
+    node_tools=("${(@f)$(fnm exec --using=default npm list --global --depth=0 --json | python3 -c 'import json,sys; print("\n".join(json.load(sys.stdin).get("dependencies", {})))')}")
     fnm install "$node_major" --use || return
     if (( ${#node_tools} )); then
         SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install --global "${node_tools[@]}" || return

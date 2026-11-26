@@ -144,7 +144,8 @@ if [[ $platform == "macos" ]]; then
     # Prefer zerobrew packages while retaining the real brew for casks/services.
     typeset -U path
     path=("${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/bin"
-          "${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/sbin" $path)
+          "${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/sbin"
+          "$HOME/.local/bin" $path)
 fi
 
 # locale!

@@ -34,6 +34,8 @@ if [[ $platform == 'macos' ]]; then
     "${ZEROBREW_BIN:-$HOME/.local/bin}/zb" bundle install --file "${0:A:h}/Brewfile" || exit 1
     brew bundle --file "${0:A:h}/Brewfile.casks" || exit 1
     export PATH="${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/bin:${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/sbin:$PATH"
+    UV_PYTHON_BIN_DIR="$HOME/.local/bin" uv python install 3.15 --default || exit 1
+    "$HOME/.local/bin/python" --version || exit 1
 fi
 
 # cargo

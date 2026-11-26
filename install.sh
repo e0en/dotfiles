@@ -49,11 +49,15 @@ cargo install fnm
 
 
 # zsh
-if [ ! -d "$HOME/.zim" ]; then
-    cp $HOME/.zshrc $HOME/.zshrc.before-zim
-    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-    mv $HOME/.zshrc.before-zim $HOME/.zshrc
+ZIM_HOME="${ZDOTDIR:-$HOME}/.zim"
+if [[ ! -f "$ZIM_HOME/zimfw.zsh" ]]; then
+    curl -fsSL --create-dirs -o "$ZIM_HOME/zimfw.zsh" \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh || exit 1
 fi
+if [[ ! -e "${ZDOTDIR:-$HOME}/.zimrc" ]]; then
+    cp "${0:A:h}/.zimrc" "${ZDOTDIR:-$HOME}/.zimrc" || exit 1
+fi
+(source "$ZIM_HOME/zimfw.zsh" install) || exit 1
 
 if [ ! -d ~/.zsh-async ]; then
     git clone git@github.com:mafredri/zsh-async.git ~/.zsh-async

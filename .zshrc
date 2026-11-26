@@ -19,10 +19,8 @@ if [ -f "$HOME/.profile" ]; then
     source "$HOME/.profile"
 fi
 
-if [ ! -d "$HOME/.zim" ]; then
-    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-else
-    source $HOME/dotfiles/.zim-zshrc
+if [[ -r ${ZDOTDIR:-$HOME}/.zim/init.zsh ]]; then
+    source "$HOME/dotfiles/.zim-zshrc"
 fi
 
 # basic path settings
@@ -136,7 +134,7 @@ function kitty-theme {
 }
 
 # Load compinit if not already loaded
-if (( ! ${+functions[compdef]} && ! ${+functions[compadd]} )); then
+if (( ! ${+functions[compdef]} )); then
   autoload -Uz compinit
   compinit
 fi
@@ -151,11 +149,12 @@ compdef _complete_kitty_theme kitty-theme
 zmodload zsh/zprof
 
 if [[ $platform == "macos" ]]; then
-    if [ ! -d "/opt/homebrew" ]; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if [[ -x /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    source $HOME/dotfiles/homebrew-github-token.sh
+    if [[ -r "$HOME/dotfiles/homebrew-github-token.sh" ]]; then
+        source "$HOME/dotfiles/homebrew-github-token.sh"
+    fi
     # Prefer zerobrew packages while retaining the real brew for casks/services.
     typeset -U path
     path=("${ZEROBREW_PREFIX:-${ZEROBREW_ROOT:-/opt/zerobrew}}/bin"
@@ -182,13 +181,13 @@ export PATH="$HOME/go/bin:$PATH"
 # rust
 if [ -d "$HOME/.cargo" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
-else
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
 # javascript
 export PATH="./node_modules/.bin:$PATH"
-eval "$(fnm env)"
+if (( $+commands[fnm] )); then
+    eval "$(fnm env)"
+fi
 
 export EDITOR="nvim"
 
@@ -199,11 +198,9 @@ fi
 
 alias mux="tmuxinator"
 
-# Install zsh-async if it’s not present
-if [ ! -d ~/.zsh-async ]; then
-    git clone git@github.com:mafredri/zsh-async.git ~/.zsh-async
+if [[ -r ~/.zsh-async/async.zsh ]]; then
+    source ~/.zsh-async/async.zsh
 fi
-source ~/.zsh-async/async.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

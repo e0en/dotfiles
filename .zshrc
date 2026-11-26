@@ -75,8 +75,19 @@ function update-all () {
 
     rustup update || return
     update_pkg || return
-    uv python upgrade || return
-    uv tool upgrade --all || return
+    local uv_bin
+    for uv_bin in ${(f)"$(whence -pa uv)"}; do
+        if "$uv_bin" python upgrade --help >/dev/null 2>&1; then
+            break
+        fi
+        uv_bin=''
+    done
+    if [[ -z $uv_bin ]]; then
+        print -u2 'update-all requires a uv installation with python upgrade support.'
+        return 1
+    fi
+    "$uv_bin" python upgrade || return
+    "$uv_bin" tool upgrade --all || return
     local node_major=$(fnm exec --using=default node -p 'process.versions.node.split(".")[0]')
     local -a node_tools
     node_tools=("${(@f)$(fnm exec --using=default npm list --global --depth=0 --json | python3 -c 'import json,sys; print("\n".join(json.load(sys.stdin).get("dependencies", {})))')}")

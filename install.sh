@@ -63,12 +63,6 @@ if [ ! -d ~/.zsh-async ]; then
     git clone git@github.com:mafredri/zsh-async.git ~/.zsh-async
 fi
 
-# nvim
-if [ ! -f $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-   $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
-
 npm i -g vscode-langservers-extracted
 
 # wgpu

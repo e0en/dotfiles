@@ -103,12 +103,11 @@ function update-all () {
 }
 
 function install-esp-idf () {
-    readonly port=${1:?"The version must be specified. https://github.com/espressif/esp-idf/tags"}
-    rm -rf $HOME/esp
-    mkdir -p $HOME/esp
-    cd $HOME/esp
-    git clone -b $1 --recursive https://github.com/espressif/esp-idf.git
-    cd $HOME/esp/esp-idf
+    local version=${1:?"The version must be specified. https://github.com/espressif/esp-idf/tags"}
+    local sdk_dir="$HOME/esp/esp-idf-${version//\//-}"
+    mkdir -p "$HOME/esp" || return
+    git clone --branch "$version" --recursive https://github.com/espressif/esp-idf.git "$sdk_dir" || return
+    cd "$sdk_dir" || return
     ./install.sh all
 }
 

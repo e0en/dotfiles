@@ -46,15 +46,18 @@ if [[ $platform == 'linux' ]]; then
     fi
 elif [[ $platform == "macos" ]]; then
     function update_pkg () {
-        # Homebrew still owns zerobrew itself, casks, and pre-existing packages.
-        brew update || return
+        if command -v zb >/dev/null 2>&1; then
+            "$HOME/dotfiles/scripts/update-zerobrew.sh" || return
+            local zb_bin="${ZEROBREW_BIN:-$HOME/.local/bin}/zb"
+            "$zb_bin" update || return
+            "$zb_bin" upgrade || return
+            "$zb_bin" gc || return
+        else
+            brew update || return
+        fi
+        # Homebrew still owns casks and pre-existing packages.
         brew upgrade || return
         brew cleanup -s || return
-        if command -v zb >/dev/null 2>&1; then
-            zb update || return
-            zb upgrade || return
-            zb gc || return
-        fi
         softwareupdate --all --install --force
     }
 fi

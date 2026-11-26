@@ -32,7 +32,8 @@ These scripts install packages and enable services. Review and run only the one 
 ## macOS packages
 
 `install.sh` installs [zerobrew](https://github.com/zerobrewhq/zerobrew)
-through `zerobrewhq/tap/zerobrew` and initializes it without modifying shell files.
+with its standalone installer. Run `scripts/update-zerobrew.sh` to update the
+binary independently of Homebrew. The script also runs during `update-all`.
 CLI formulae live in `Brewfile`; GUI casks live in `Brewfile.casks`.
 
 ```sh
@@ -41,7 +42,7 @@ brew bundle --file ~/dotfiles/Brewfile.casks
 ```
 
 Use `zb install <formula>` for CLI packages. Keep using `brew` for casks,
-services, taps, and zerobrew itself; `brew` is deliberately not aliased.
+services, and taps.
 The macOS shell prefers zerobrew's bin/sbin directories (by default
 `/opt/zerobrew`) over Homebrew's. `ZEROBREW_PREFIX` or `ZEROBREW_ROOT` can
 override that location.

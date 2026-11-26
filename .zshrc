@@ -215,6 +215,8 @@ alias vim='nvim'
 alias ssh='TERM=xterm-256color ssh'
 alias nnn='nnn -a -H -Pp'
 
-alias pbcopy="xsel --clipboard --input"
-alias pbpbaste="xsel --clipboard --output"
+if [[ $platform == linux ]] && (( $+commands[xsel] )); then
+    alias pbcopy="xsel --clipboard --input"
+    alias pbpaste="xsel --clipboard --output"
+fi
 alias espenv="source /opt/esp-idf/export.sh"
